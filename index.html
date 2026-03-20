@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRIP-EMS Interactive Guide</title>
+<style>
+:root {
+  --bg-dark: #1a1a2e;
+  --bg-panel: #16213e;
+  --bg-card: #0f3460;
+  --bg-input: #1a1a3e;
+  --accent: #e94560;
+  --accent-hover: #ff6b81;
+  --gold: #f5c842;
+  --green: #4ecca3;
+  --blue: #5dade2;
+  --purple: #a855f7;
+  --text: #eaeaea;
+  --text-dim: #8899aa;
+  --text-muted: #556677;
+  --border: #2a3a5e;
+  --wow-blue: #00aaff;
+  --wow-green: #00ff00;
+  --wow-yellow: #ffff00;
+  --wow-orange: #ff8800;
+  --wow-red: #ff4444;
+  --shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
+
+/* --- NAV --- */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg-panel);
+  border-bottom: 2px solid var(--accent);
+  padding: 0 20px;
+  display: flex; align-items: center; gap: 24px;
+  height: 56px;
+  box-shadow: var(--shadow);
+}
+.topbar .logo { font-size: 20px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+.topbar .logo span { color: var(--gold); }
+.topbar nav { display: flex; gap: 4px; overflow-x: auto; }
+.topbar nav button {
+  background: none; border: none; color: var(--text-dim);
+  padding: 8px 14px; cursor: pointer; font-size: 13px;
+  border-radius: 6px; white-space: nowrap; transition: all 0.15s;
+}
+.topbar nav button:hover { background: var(--bg-card); color: var(--text); }
+.topbar nav button.active { background: var(--accent); color: #fff; font-weight: 600; }
+
+/* --- SECTIONS --- */
+.section { display: none; max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
+.section.active { display: block; }
+.section h1 { font-size: 28px; color: var(--gold); margin-bottom: 8px; }
+.section h2 { font-size: 22px; color: var(--accent); margin: 32px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+.section h3 { font-size: 17px; color: var(--blue); margin: 20px 0 8px; }
+.section p { margin-bottom: 12px; color: var(--text); }
+
+/* --- CARDS --- */
+.card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+
+/* --- TOOLTIP --- */
+.tip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted var(--gold);
+  color: var(--gold);
+  cursor: help;
+}
+.tip .tiptext {
+  visibility: hidden; opacity: 0;
+  width: 280px; background: #0a0a1a; color: var(--text);
+  text-align: left; border-radius: 8px; padding: 10px 14px;
+  position: absolute; z-index: 50; bottom: 125%; left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid var(--accent);
+  font-size: 13px; line-height: 1.5;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  transition: opacity 0.2s;
+}
+.tip:hover .tiptext { visibility: visible; opacity: 1; }
+
+/* --- KEYS --- */
+kbd {
+  display: inline-block;
+  background: linear-gradient(180deg, #3a3a5a, #2a2a4a);
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-family: 'Consolas', monospace;
+  font-size: 12px;
+  color: var(--gold);
+  box-shadow: 0 2px 0 #111;
+  margin: 0 2px;
+}
+
+/* --- STEP INDICATOR --- */
+.steps-bar { display: flex; gap: 8px; margin: 20px 0; flex-wrap: wrap; }
+.steps-bar .step-dot {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.steps-bar .step-dot.active { border-color: var(--accent); color: var(--accent); background: rgba(233,69,96,0.15); }
+.steps-bar .step-dot.done { border-color: var(--green); color: var(--green); background: rgba(78,204,163,0.15); }
+
+/* --- TUTORIAL STEP CONTENT --- */
+.tut-content { background: var(--bg-card); border-radius: 10px; padding: 24px; margin: 16px 0; min-height: 200px; border: 1px solid var(--border); }
+.tut-nav { display: flex; gap: 12px; margin-top: 16px; }
+.btn {
+  padding: 10px 24px; border: none; border-radius: 8px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-secondary { background: var(--bg-card); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--border); }
+.btn-gold { background: var(--gold); color: #1a1a2e; }
+.btn-gold:hover { background: #ffe066; }
+.btn-green { background: var(--green); color: #1a1a2e; }
+.btn-green:hover { background: #6fe8c0; }
+
+/* --- LEGEND TABLE --- */
+table.legend { width: 100%; border-collapse: collapse; margin: 12px 0; }
+table.legend th { text-align: left; color: var(--gold); padding: 8px 12px; border-bottom: 2px solid var(--accent); font-size: 13px; }
+table.legend td { padding: 8px 12px; border-bottom: 1px solid var(--border); font-size: 14px; }
+table.legend tr:hover { background: rgba(255,255,255,0.03); }
+
+/* --- CODE BLOCK --- */
+.code-block {
+  background: #0a0a1a;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  color: var(--green);
+  overflow-x: auto;
+  margin: 12px 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* --- BUILDER --- */
+.builder-row { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+.builder-row label { min-width: 120px; color: var(--text-dim); font-size: 13px; }
+.builder-row input, .builder-row select, .builder-row textarea {
+  flex: 1; min-width: 200px;
+  background: var(--bg-input); border: 1px solid var(--border);
+  color: var(--text); padding: 8px 12px; border-radius: 6px;
+  font-family: inherit; font-size: 14px;
+}
+.builder-row textarea { min-height: 60px; font-family: 'Consolas', monospace; resize: vertical; }
+.builder-row input:focus, .builder-row select:focus, .builder-row textarea:focus {
+  outline: none; border-color: var(--accent);
+}
+.step-list { list-style: none; counter-reset: stepnum; }
+.step-list li {
+  counter-increment: stepnum;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 12px;
+}
+.step-list li::before {
+  content: counter(stepnum);
+  background: var(--accent);
+  color: #fff;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  flex-shrink: 0;
+}
+.step-list li textarea { flex: 1; background: transparent; border: none; color: var(--text); font-family: 'Consolas', monospace; font-size: 13px; resize: none; min-height: 24px; }
+.step-list li textarea:focus { outline: none; }
+.step-list li .remove-step { background: none; border: none; color: var(--wow-red); cursor: pointer; font-size: 18px; padding: 4px 8px; }
+
+/* --- BADGE --- */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.badge-green { background: rgba(78,204,163,0.2); color: var(--green); border: 1px solid var(--green); }
+.badge-gold { background: rgba(245,200,66,0.2); color: var(--gold); border: 1px solid var(--gold); }
+.badge-purple { background: rgba(168,85,247,0.2); color: var(--purple); border: 1px solid var(--purple); }
+.badge-blue { background: rgba(93,173,226,0.2); color: var(--blue); border: 1px solid var(--blue); }
+.badge-red { background: rgba(255,68,68,0.2); color: var(--wow-red); border: 1px solid var(--wow-red); }
+
+/* --- COMING SOON --- */
+.coming-soon {
+  border: 2px dashed var(--purple);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 16px 0;
+  background: rgba(168,85,247,0.05);
+}
+.coming-soon h3 { color: var(--purple); }
+
+/* --- MODAL / EXPORT --- */
+.modal-overlay {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7); z-index: 200;
+  align-items: center; justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: var(--bg-panel); border: 2px solid var(--accent);
+  border-radius: 12px; padding: 24px; max-width: 600px; width: 90%;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+}
+.modal h2 { margin-bottom: 12px; }
+.modal textarea {
+  width: 100%; min-height: 120px;
+  background: #0a0a1a; border: 1px solid var(--border);
+  color: var(--green); font-family: 'Consolas', monospace;
+  font-size: 12px; padding: 12px; border-radius: 6px;
+  resize: vertical;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn 0.3s ease; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(233,69,96,0.4); } 50% { box-shadow: 0 0 0 8px rgba(233,69,96,0); } }
+.pulse { animation: pulse 2s infinite; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .topbar { flex-wrap: wrap; height: auto; padding: 8px 12px; }
+  .topbar nav { width: 100%; }
+  .card-grid { grid-template-columns: 1fr; }
+  .builder-row { flex-direction: column; }
+  .builder-row label { min-width: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">GRIP<span>-EMS</span></div>
+  <nav id="mainNav">
+    <button class="active" onclick="showSection('welcome')">Welcome</button>
+    <button onclick="showSection('concepts')">Core Concepts</button>
+    <button onclick="showSection('tutorial')">Step-by-Step</button>
+    <button onclick="showSection('editor')">Editor Guide</button>
+    <button onclick="showSection('migration')">GSE Migration</button>
+    <button onclick="showSection('keys')">Keys &amp; Commands</button>
+    <button onclick="showSection('builder')">Sequence Builder</button>
+    <button onclick="showSection('advanced')">Advanced</button>
+    <button onclick="showSection('roadmap')">Roadmap</button>
+  </nav>
+</div>
+
+<!-- ==================== WELCOME ==================== -->
+<div id="welcome" class="section active fade-in">
+  <h1>Welcome to GRIP-EMS</h1>
+  <p>The free, no-paywall macro sequencer for World of Warcraft (Midnight 12.0.1+).</p>
+  <p>This interactive guide teaches you everything about GRIP-EMS -- from basic concepts to building
+  your own sequences. Use the navigation above to jump to any topic, or follow the step-by-step tutorial.</p>
+
+  <div class="card-grid" style="margin-top: 24px;">
+    <div class="card">
+      <h3>New to Macro Sequencers?</h3>
+      <p>Start with <strong>Core Concepts</strong> to understand what GRIP-EMS does and how WoW macro sequencing works.</p>
+      <button class="btn btn-primary" onclick="showSection('concepts')">Start Learning</button>
+    </div>
+    <div class="card">
+      <h3>Coming from GSE?</h3>
+      <p>The <strong>GSE Migration</strong> section walks you through transferring all your sequences to GRIP-EMS.</p>
+      <button class="btn btn-primary" onclick="showSection('migration')">Migration Guide</button>
+    </div>
+    <div class="card">
+      <h3>Ready to Build?</h3>
+      <p>Jump straight into the <strong>Sequence Builder</strong> to create a sequence right here and export it for in-game import.</p>
+      <button class="btn btn-gold" onclick="showSection('builder')">Open Builder</button>
+    </div>
+    <div class="card">
+      <h3>Quick Reference</h3>
+      <p>All slash commands, keybinds, and keyboard shortcuts in one place.</p>
+      <button class="btn btn-secondary" onclick="showSection('keys')">Keys &amp; Commands</button>
+    </div>
+  </div>
+
+  <h2>How GRIP-EMS Works (30-Second Version)</h2>
+  <div class="card">
+    <p><strong>1.</strong> You create a <span class="tip">sequence<span class="tiptext">An ordered list of macro steps. Each step contains WoW macro text like "/cast Kill Command" or "/cast Barbed Shot".</span></span>
+    -- a list of spells in the order you want them cast.</p>
+    <p><strong>2.</strong> You bind that sequence to a <span class="tip">keybind<span class="tiptext">A keyboard key or mouse button. GRIP-EMS uses SetOverrideBindingClick, which is per-spec and temporary -- it never modifies your saved WoW keybindings.</span></span>.</p>
+    <p><strong>3.</strong> Every time you press that key, GRIP-EMS fires the next spell in the list and advances to the next step.</p>
+    <p><strong>4.</strong> The sequence loops, resets on combat end, or resets based on your configured conditions.</p>
+    <p style="margin-top: 16px; color: var(--gold);">That's it. One key, full rotation.</p>
+  </div>
+</div>
+
+<!-- ==================== CORE CONCEPTS ==================== -->
+<div id="concepts" class="section fade-in">
+  <h1>Core Concepts</h1>
+
+  <h2>What is a Sequence?</h2>
+  <div class="card">
+    <p>A <strong>sequence</strong> is an ordered list of <span class="tip">macro steps<span class="tiptext">Each step is a standard WoW macro -- the same text you'd type in /macro. Supports /cast, /use, /castsequence, conditionals like [mod:shift], and more.</span></span>.
+    When you press your keybind, GRIP-EMS executes the current step and advances to the next one.</p>
+    <p>Each sequence has:</p>
+    <table class="legend">
+      <tr><th>Property</th><th>Description</th></tr>
+      <tr><td><strong>Name</strong></td><td>Unique identifier for the sequence</td></tr>
+      <tr><td><strong>Steps</strong></td><td>The list of macro text strings (one per step)</td></tr>
+      <tr><td><strong>Step Function</strong></td><td>How GRIP-EMS decides which step to execute next</td></tr>
+      <tr><td><strong>Icon</strong></td><td>Auto-detected from the first step's spell, or manually chosen</td></tr>
+      <tr><td><strong>Reset Conditions</strong></td><td>When the sequence resets back to step 1</td></tr>
+      <tr><td><strong>KeyPress / KeyRelease</strong></td><td>Macro text that runs before/after every step</td></tr>
+    </table>
+  </div>
+
+  <h2>Step Functions</h2>
+  <p>The step function determines how GRIP-EMS picks the next step to execute.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h3><span class="badge badge-green">Sequential</span></h3>
+      <p>Steps execute in order: 1, 2, 3, ... N, then loop back to 1. Best for rotations with a fixed priority order.</p>
+      <div class="code-block">Step 1: /cast Kill Command
+Step 2: /cast Barbed Shot
+Step 3: /cast Cobra Shot
+Step 4: /cast Cobra Shot
+--> loops to Step 1</div>
+    </div>
+    <div class="card">
+      <h3><span class="badge badge-gold">Priority</span></h3>
+      <p>All steps are compiled into a <strong>single macro</strong> using <span class="tip">/castsequence reset<span class="tiptext">Priority mode compiles all steps into one macrotext block. WoW tries each /cast line top-to-bottom on every keypress, so highest-priority spells go first.</span></span>.
+      WoW tries each line in order -- the first castable spell fires. Best for proc-based rotations where you want the highest-priority ability that's ready.</p>
+      <div class="code-block">Compiled macro:
+/cast Kill Command
+/cast Barbed Shot
+/cast Cobra Shot
+--> WoW tries Kill Command first,
+    falls through to Barbed Shot,
+    then Cobra Shot</div>
+    </div>
+    <div class="card">
+      <h3><span class="badge badge-purple">Random</span></h3>
+      <p>Each keypress picks a random step. Useful for flavor abilities or when order doesn't matter.</p>
+    </div>
+  </div>
+
+  <h2>Reset Conditions</h2>
+  <div class="card">
+    <p>Sequences reset to step 1 when any of these conditions are met:</p>
+    <table class="legend">
+      <tr><th>Condition</th><th>When It Triggers</th><th>Default</th></tr>
+      <tr><td><strong>Combat</strong></td><td>You leave combat (PLAYER_REGEN_ENABLED)</td><td>On</td></tr>
+      <tr><td><strong>Target</strong></td><td>You change targets (PLAYER_TARGET_CHANGED)</td><td>Off</td></tr>
+      <tr><td><strong>Timer</strong></td><td>No keypress for N seconds (idle timeout)</td><td>Off</td></tr>
+      <tr><td><strong>Gear</strong></td><td>You equip or unequip an item</td><td>Off</td></tr>
+      <tr><td><strong>Spec</strong></td><td>You change specialization</td><td>Off</td></tr>
+    </table>
+  </div>
+
+  <h2>Multi-Version Sequences</h2>
+  <div class="card">
+    <p>Each sequence can have multiple <strong>versions</strong> -- for example, a single-target version and an AoE version. Use the version bar at the top of the editor to add, duplicate, delete, or switch between versions.</p>
+    <p>One version is marked as the <strong>default</strong> (shown with a * indicator). The default version runs when no context override matches.</p>
+  </div>
+
+  <h2>Context Auto-Switching</h2>
+  <div class="card">
+    <p>GRIP-EMS detects what content you're doing (raids, dungeons, M+, PvP, etc.) and automatically picks the right version of each sequence.</p>
+    <p>Open the <strong>Context tab</strong> in the editor to assign versions to contexts. Contexts are organized in collapsible groups: Raids, Dungeons, PvP, and Other. Each context has a dropdown to pick which version runs when you're in that content.</p>
+    <p>If no specific context match exists, GRIP-EMS follows a fallback chain. For example, if you set a version for "Raid" but not "Raid Heroic," heroic raids will use the general Raid version. The final fallback is always the default version.</p>
+    <p style="margin-top: 12px;"><strong>Context Groups:</strong></p>
+    <ul style="padding-left: 20px; line-height: 2;">
+      <li><strong>Raids:</strong> Normal, Heroic, Mythic</li>
+      <li><strong>Dungeons:</strong> Normal, Heroic, Mythic+</li>
+      <li><strong>PvP:</strong> Arena, Battleground, Rated BG</li>
+      <li><strong>Other:</strong> Scenario, Timewalking, Delves, Solo, Default</li>
+    </ul>
+  </div>
+
+  <h2>Variables</h2>
+  <div class="card">
+    <p><strong>Variables</strong> let you define reusable values that get substituted into your macro steps.
+    Write <code style="color:var(--gold);">~varname~</code> in any step and GRIP-EMS replaces it at compile time.</p>
+    <div class="code-block">Variable "trinket1" = "Cantrip of Cooling"
+
+Step: /use ~trinket1~
+Compiles to: /use Cantrip of Cooling</div>
+    <p>Variables can be simple strings or Lua functions that evaluate dynamically.
+    They're account-wide -- shared across all characters.</p>
+  </div>
+
+  <h2>How Keybinds Work</h2>
+  <div class="card">
+    <p>GRIP-EMS uses <span class="tip">SetOverrideBindingClick<span class="tiptext">A WoW API that creates temporary keybinds. They override your normal binds while active, but are never saved to your keybinding profile. They disappear on /reload unless the addon re-applies them.</span></span>
+    to bind keys to sequences. This means:</p>
+    <p><strong>Per-spec:</strong> Each spec has its own keybind set. Switch specs and your DPS/healer/tank binds swap automatically.</p>
+    <p><strong>Temporary:</strong> Binds are applied on login and cleared on /reload. They never touch your saved WoW keybinds.</p>
+    <p><strong>OOC-safe:</strong> Keybind changes are deferred to out-of-combat if you're in combat (WoW requires this for protected API calls).</p>
+    <p><strong>Auto-suspend:</strong> All keybinds suspend during vehicles, skyriding, and pet battles, then restore automatically.</p>
+  </div>
+</div>
+
+<!-- ==================== STEP-BY-STEP TUTORIAL ==================== -->
+<div id="tutorial" class="section fade-in">
+  <h1>Step-by-Step Tutorial</h1>
+  <p>Follow along to create your first sequence from scratch.</p>
+
+  <div class="steps-bar" id="tutStepsBar"></div>
+  <div class="tut-content" id="tutContent"></div>
+  <div class="tut-nav">
+    <button class="btn btn-secondary" id="tutPrev" onclick="tutStep(-1)">Previous</button>
+    <button class="btn btn-primary" id="tutNext" onclick="tutStep(1)">Next</button>
+  </div>
+</div>
+
+<!-- ==================== EDITOR GUIDE ==================== -->
+<div id="editor" class="section fade-in">
+  <h1>Editor Guide</h1>
+  <p>The GRIP-EMS editor has 5 tabs for managing every aspect of your sequences.</p>
+
+  <h2>Steps Tab</h2>
+  <div class="card">
+    <p>The main editing view. Each step is an editable text field containing WoW macro text.</p>
+    <table class="legend">
+      <tr><th>Action</th><th>How</th></tr>
+      <tr><td>Add a step</td><td>Click the <strong>+</strong> button below the step list</td></tr>
+      <tr><td>Remove a step</td><td>Click the <strong>X</strong> on the right side of the step</td></tr>
+      <tr><td>Move steps</td><td>Use the arrow buttons to reorder</td></tr>
+      <tr><td>Spell autocomplete</td><td>Type a spell name and press <kbd>Tab</kbd> -- a dropdown shows matching spells from your spellbook</td></tr>
+      <tr><td>Variable autocomplete</td><td>Type <code>~</code> and press <kbd>Tab</kbd> to see available variables</td></tr>
+      <tr><td>Character counter</td><td>Each step shows its character count (max 255 per WoW macro limit)</td></tr>
+    </table>
+    <p style="margin-top: 12px;"><strong>Working copy pattern:</strong> Edits happen on a copy of your steps. Nothing is saved to the engine
+    until you click <strong>Save</strong>. This means you can experiment freely -- click <strong>Discard</strong> to revert.</p>
+  </div>
+
+  <h2>Keybind Tab</h2>
+  <div class="card">
+    <p>Assign a key to this sequence for the current spec.</p>
+    <table class="legend">
+      <tr><th>Action</th><th>How</th></tr>
+      <tr><td>Set keybind</td><td>Click the capture box, then press the desired key/combo</td></tr>
+      <tr><td>Clear keybind</td><td>Click the clear button next to the binding</td></tr>
+      <tr><td>Per-spec overview</td><td>Shows which key is bound for each of your specs</td></tr>
+    </table>
+    <p><span class="tip">Modifier keys<span class="tiptext">Shift is the most reliable modifier for WoW macros. Ctrl is medium reliability. Alt is unreliable because WoW uses it for self-cast by default. Avoid Alt combos unless you've disabled self-cast.</span></span>
+    work too -- Shift+1, Ctrl+F, etc.</p>
+  </div>
+
+  <h2>Macros Tab</h2>
+  <div class="card">
+    <p>Manage the WoW macro stubs that give you drag-to-action-bar icons.</p>
+    <p><strong>How it works:</strong> GRIP-EMS creates a real /macro for each sequence so you can drag it to your action bar.
+    The macro is visual only -- execution always goes through the keybind system, not the macro button.</p>
+    <p>The Macros tab shows: macro slot usage (per-character and account-wide), stub list, and an
+    <strong>orphan cleanup</strong> button to delete stubs for sequences that no longer exist.</p>
+  </div>
+
+  <h2>Variables Tab</h2>
+  <div class="card">
+    <p>View and edit account-wide variables. Unlike other tabs, this shows the same content regardless of which sequence is selected.</p>
+    <table class="legend">
+      <tr><th>Action</th><th>How</th></tr>
+      <tr><td>Create variable</td><td>Type a name and function body, click Save</td></tr>
+      <tr><td>Test variable</td><td>Click Test to evaluate the function and see the result</td></tr>
+      <tr><td>Event binding</td><td>Comma-separated WoW events that trigger re-evaluation (e.g., PLAYER_EQUIPMENT_CHANGED)</td></tr>
+      <tr><td>Delete variable</td><td>Select it and click Delete</td></tr>
+    </table>
+  </div>
+
+  <h2>Raw Tab</h2>
+  <div class="card">
+    <p>Shows the full Lua table representation of your sequence data. Read-only by default.</p>
+    <p>Click <strong>Edit</strong> to enable editing -- you can modify the raw Lua directly.
+    Click <strong>Apply</strong> to validate (pcall + loadstring) and apply changes.
+    The validator checks for required fields (name, steps, stepFunction) before accepting.</p>
+    <p><span class="badge badge-gold">Power User</span> This is for advanced users who want to edit sequence internals directly.</p>
+  </div>
+</div>
+
+<!-- ==================== GSE MIGRATION ==================== -->
+<div id="migration" class="section fade-in">
+  <h1>GSE Migration</h1>
+  <p>Already using GSE? Transfer everything to GRIP-EMS in minutes.</p>
+
+  <h2>Method 1: In-Game Migration (Recommended)</h2>
+  <div class="card">
+    <p>This transfers <strong>all</strong> your GSE sequences and variables in one click.</p>
+    <ol style="padding-left: 20px; line-height: 2.2;">
+      <li>Install GRIP-EMS (keep GSE active or disabled -- both work)</li>
+      <li>Open GRIP-EMS: type <kbd>/gems</kbd> in chat</li>
+      <li>Click the <strong>Migrate from GSE</strong> button in the sequence list panel</li>
+      <li>Confirm in the popup dialog</li>
+      <li>Read the migration report in chat -- it shows what transferred, what was skipped, and any warnings</li>
+      <li>Test your sequences. When satisfied, disable GSE in your addon list</li>
+    </ol>
+  </div>
+
+  <h2>Method 2: Clipboard Import</h2>
+  <div class="card">
+    <p>For individual sequences, or if GSE isn't installed.</p>
+    <ol style="padding-left: 20px; line-height: 2.2;">
+      <li>In GSE, select a sequence and click <strong>Export</strong></li>
+      <li>Copy the export string (<kbd>Ctrl</kbd>+<kbd>C</kbd>)</li>
+      <li>In GRIP-EMS, type <kbd>/gems import</kbd></li>
+      <li>Paste into the window and click <strong>Import</strong></li>
+    </ol>
+  </div>
+
+  <h2>What Transfers</h2>
+  <div class="card">
+    <table class="legend">
+      <tr><th>Data</th><th>Status</th></tr>
+      <tr><td>Sequence steps (compiled macrotext)</td><td><span class="badge badge-green">Full</span></td></tr>
+      <tr><td>KeyPress / KeyRelease blocks</td><td><span class="badge badge-green">Full</span></td></tr>
+      <tr><td>Step function (Sequential/Priority/Random)</td><td><span class="badge badge-green">Full</span></td></tr>
+      <tr><td>Metadata (author, icon, specID, class)</td><td><span class="badge badge-green">Full</span></td></tr>
+      <tr><td>Account-wide variables</td><td><span class="badge badge-green">Full</span></td></tr>
+      <tr><td>Reset conditions (combat, target)</td><td><span class="badge badge-green">Full</span></td></tr>
+      <tr><td>Multi-version sequences</td><td><span class="badge badge-green">Full</span></td></tr>
+      <tr><td>Context versions (Raid/PVP/Dungeon)</td><td><span class="badge badge-green">Full</span></td></tr>
+      <tr><td>Context overrides (GSE MetaData)</td><td><span class="badge badge-green">Full</span></td></tr>
+      <tr><td>Embedded sequences</td><td><span class="badge badge-gold">Warning logged</span></td></tr>
+      <tr><td>Pause blocks</td><td><span class="badge badge-gold">Skipped (WoW limitation)</span></td></tr>
+    </table>
+  </div>
+
+  <h2>Migration Report</h2>
+  <div class="card">
+    <p>After migration, GRIP-EMS prints a structured report to chat showing:</p>
+    <ul style="padding-left: 20px; line-height: 2;">
+      <li>Total sequences and variables migrated</li>
+      <li>Per-sequence details (name, step count, step function)</li>
+      <li>Limitation counts (context overrides imported, pauses skipped, embeds skipped, steps truncated)</li>
+      <li>Per-sequence warnings (if any)</li>
+      <li>Post-migration guidance tips</li>
+    </ul>
+    <p>The full report is also captured in the <strong>Debug Window</strong> (<kbd>/gems debugwindow</kbd>) for later review.</p>
+  </div>
+</div>
+
+<!-- ==================== KEYS & COMMANDS ==================== -->
+<div id="keys" class="section fade-in">
+  <h1>Keys &amp; Commands</h1>
+
+  <h2>Slash Commands</h2>
+  <div class="card">
+    <table class="legend">
+      <tr><th>Command</th><th>Description</th></tr>
+      <tr><td><code>/gems</code></td><td>Toggle the main editor window</td></tr>
+      <tr><td><code>/gems help</code></td><td>Show all available commands in chat</td></tr>
+      <tr><td><code>/gems import</code></td><td>Open the import paste window</td></tr>
+      <tr><td><code>/gems export</code></td><td>Export the selected sequence to clipboard</td></tr>
+      <tr><td><code>/gems migrate</code></td><td>Run GSE migration (same as the UI button)</td></tr>
+      <tr><td><code>/gems settings</code></td><td>Open the settings panel (also: /gems config, /gems options)</td></tr>
+      <tr><td><code>/gems debug on|off</code></td><td>Toggle debug output to chat</td></tr>
+      <tr><td><code>/gems debugwindow</code></td><td>Toggle the debug message window (also: /gems dw)</td></tr>
+      <tr><td><code>/gems list</code></td><td>Print all stored sequences to chat</td></tr>
+      <tr><td><code>/gems run &lt;name&gt;</code></td><td>Activate a specific sequence by name</td></tr>
+      <tr><td><code>/gems reset</code></td><td>Reset the current sequence to step 1</td></tr>
+      <tr><td><code>/gems guide</code></td><td>Open this interactive guide</td></tr>
+    </table>
+  </div>
+
+  <h2>Editor Keyboard Shortcuts</h2>
+  <div class="card">
+    <table class="legend">
+      <tr><th>Key</th><th>Where</th><th>Action</th></tr>
+      <tr><td><kbd>Tab</kbd></td><td>Step EditBox</td><td>Spell autocomplete (shows matching spells from your spellbook)</td></tr>
+      <tr><td><kbd>Tab</kbd></td><td>Step EditBox (after ~)</td><td>Variable autocomplete (shows defined variables)</td></tr>
+      <tr><td><kbd>Escape</kbd></td><td>Main window</td><td>Close the editor</td></tr>
+      <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Export window</td><td>Copy and auto-close the export dialog</td></tr>
+    </table>
+  </div>
+
+  <h2>Modifier Key Reliability</h2>
+  <div class="card">
+    <p>When using <code>[mod:shift]</code>, <code>[mod:ctrl]</code>, or <code>[mod:alt]</code> in your macro conditionals:</p>
+    <table class="legend">
+      <tr><th>Modifier</th><th>Reliability</th><th>Notes</th></tr>
+      <tr><td><kbd>Shift</kbd></td><td><span class="badge badge-green">Reliable</span></td><td>Always works. Best choice for modifiers.</td></tr>
+      <tr><td><kbd>Ctrl</kbd></td><td><span class="badge badge-gold">Medium</span></td><td>Works in most cases. Some addons intercept Ctrl.</td></tr>
+      <tr><td><kbd>Alt</kbd></td><td><span class="badge badge-red">Unreliable</span></td><td>WoW uses Alt for self-cast by default. Disable in Interface settings if you need Alt combos.</td></tr>
+    </table>
+  </div>
+
+  <h2>Settings Reference</h2>
+  <div class="card">
+    <table class="legend">
+      <tr><th>Setting</th><th>Default</th><th>Description</th></tr>
+      <tr><td>Click Rate</td><td>250ms</td><td>Minimum time between step advances (100-1000ms). Lower = faster spam.</td></tr>
+      <tr><td>OOC Queue Delay</td><td>7s</td><td>How long to wait after combat before processing queued actions.</td></tr>
+      <tr><td>Reset OOC</td><td>On</td><td>Default reset-on-combat-end for new sequences.</td></tr>
+      <tr><td>Debug Mode</td><td>Off</td><td>Print engine events to chat (also captured in Debug Window).</td></tr>
+      <tr><td>Hide Login Message</td><td>Off</td><td>Suppress the GRIP-EMS loaded message at login.</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ==================== SEQUENCE BUILDER ==================== -->
+<div id="builder" class="section fade-in">
+  <h1>Sequence Builder</h1>
+  <p>Create a sequence right here, then export it as a GRIP-EMS import string to paste in-game.</p>
+
+  <div class="card">
+    <h3>Sequence Settings</h3>
+    <div class="builder-row">
+      <label>Sequence Name</label>
+      <input type="text" id="bName" placeholder="e.g., BM_Hunter_ST" maxlength="50">
+    </div>
+    <div class="builder-row">
+      <label>Step Function</label>
+      <select id="bStepFunc">
+        <option value="Sequential">Sequential</option>
+        <option value="Priority">Priority</option>
+        <option value="Random">Random</option>
+      </select>
+    </div>
+    <div class="builder-row">
+      <label>SpecID <span class="tip">?<span class="tiptext">The WoW specialization ID. Examples: 253 = BM Hunter, 254 = MM Hunter, 255 = Survival Hunter, 63 = Fire Mage, 62 = Arcane Mage, 64 = Frost Mage, 265 = Affliction Warlock, 577 = Havoc DH. Leave 0 for any spec.</span></span></label>
+      <input type="number" id="bSpecID" value="0" min="0" max="9999">
+    </div>
+
+    <h3 style="margin-top: 20px;">Reset Conditions</h3>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin: 8px 0;">
+      <label><input type="checkbox" id="bResetCombat" checked> Combat end</label>
+      <label><input type="checkbox" id="bResetTarget"> Target change</label>
+      <label><input type="checkbox" id="bResetTimer"> Timer (idle)
+        <input type="number" id="bResetTimerSec" value="5" min="1" max="60" style="width:50px;background:var(--bg-input);border:1px solid var(--border);color:var(--text);border-radius:4px;padding:2px 6px;margin-left:4px;">s
+      </label>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>KeyPress <span class="tip">?<span class="tiptext">Macro text that runs BEFORE every step. Useful for things like targeting, canceling auras, or trinket use. Each line is prepended to every step at compile time.</span></span></h3>
+    <div class="builder-row">
+      <textarea id="bKeyPress" rows="2" placeholder="/targetenemy [noharm][dead]&#10;/stopcasting"></textarea>
+    </div>
+
+    <h3>Steps</h3>
+    <ol class="step-list" id="bSteps">
+      <li>
+        <textarea rows="1" placeholder="/cast Kill Command" oninput="autoResizeTextarea(this)"></textarea>
+        <button class="remove-step" onclick="removeStep(this)" title="Remove step">&#x2715;</button>
+      </li>
+      <li>
+        <textarea rows="1" placeholder="/cast Barbed Shot" oninput="autoResizeTextarea(this)"></textarea>
+        <button class="remove-step" onclick="removeStep(this)" title="Remove step">&#x2715;</button>
+      </li>
+      <li>
+        <textarea rows="1" placeholder="/cast Cobra Shot" oninput="autoResizeTextarea(this)"></textarea>
+        <button class="remove-step" onclick="removeStep(this)" title="Remove step">&#x2715;</button>
+      </li>
+    </ol>
+    <button class="btn btn-secondary" onclick="addStep()" style="margin-top: 8px;">+ Add Step</button>
+
+    <h3 style="margin-top: 16px;">KeyRelease <span class="tip">?<span class="tiptext">Macro text that runs AFTER every step. Less commonly used. Some rotations use it for follow-up abilities or conditional casts on key-up.</span></span></h3>
+    <div class="builder-row">
+      <textarea id="bKeyRelease" rows="2" placeholder="(optional)"></textarea>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 12px; margin-top: 16px;">
+    <button class="btn btn-gold" onclick="exportSequence()">Export for GRIP-EMS</button>
+    <button class="btn btn-secondary" onclick="previewSequence()">Preview</button>
+    <button class="btn btn-secondary" onclick="resetBuilder()">Clear All</button>
+  </div>
+
+  <div id="bPreview" class="card" style="display:none; margin-top:16px;">
+    <h3>Preview</h3>
+    <div id="bPreviewContent" class="code-block"></div>
+  </div>
+</div>
+
+<!-- ==================== ADVANCED ==================== -->
+<div id="advanced" class="section fade-in">
+  <h1>Advanced Topics</h1>
+
+  <h2>WoW Macro Conditionals</h2>
+  <div class="card">
+    <p>Each step supports full WoW macro syntax including conditionals. Common patterns:</p>
+    <div class="code-block">/cast [mod:shift] Multi-Shot; Kill Command
+/cast [target=focus,exists] Misdirection
+/cast [combat] Bestial Wrath
+/use [combat] 13
+/cancelaura Aspect of the Turtle</div>
+    <table class="legend" style="margin-top: 12px;">
+      <tr><th>Conditional</th><th>Meaning</th></tr>
+      <tr><td>[mod:shift]</td><td>Only when Shift is held</td></tr>
+      <tr><td>[combat]</td><td>Only when in combat</td></tr>
+      <tr><td>[nocombat]</td><td>Only when out of combat</td></tr>
+      <tr><td>[target=focus,exists]</td><td>Only if focus target exists</td></tr>
+      <tr><td>[noharm][dead]</td><td>If target is friendly or dead</td></tr>
+      <tr><td>[@player]</td><td>Target self</td></tr>
+      <tr><td>[@cursor]</td><td>Place AoE at cursor (no green circle)</td></tr>
+    </table>
+  </div>
+
+  <h2>The 255-Character Limit</h2>
+  <div class="card">
+    <p>WoW enforces a <strong>255-character limit</strong> per macro text block. This applies to each step individually.
+    If a step exceeds 255 characters (including KeyPress/KeyRelease prepend/append), the step is truncated with a warning.</p>
+    <p><strong>Tips to stay under the limit:</strong></p>
+    <ul style="padding-left: 20px; line-height: 2;">
+      <li>Use <code>~variables~</code> for long spell names or shared blocks (substitution happens before the limit check)</li>
+      <li>Keep conditionals concise -- <code>[mod:shift]</code> not <code>[modifier:shift]</code></li>
+      <li>Split complex logic across multiple steps</li>
+      <li>Use <code>/use 13</code> instead of <code>/use Trinket Name Here</code> for trinket slots</li>
+    </ul>
+  </div>
+
+  <h2>Priority Step Function Deep Dive</h2>
+  <div class="card">
+    <p>Priority mode compiles all steps into a single macro block. This is powerful but has trade-offs:</p>
+    <p><strong>Pros:</strong> The "right" spell always fires. No wasted keypresses on cooldown abilities.</p>
+    <p><strong>Cons:</strong> All steps must fit in 255 characters combined. The compiled preview in the editor
+    shows you the final macrotext and character count.</p>
+    <p><strong>Best for:</strong> Proc-based rotations (e.g., BM Hunter where Kill Command/Barbed Shot have irregular availability).</p>
+  </div>
+
+  <h2>Variable Functions</h2>
+  <div class="card">
+    <p>Variables can be Lua functions that return dynamic values:</p>
+    <div class="code-block">-- Simple string variable:
+"Cantrip of Cooling"
+
+-- Dynamic function (evaluates at compile time):
+(function() if UnitLevel("player") >= 80 then return "Flask of Alchemical Chaos" else return "Phial of Tepid Versatility" end end)()</div>
+    <p>Bind variables to WoW events so they re-evaluate automatically.
+    For example, bind a trinket variable to <code>PLAYER_EQUIPMENT_CHANGED</code>
+    so it updates when you swap gear.</p>
+  </div>
+
+  <h2>Debug &amp; Troubleshooting</h2>
+  <div class="card">
+    <table class="legend">
+      <tr><th>Problem</th><th>Solution</th></tr>
+      <tr><td>Sequence not firing</td><td>Check keybind is set in the Keybind tab. Verify the key isn't also bound in WoW's default keybinds.</td></tr>
+      <tr><td>Wrong spell casting</td><td>Enable debug mode (<code>/gems debug on</code>) and check the Debug Window to see which step is executing.</td></tr>
+      <tr><td>Keybinds not working in vehicle</td><td>This is intentional -- GRIP-EMS suspends keybinds during vehicles and pet battles to avoid conflicts.</td></tr>
+      <tr><td>"No sequence selected"</td><td>Select a sequence in the list panel before exporting or editing.</td></tr>
+      <tr><td>Steps not saving</td><td>Click the green <strong>Save</strong> button. The working-copy pattern means edits aren't saved until you explicitly confirm.</td></tr>
+      <tr><td>Import fails</td><td>Make sure you're pasting the full export string (starts with <code>!GRIP1!</code> for GRIP-EMS or <code>!GSE3!</code> for GSE).</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ==================== ROADMAP ==================== -->
+<div id="roadmap" class="section fade-in">
+  <h1>Roadmap</h1>
+  <p>GRIP-EMS is in public beta (v0.9.1). Here's what's coming next.</p>
+
+  <h2>v0.9.x -- Beta Updates</h2>
+  <div class="card">
+    <h3 style="color: var(--green);">Multi-Version Sequences <span class="badge badge-green">Shipped v0.9.1</span></h3>
+    <p>Store multiple versions of a sequence (e.g., single-target and AoE variants). Version bar UI with add, duplicate, delete, and set-default actions. MenuUtil dropdown to switch versions in the editor.</p>
+  </div>
+  <div class="card">
+    <h3 style="color: var(--green);">Context Auto-Switching <span class="badge badge-green">Shipped v0.9.1</span></h3>
+    <p>Automatically select the right sequence version based on content type. 15 context keys: Raid (Normal/Heroic/Mythic), Dungeon (Normal/Heroic/Mythic+), PvP (Arena/Battleground/Rated BG), Scenario, Timewalking, Delves, Solo, Default. Uses GetInstanceInfo() with smart fallback chains. Dedicated Context tab in the editor with collapsible groups and per-version checkboxes.</p>
+  </div>
+  <div class="coming-soon">
+    <h3>Macro Recorder</h3>
+    <p>Record your rotation in real-time. GRIP-EMS captures UNIT_SPELLCAST_SUCCEEDED events and converts them into sequence steps automatically.</p>
+  </div>
+  <div class="coming-soon">
+    <h3>Multi-Window Editor</h3>
+    <p>Open multiple sequences side-by-side for comparison and editing.</p>
+  </div>
+  <div class="coming-soon">
+    <h3>Import Pick-List</h3>
+    <p>When importing, choose exactly which sequences and variables to import with a checkbox list. Color-coded: green=new, yellow=exists, red=conflict.</p>
+  </div>
+
+  <h2>v1.0 -- Full Release</h2>
+  <div class="card">
+    <p>All planned features complete. Full parity with competing addons plus unique GRIP-EMS features.
+    Published on CurseForge, Wago, and WoWInterface.</p>
+  </div>
+
+  <h2>v1.x -- Beyond</h2>
+  <div class="card">
+    <p>Exclusive GRIP-EMS features that go beyond what any other sequencer offers. Community-driven feature requests welcome on Discord.</p>
+  </div>
+</div>
+
+<!-- ==================== EXPORT MODAL ==================== -->
+<div class="modal-overlay" id="exportModal">
+  <div class="modal">
+    <h2 style="color: var(--gold);">Export Sequence</h2>
+    <p style="margin-bottom: 8px;">Copy this string and paste it into GRIP-EMS in-game via <code>/gems import</code>:</p>
+    <textarea id="exportString" readonly></textarea>
+    <div style="display: flex; gap: 12px; margin-top: 12px;">
+      <button class="btn btn-gold" onclick="copyExport()">Copy to Clipboard</button>
+      <button class="btn btn-secondary" onclick="closeExportModal()">Close</button>
+    </div>
+    <p id="exportCopyMsg" style="color: var(--green); margin-top: 8px; display: none;">Copied!</p>
+  </div>
+</div>
+
+<script>
+// === NAVIGATION ===
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('#mainNav button').forEach(b => b.classList.remove('active'));
+  const sec = document.getElementById(id);
+  if (sec) { sec.classList.add('active'); sec.classList.add('fade-in'); }
+  const btns = document.querySelectorAll('#mainNav button');
+  btns.forEach(b => { if (b.textContent.toLowerCase().replace(/[^a-z]/g,'').includes(id.replace(/[^a-z]/g,''))) b.classList.add('active'); });
+  // Special matching for nav buttons
+  const map = {welcome:0,concepts:1,tutorial:2,editor:3,migration:4,keys:5,builder:6,advanced:7,roadmap:8};
+  if (map[id] !== undefined && btns[map[id]]) { btns.forEach(b=>b.classList.remove('active')); btns[map[id]].classList.add('active'); }
+  window.scrollTo(0, 0);
+}
+
+// === TUTORIAL STEPS ===
+const tutSteps = [
+  {
+    title: "Open GRIP-EMS",
+    content: `<h3>Step 1: Open the Editor</h3>
+<p>Type <kbd>/gems</kbd> in your WoW chat window and press Enter.</p>
+<p>The GRIP-EMS editor window appears. You can also click the <strong>minimap button</strong> (gear icon near your minimap).</p>
+<p>You'll see two panels: the <strong>sequence list</strong> on the left, and the <strong>editor</strong> on the right.</p>
+<div style="margin-top:16px;padding:16px;background:var(--bg-input);border-radius:8px;border:1px solid var(--border);">
+<p style="color:var(--text-dim);font-size:13px;">TIP: You can also access GRIP-EMS from the addon compartment (the small addon icon row at the top of your screen in Midnight).</p>
+</div>`
+  },
+  {
+    title: "Create a New Sequence",
+    content: `<h3>Step 2: Create a New Sequence</h3>
+<p>Click the <strong>New</strong> button at the bottom of the sequence list panel.</p>
+<p>A new sequence appears with a default name. Click the name in the editor header to rename it -- e.g., "BM_Hunter_ST".</p>
+<p>Choose your <strong>step function</strong>:</p>
+<ul style="padding-left:20px;line-height:2;">
+<li><span class="badge badge-green">Sequential</span> -- steps fire in order (1, 2, 3, 1, 2, 3...)</li>
+<li><span class="badge badge-gold">Priority</span> -- all steps compiled into one macro, WoW picks the first castable spell</li>
+<li><span class="badge badge-purple">Random</span> -- random step each keypress</li>
+</ul>
+<p>For most DPS rotations, start with <strong>Sequential</strong> or <strong>Priority</strong>.</p>`
+  },
+  {
+    title: "Add Your Spells",
+    content: `<h3>Step 3: Add Spells to Your Steps</h3>
+<p>In the <strong>Steps</strong> tab, you'll see empty step fields. Type your rotation spells:</p>
+<div class="code-block">Step 1: /cast Kill Command
+Step 2: /cast Barbed Shot
+Step 3: /cast Cobra Shot
+Step 4: /cast Cobra Shot</div>
+<p>Use the <kbd>+</kbd> button to add more steps, or the <strong>X</strong> to remove steps.</p>
+<p><strong>Pro tip:</strong> Start typing a spell name and press <kbd>Tab</kbd> for autocomplete! GRIP-EMS searches your spellbook and shows matching spells in a dropdown.</p>
+<div style="margin-top:16px;padding:16px;background:var(--bg-input);border-radius:8px;border:1px solid var(--border);">
+<p style="color:var(--text-dim);font-size:13px;">TIP: The character counter next to each step shows how close you are to the 255-character WoW macro limit.</p>
+</div>`
+  },
+  {
+    title: "Save Your Sequence",
+    content: `<h3>Step 4: Save</h3>
+<p>Click the green <strong>Save</strong> button in the editor header (or in the step action bar).</p>
+<p>Until you save, your edits exist only as a working copy. This means you can experiment freely and click <strong>Discard</strong> to revert to the last saved state.</p>
+<p>After saving, the sequence icon updates automatically based on the first step's spell.</p>
+<div style="margin-top:16px;padding:16px;background:rgba(245,200,66,0.1);border-radius:8px;border:1px solid var(--gold);">
+<p style="color:var(--gold);font-size:13px;">IMPORTANT: If you see "Unsaved changes" in yellow below the steps, your edits aren't saved yet. Always click Save before switching sequences or closing the editor.</p>
+</div>`
+  },
+  {
+    title: "Set a Keybind",
+    content: `<h3>Step 5: Bind a Key</h3>
+<p>Switch to the <strong>Keybind</strong> tab in the editor.</p>
+<p>Click the key capture box and press the key you want to use (e.g., <kbd>1</kbd>, <kbd>F1</kbd>, <kbd>Shift</kbd>+<kbd>2</kbd>).</p>
+<p>The keybind is <strong>per-spec</strong> -- if you switch specs, your other spec's keybinds load automatically.</p>
+<p>The keybind is also <strong>temporary</strong> -- it never modifies your saved WoW keybindings. GRIP-EMS re-applies it on each login.</p>`
+  },
+  {
+    title: "Test It!",
+    content: `<h3>Step 6: Test Your Sequence</h3>
+<p>Find a target dummy or a world mob. Press your keybind repeatedly.</p>
+<p>Each press fires the next spell in your sequence. Watch your action bar -- the macro stub icon updates to show which spell is queued next.</p>
+<p><strong>Debugging:</strong> If something isn't working:</p>
+<ul style="padding-left:20px;line-height:2;">
+<li>Run <kbd>/gems debug on</kbd> to see engine events in chat</li>
+<li>Open the Debug Window with <kbd>/gems debugwindow</kbd> for a scrollable log</li>
+<li>Check the Keybind tab to make sure a key is actually bound</li>
+</ul>
+<div style="margin-top:16px;padding:16px;background:rgba(78,204,163,0.1);border-radius:8px;border:1px solid var(--green);">
+<p style="color:var(--green);font-size:13px;">SUCCESS! You've created your first GRIP-EMS sequence. Share it with guildmates via /gems export, or keep tweaking until it's perfect.</p>
+</div>`
+  }
+];
+
+let currentTutStep = 0;
+
+function renderTutorial() {
+  const bar = document.getElementById('tutStepsBar');
+  bar.innerHTML = '';
+  tutSteps.forEach((s, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'step-dot' + (i === currentTutStep ? ' active' : '') + (i < currentTutStep ? ' done' : '');
+    dot.textContent = i + 1;
+    dot.title = s.title;
+    dot.onclick = () => { currentTutStep = i; renderTutorial(); };
+    bar.appendChild(dot);
+  });
+  document.getElementById('tutContent').innerHTML = tutSteps[currentTutStep].content;
+  document.getElementById('tutPrev').disabled = currentTutStep === 0;
+  document.getElementById('tutNext').textContent = currentTutStep === tutSteps.length - 1 ? 'Done!' : 'Next';
+}
+
+function tutStep(dir) {
+  if (dir === 1 && currentTutStep === tutSteps.length - 1) { showSection('editor'); return; }
+  currentTutStep = Math.max(0, Math.min(tutSteps.length - 1, currentTutStep + dir));
+  renderTutorial();
+}
+
+// Init tutorial on first view
+setTimeout(renderTutorial, 0);
+
+// === BUILDER ===
+function addStep() {
+  const list = document.getElementById('bSteps');
+  const li = document.createElement('li');
+  li.innerHTML = '<textarea rows="1" placeholder="/cast SpellName" oninput="autoResizeTextarea(this)"></textarea><button class="remove-step" onclick="removeStep(this)" title="Remove step">&#x2715;</button>';
+  list.appendChild(li);
+}
+
+function removeStep(btn) {
+  const list = document.getElementById('bSteps');
+  if (list.children.length > 1) btn.parentElement.remove();
+}
+
+function autoResizeTextarea(el) {
+  el.style.height = 'auto';
+  el.style.height = el.scrollHeight + 'px';
+}
+
+function getBuilderData() {
+  const steps = [];
+  document.querySelectorAll('#bSteps textarea').forEach(ta => {
+    const v = ta.value.trim();
+    if (v) steps.push(v);
+  });
+  return {
+    name: document.getElementById('bName').value.trim() || 'Unnamed_Sequence',
+    stepFunction: document.getElementById('bStepFunc').value,
+    specID: parseInt(document.getElementById('bSpecID').value) || 0,
+    resetCombat: document.getElementById('bResetCombat').checked,
+    resetTarget: document.getElementById('bResetTarget').checked,
+    resetTimer: document.getElementById('bResetTimer').checked,
+    resetTimerSec: parseInt(document.getElementById('bResetTimerSec').value) || 5,
+    keyPress: document.getElementById('bKeyPress').value.trim(),
+    keyRelease: document.getElementById('bKeyRelease').value.trim(),
+    steps: steps
+  };
+}
+
+function previewSequence() {
+  const d = getBuilderData();
+  if (d.steps.length === 0) { alert('Add at least one step!'); return; }
+  let preview = 'Sequence: ' + d.name + '\n';
+  preview += 'Step Function: ' + d.stepFunction + '\n';
+  preview += 'SpecID: ' + d.specID + '\n';
+  preview += 'Reset: ' + [d.resetCombat?'combat':'', d.resetTarget?'target':'', d.resetTimer?('timer='+d.resetTimerSec+'s'):''].filter(Boolean).join(', ') + '\n';
+  if (d.keyPress) preview += '\nKeyPress:\n' + d.keyPress + '\n';
+  preview += '\nSteps (' + d.steps.length + '):\n';
+  d.steps.forEach((s, i) => { preview += '  ' + (i+1) + '. ' + s + '\n'; });
+  if (d.keyRelease) preview += '\nKeyRelease:\n' + d.keyRelease + '\n';
+  document.getElementById('bPreview').style.display = 'block';
+  document.getElementById('bPreviewContent').textContent = preview;
+}
+
+function exportSequence() {
+  const d = getBuilderData();
+  if (d.steps.length === 0) { alert('Add at least one step!'); return; }
+
+  // Build a GRIP1-compatible export object
+  const seqData = {
+    formatVersion: 1,
+    name: d.name,
+    specID: d.specID,
+    stepFunction: d.stepFunction,
+    icon: '',
+    autoIcon: true,
+    resetCombat: d.resetCombat,
+    resetTarget: d.resetTarget,
+    resetTimer: d.resetTimer ? d.resetTimerSec : false,
+    resetGear: false,
+    resetSpec: false,
+    keyPress: d.keyPress,
+    keyRelease: d.keyRelease,
+    steps: d.steps,
+    author: 'GRIP-EMS Guide Builder',
+    description: 'Created with the GRIP-EMS Interactive Guide',
+    version: 1
+  };
+
+  // Encode as JSON + base64 with !GRIP1! prefix
+  // Note: In-game GRIP-EMS uses CBOR+Deflate+Base64. We use a simplified JSON+Base64
+  // that the addon's import handler also accepts for development/testing.
+  const json = JSON.stringify(seqData);
+  const encoded = '!GRIP1!' + btoa(unescape(encodeURIComponent(json)));
+
+  document.getElementById('exportString').value = encoded;
+  document.getElementById('exportModal').classList.add('show');
+  document.getElementById('exportCopyMsg').style.display = 'none';
+}
+
+function copyExport() {
+  const ta = document.getElementById('exportString');
+  ta.select();
+  document.execCommand('copy');
+  document.getElementById('exportCopyMsg').style.display = 'block';
+  setTimeout(() => { document.getElementById('exportCopyMsg').style.display = 'none'; }, 2000);
+}
+
+function closeExportModal() {
+  document.getElementById('exportModal').classList.remove('show');
+}
+
+function resetBuilder() {
+  document.getElementById('bName').value = '';
+  document.getElementById('bStepFunc').value = 'Sequential';
+  document.getElementById('bSpecID').value = '0';
+  document.getElementById('bResetCombat').checked = true;
+  document.getElementById('bResetTarget').checked = false;
+  document.getElementById('bResetTimer').checked = false;
+  document.getElementById('bResetTimerSec').value = '5';
+  document.getElementById('bKeyPress').value = '';
+  document.getElementById('bKeyRelease').value = '';
+  const list = document.getElementById('bSteps');
+  list.innerHTML = '<li><textarea rows="1" placeholder="/cast SpellName" oninput="autoResizeTextarea(this)"></textarea><button class="remove-step" onclick="removeStep(this)" title="Remove step">&#x2715;</button></li>';
+  document.getElementById('bPreview').style.display = 'none';
+}
+
+// Close modal on overlay click
+document.getElementById('exportModal').addEventListener('click', function(e) {
+  if (e.target === this) closeExportModal();
+});
+</script>
+</body>
+</html>
