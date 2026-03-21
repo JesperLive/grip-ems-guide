@@ -1047,6 +1047,10 @@ Context Versions: Default, Raid, Dungeon</pre>
                     <p>Pick a random step each press (weights configurable).</p>
                     <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">Best for: Variation, PvP mind games, proc weighting.</p>
                 </div>
+                <div class="card">
+                    <h4>Reverse Priority</h4>
+                    <p>Like Priority but inverted: lower-numbered steps get less weight, higher-numbered steps get more. Useful when your filler is step 1 and your cooldowns are at the end.</p>
+                </div>
             </div>
 
             <h3>Reset Conditions <span class="badge concept">KEY CONCEPT</span></h3>
@@ -1197,12 +1201,13 @@ Context Versions: Default, Raid, Dungeon</pre>
                                 <option>Step Function: Sequential</option>
                                 <option>Step Function: Priority</option>
                                 <option>Step Function: Random</option>
+                                <option>Step Function: Reverse Priority</option>
                             </select>
                             <div class="hotspot-marker" style="top: 50%; right: -10px; transform: translateY(-50%);">4</div>
                             <div class="hotspot-info">
                                 <span class="hotspot-close" onclick="this.parentElement.parentElement.classList.remove('active')">×</span>
                                 <strong>Step Function</strong>
-                                <p><strong>Sequential:</strong> Steps 1→2→3→1 in order<br><strong>Priority:</strong> Highest priority available<br><strong>Random:</strong> Random step each press</p>
+                                <p><strong>Sequential:</strong> Steps 1->2->3->1 in order<br><strong>Priority:</strong> Higher-numbered steps weighted more via pre-expansion<br><strong>Reverse Priority:</strong> Lower-numbered steps weighted more (inverted priority)<br><strong>Random:</strong> Random step each press</p>
                             </div>
                         </div>
 
@@ -1917,18 +1922,34 @@ Step 2: /cast [mod:shift] Death Coil; [nocombat] Dark Mend</pre>
             </div>
 
             <h3>Priority Step Function Deep Dive</h3>
-            <p>Priority mode evaluates all steps and casts the highest-priority available spell.</p>
-
+            <p>Priority mode uses <strong>pre-expansion</strong> to weight higher-priority steps. Your N steps are expanded into N*(N+1)/2 flat entries using sequential cycling.</p>
             <div class="card">
                 <h4>How It Works</h4>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Each step is evaluated in order (1 → 2 → 3). The first step whose conditions are met is cast. If no conditions are met, nothing happens.</p>
-                <pre>Step 1: /cast [combat,harm] Corruption
-Step 2: /cast [combat,noharm] Auto Attack
-Step 3: /cast [nocombat] Buff
-
-Press key in combat with hostile target → Corruption cast
-Press key in combat with friendly/no target → Auto Attack cast
-Press key out of combat → Buff cast</pre>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">For 3 steps [A, B, C], the expansion creates: [A], [A, B], [A, B, C] = 6 entries total. Step A appears in every group (3 times), B appears in 2 groups (2 times), C in 1 group (1 time). The sequencer cycles through all 6 entries round-robin.</p>
+                <pre>Original steps: Kill Shot, Barbed Shot, Cobra Shot
+Expanded (6 entries):
+  1. Kill Shot
+  2. Kill Shot
+  3. Barbed Shot
+  4. Kill Shot
+  5. Barbed Shot
+  6. Cobra Shot
+Each keypress tries the next entry. If the spell
+is on cooldown, WoW skips it (no cast). Step 1
+(Kill Shot) appears 3x so it gets tried most often.</pre>
+            </div>
+            <div class="card">
+                <h4>Reverse Priority</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Reverse Priority inverts the expansion: [C], [B, C], [A, B, C]. Lower-numbered steps get less weight. Useful when your filler is step 1 and big cooldowns are at the end.</p>
+                <pre>Original steps: Cobra Shot, Barbed Shot, Kill Shot
+Expanded (6 entries):
+  1. Kill Shot
+  2. Barbed Shot
+  3. Kill Shot
+  4. Cobra Shot
+  5. Barbed Shot
+  6. Kill Shot
+Step 3 (Kill Shot) appears 3x, getting tried most often.</pre>
             </div>
 
             <h3>Variable Functions (Lua Examples)</h3>
@@ -2034,6 +2055,7 @@ return class == "WARRIOR" and "Whirlwind" or "Spin"</pre>
                         <select id="builder-stepfunc">
                             <option value="Sequential">Sequential</option>
                             <option value="Priority">Priority</option>
+                            <option value="ReversePriority">Reverse Priority</option>
                             <option value="Random">Random</option>
                         </select>
                     </div>
