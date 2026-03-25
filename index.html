@@ -1138,7 +1138,7 @@ Context Versions: Default, Raid, Dungeon</pre>
 
             <div class="ui-mockup">
                 <div class="ui-title-bar">
-                    <span>GRIP-EMS v1.0.5</span>
+                    <span>GRIP-EMS v1.0.7</span>
                     <div style="display: flex; gap: 0.5rem;">
                         <button class="ui-button" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">⚙️</button>
                         <button class="ui-button" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">✕</button>
@@ -1952,6 +1952,11 @@ Result: "/cast Targetnick [noharm] Dispel"</pre>
                     <pre>/cast [@mouseover] Heal</pre>
                     <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;"><code>[@mouseover]</code> = under cursor<br><code>[@player]</code> = cast on self<br><code>[@focus]</code> = focus target</p>
                 </div>
+                <div class="card">
+                    <h4>Channel Protection</h4>
+                    <pre>/stopmacro [channeling]</pre>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">Stops macro execution while channeling a spell. Add to the KeyPress block of any sequence with channeled spells (e.g., Rapid Fire, Arcane Missiles). New sequences include this by default.</p>
+                </div>
             </div>
 
             <h3>255-Character Limit Tips</h3>
@@ -1979,6 +1984,20 @@ SHORT: /cast [combat,harm] Corruption; [nocombat] PW:Shield</pre>
                 <pre>Step 1: /cast [harm] Corruption; /cast [help] PW:Mend
 Step 2: /cast [mod:shift] Death Coil; [nocombat] Dark Mend</pre>
                 <p style="color: var(--text-secondary); margin-top: 1rem;">With Sequential mode, they execute in order. With Priority mode, highest-priority available cast wins.</p>
+            </div>
+
+            <button class="collapsible" onclick="toggleCollapsible(this)">
+                <span>Protecting Channeled Spells</span>
+                <span class="collapsible-arrow">▼</span>
+            </button>
+            <div class="collapsible-content">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">Channeled spells (Rapid Fire, Arcane Missiles, Drain Life, etc.) cast over several seconds. If a macro sequence fires another keypress mid-channel, it interrupts the channel and wastes the cast.</p>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">The fix is <code>/stopmacro [channeling]</code> -- this tells WoW to abort the macro (not the spell) when a channel is active, leaving the channel to finish naturally.</p>
+                <pre>/stopmacro [channeling]</pre>
+                <p style="color: var(--text-secondary); margin-top: 1rem; margin-bottom: 1rem;">Place this in the <strong>KeyPress</strong> block so it runs before every step. You can also add it directly inside a step if only certain steps need protection.</p>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">To protect a specific spell only:</p>
+                <pre>/stopmacro [channeling:Aimed Shot]</pre>
+                <p style="color: var(--text-secondary); margin-top: 1rem; margin-bottom: 1rem;">New sequences include <code>/stopmacro [channeling]</code> in KeyPress by default. If your sequence has no channeled spells, you can remove it to save 25 characters per step.</p>
             </div>
 
             <h3>Priority Step Function Deep Dive</h3>
