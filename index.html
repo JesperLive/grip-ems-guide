@@ -1126,7 +1126,7 @@ Context Versions: Default, Raid, Dungeon</pre>
             <ul style="margin-left: 2rem; color: var(--text-secondary);">
                 <li>Per-spec keybinds (different key for each specialization)</li>
                 <li>Temporary (never saved to your bindings file)</li>
-                <li>Auto-suspend in protected frames (boss encounters, PvP arenas)</li>
+                <li>Auto-suspend during vehicles, skyriding, and pet battles</li>
                 <li>Instant activation (no reload UI needed)</li>
             </ul>
         </section>
@@ -1713,10 +1713,6 @@ Result: "/cast Targetnick [noharm] Dispel"</pre>
                     <td><span class="feature-check">✓</span></td>
                 </tr>
                 <tr>
-                    <td>Keybinds</td>
-                    <td><span class="feature-check">✓</span></td>
-                </tr>
-                <tr>
                     <td>Sequence Icon</td>
                     <td><span class="feature-check">✓</span></td>
                 </tr>
@@ -1748,7 +1744,7 @@ Result: "/cast Targetnick [noharm] Dispel"</pre>
             </ul>
 
             <h3>Import Preview</h3>
-            <p>Before confirming, you'll see a pick-list of all sequences to import. Uncheck any you don't want. This gives you control over what lands in your database.</p>
+            <p>The import preview uses a two-stage UI. First, paste the export string. Then a pick-list appears showing every sequence found. Each row displays the sequence name, version count, step count, and source addon version when available in the export metadata. New sequences show a green 'New' badge; sequences that already exist show an amber 'Exists' badge. For existing sequences, you can choose to import (overwrite), skip, or rename.</p>
         </section>
 
         <!-- Slash Commands Section -->
@@ -1763,31 +1759,91 @@ Result: "/cast Targetnick [noharm] Dispel"</pre>
                 </tr>
                 <tr>
                     <td><code>/gems</code></td>
-                    <td>Toggle the main GRIP-EMS window</td>
+                    <td>Toggle the sequence editor</td>
                 </tr>
                 <tr>
-                    <td><code>/gems new</code></td>
-                    <td>Create a new blank sequence</td>
+                    <td><code>/gems help</code></td>
+                    <td>Show all available commands</td>
+                </tr>
+                <tr>
+                    <td><code>/gems open</code></td>
+                    <td>Open the editor (alias for /gems)</td>
+                </tr>
+                <tr>
+                    <td><code>/gems create</code></td>
+                    <td>Create a new sequence</td>
+                </tr>
+                <tr>
+                    <td><code>/gems delete &lt;name&gt;</code></td>
+                    <td>Delete a sequence by name</td>
+                </tr>
+                <tr>
+                    <td><code>/gems list</code></td>
+                    <td>List all stored sequences</td>
+                </tr>
+                <tr>
+                    <td><code>/gems test &lt;name&gt;</code></td>
+                    <td>Advance one step and show the result</td>
+                </tr>
+                <tr>
+                    <td><code>/gems reset &lt;name&gt;</code></td>
+                    <td>Reset a sequence's step counter to 1</td>
+                </tr>
+                <tr>
+                    <td><code>/gems bind &lt;name&gt; &lt;key&gt;</code></td>
+                    <td>Bind a key to a sequence</td>
+                </tr>
+                <tr>
+                    <td><code>/gems unbind &lt;name&gt;</code></td>
+                    <td>Remove the keybind from a sequence</td>
+                </tr>
+                <tr>
+                    <td><code>/gems binds</code></td>
+                    <td>Show all keybinds for the current spec</td>
                 </tr>
                 <tr>
                     <td><code>/gems import</code></td>
-                    <td>Open the import window</td>
+                    <td>Open the import paste window</td>
                 </tr>
                 <tr>
-                    <td><code>/gems export</code></td>
-                    <td>Export current sequence to clipboard</td>
+                    <td><code>/gems export &lt;name&gt;</code></td>
+                    <td>Export a sequence to clipboard</td>
                 </tr>
                 <tr>
-                    <td><code>/gems send &lt;player&gt;</code></td>
-                    <td>Send sequence to a player via P2P</td>
+                    <td><code>/gems exportall</code></td>
+                    <td>Open multi-select export window</td>
+                </tr>
+                <tr>
+                    <td><code>/gems migrate</code></td>
+                    <td>Migrate sequences from a compatible sequencer</td>
+                </tr>
+                <tr>
+                    <td><code>/gems send &lt;name&gt; &lt;target&gt;</code></td>
+                    <td>Send a sequence to a player</td>
+                </tr>
+                <tr>
+                    <td><code>/gems accept</code></td>
+                    <td>Accept the last received sequence</td>
+                </tr>
+                <tr>
+                    <td><code>/gems settings</code></td>
+                    <td>Open the settings panel</td>
+                </tr>
+                <tr>
+                    <td><code>/gems guide</code></td>
+                    <td>Open the interactive tutorial</td>
                 </tr>
                 <tr>
                     <td><code>/gems debug</code></td>
-                    <td>Toggle debug window (dev mode)</td>
+                    <td>Toggle debug mode</td>
                 </tr>
                 <tr>
-                    <td><code>/gems reset</code></td>
-                    <td>Reset GRIP-EMS to factory defaults (caution)</td>
+                    <td><code>/gems debugwindow</code></td>
+                    <td>Toggle the debug window</td>
+                </tr>
+                <tr>
+                    <td><code>/gems status</code></td>
+                    <td>Show addon version and sequence count</td>
                 </tr>
             </table>
 
@@ -2130,6 +2186,10 @@ Fireball</textarea>
                 <div class="card">
                     <h4>✓ Import Preview Pick-List</h4>
                     <p>Choose exactly which sequences to import before confirming.</p>
+                </div>
+                <div class="card">
+                    <h4>✓ Reverse Priority Step Function</h4>
+                    <p>Inverts priority order so lower-numbered steps are weighted more. Includes numbered preview with character counter.</p>
                 </div>
                 <div class="card">
                     <h4>✓ Modern UI</h4>
