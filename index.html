@@ -882,7 +882,7 @@
             <h1>GRIP-EMS</h1>
             <p class="tagline">The Free Macro Sequencer for World of Warcraft</p>
             <p style="margin-bottom: 2rem; color: var(--text-secondary);">Execute multi-step spell rotations with a single keypress. No paywalls. No ads. Just pure macro power.</p>
-            
+
             <div class="how-it-works">
                 <div class="how-step">
                     <div class="step-number">1</div>
@@ -932,7 +932,7 @@
 
             <h3>Installation</h3>
             <p>Choose any platform to download GRIP-EMS:</p>
-            
+
             <div class="grid-3">
                 <div class="card">
                     <h4>📦 CurseForge</h4>
@@ -961,7 +961,7 @@
 
             <h3>Your First Sequence</h3>
             <p>Let's create a simple 3-step rotation:</p>
-            
+
             <div class="tutorial">
                 <h4>Quick Start: 5 Steps</h4>
                 <div class="tutorial-steps">
@@ -1010,10 +1010,10 @@
         <!-- Core Concepts Section -->
         <section id="concepts">
             <h2>Core Concepts <span class="badge concept">KEY CONCEPTS</span></h2>
-            
+
             <h3>Sequences</h3>
             <p>A <strong>Sequence</strong> is an ordered list of spell casts or macro commands that execute one-per-keypress.</p>
-            
+
             <div class="card">
                 <h4>Anatomy of a Sequence</h4>
                 <pre>Name: "Fire_Mage_ST"
@@ -1138,7 +1138,7 @@ Context Versions: Default, Raid, Dungeon</pre>
 
             <div class="ui-mockup">
                 <div class="ui-title-bar">
-                    <span>GRIP-EMS v1.0.3</span>
+                    <span>GRIP-EMS v1.0.5</span>
                     <div style="display: flex; gap: 0.5rem;">
                         <button class="ui-button" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">⚙️</button>
                         <button class="ui-button" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">✕</button>
@@ -1318,7 +1318,7 @@ Context Versions: Default, Raid, Dungeon</pre>
             </div>
 
             <h3 style="margin-top: 2rem;">Understanding the Editor</h3>
-            
+
             <div class="grid-2">
                 <div class="card">
                     <h4>Working Copy Pattern</h4>
@@ -2294,9 +2294,9 @@ Fireball</textarea>
     <footer>
         <p>GRIP-EMS &copy; 2024-2026 by Sataana (MrSataana / JesperLive) | All Rights Reserved</p>
         <p style="margin-top: 1rem; font-size: 0.9rem;">
-            <a href="https://www.curseforge.com/wow/addons/grip-enhanced-macro-sequencer">CurseForge</a> · 
-            <a href="https://discord.gg/temptingus">Discord</a> · 
-            <a href="https://github.com/JesperLive/GRIP-EMS">GitHub</a> · 
+            <a href="https://www.curseforge.com/wow/addons/grip-enhanced-macro-sequencer">CurseForge</a> ·
+            <a href="https://discord.gg/temptingus">Discord</a> ·
+            <a href="https://github.com/JesperLive/GRIP-EMS">GitHub</a> ·
             <a href="https://wago.io">Wago.io</a>
         </p>
         <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
@@ -2340,22 +2340,22 @@ Fireball</textarea>
             const stepFunc = document.getElementById('builder-stepfunc').value;
             const reset = document.getElementById('builder-reset').value;
             const stepsText = document.getElementById('builder-steps').value;
-            
+
             const steps = stepsText.split('\n').map(s => s.trim()).filter(s => s);
-            
+
             const sequenceData = {
                 name: name,
                 stepFunc: stepFunc,
                 resetConds: [reset],
                 steps: steps
             };
-            
+
             const json = JSON.stringify(sequenceData);
             const exportString = '!GRIP1!' + btoa(json);
-            
+
             document.getElementById('builder-export-string').textContent = exportString;
             document.getElementById('builder-output').style.display = 'block';
-            
+
             navigator.clipboard.writeText(exportString).then(() => {
                 const btn = event.target;
                 const oldText = btn.textContent;
@@ -2383,7 +2383,7 @@ Fireball</textarea>
                     const target = document.querySelector(href);
                     if (target) {
                         target.scrollIntoView({ behavior: 'smooth' });
-                        
+
                         document.querySelectorAll('.nav-link').forEach(link => {
                             link.classList.remove('active');
                         });
@@ -2397,7 +2397,7 @@ Fireball</textarea>
         window.addEventListener('scroll', () => {
             let current = '';
             const sections = document.querySelectorAll('section');
-            
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
@@ -2405,7 +2405,7 @@ Fireball</textarea>
                     current = section.getAttribute('id');
                 }
             });
-            
+
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
