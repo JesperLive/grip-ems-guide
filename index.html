@@ -1137,8 +1137,48 @@
             <h4>Character Counter</h4>
             <p>Each step shows an N/255 counter. Green under 200, yellow from 200 to 254, red at 255. The 255-character limit is a hard WoW restriction on macro text -- you cannot exceed it.</p>
 
-            <h4>Priority Preview</h4>
-            <p>When using the Priority step function, the editor shows the expanded numbered step order below the step list. This lets you see exactly how the engine will evaluate your steps on each keypress.</p>
+            <h4>Rotation Preview</h4>
+            <p>A live preview appears below the editor header whenever a sequence has steps. It shows you exactly what the engine will do on each keypress before you ever leave the editor.</p>
+
+            <p>A toggle button in the top-right corner switches between two display modes:</p>
+
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Icon mode (default):</strong> A horizontal strip of spell icons, one per simulated keypress. Each icon shows a step number in the bottom-right corner. Hover any icon for a tooltip with the step index and spell name. If the strip overflows, scroll horizontally.</li>
+                <li><strong>Text mode:</strong> A numbered list showing the full macro text for each step. A summary line at the bottom shows the total step count and the longest step's character count, color-coded green/yellow/red using the same thresholds as the per-step counter.</li>
+            </ul>
+
+            <div class="collapsible" id="collapse-preview-details">
+                <div class="collapsible-header" onclick="toggleCollapsible('collapse-preview-details')">
+                    <span class="chevron">&#9654;</span>
+                    How the Preview Simulates Steps
+                </div>
+                <div class="collapsible-body">
+                    <p><strong>Random</strong> step function: Icons show each unique step once with a "Random order" hint. The actual execution order is unpredictable, so no cycle is simulated.</p>
+                    <p><strong>Sequential, Priority, and Reverse Priority:</strong> The preview simulates 20 keypresses so you can see the full cycle, including wraps back to the beginning.</p>
+                    <p><strong>Spell status tinting on icons:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                        <li><span class="text-accent fw-bold">Red overlay</span> -- spell does not exist (renamed or removed in a patch)</li>
+                        <li><span class="text-gold fw-bold">Orange overlay</span> -- spell exists but is not learned (wrong spec or talent)</li>
+                        <li>No overlay -- spell is valid, an item, or a variable reference</li>
+                    </ul>
+                    <p class="mb-0">The preview updates live as you edit steps. No save required.</p>
+                </div>
+            </div>
+
+            <h4>Spell Validation</h4>
+            <p>A yellow warning banner appears at the top of the editor when any step references a spell that may be outdated.</p>
+            <p>Hover the banner for a breakdown: "unknown" spells (removed or renamed in a patch) and "known" spells (exist in the game but not in your current spellbook -- typically talent-gated or wrong-spec).</p>
+            <p>The same status is reflected in the Rotation Preview icon tinting (see above) so you can spot exactly which steps are affected.</p>
+
+            <div class="collapsible" id="collapse-spell-validation">
+                <div class="collapsible-header" onclick="toggleCollapsible('collapse-spell-validation')">
+                    <span class="chevron">&#9654;</span>
+                    Batch Validation
+                </div>
+                <div class="collapsible-body">
+                    <p class="mb-0">Use <code>/gems validate</code> to check all sequences at once. See <a href="#commands">Slash Commands</a> for details.</p>
+                </div>
+            </div>
 
             <h4>KeyPress / KeyRelease</h4>
             <p>Two editor boxes sit above the step list. KeyPress lines run before each step (e.g., <code>/stopmacro [channeling]</code>). KeyRelease lines run after. Per-step fit status shows whether the keyPress text fits within the 255-char limit for that particular step.</p>
@@ -1260,6 +1300,24 @@
         <h3>Exporting</h3>
         <p><strong>Single export:</strong> Type <code>/gems export &lt;name&gt;</code> and the sequence is copied to your clipboard as an encoded string. Paste it anywhere -- Discord, a forum post, a guild doc.</p>
         <p><strong>Multi-select export:</strong> Type <code>/gems exportall</code> to open a picker window. Check the sequences you want, and GRIP-EMS automatically includes any variables they depend on. No manual tracking required.</p>
+
+        <div class="collapsible" id="collapse-export-multi">
+            <div class="collapsible-header" onclick="toggleCollapsible('collapse-export-multi')">
+                <span class="chevron">&#9654;</span>
+                Multi-Select Export Details
+            </div>
+            <div class="collapsible-body">
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>The picker shows all sequences with version count, step count, and a gold "Uses N variables" indicator when variable dependencies exist.</li>
+                    <li>Selecting a sequence automatically selects all variables it references, including transitive dependencies (a variable that calls another variable, up to 8 levels deep). Auto-selected variables show an "auto" badge in gold.</li>
+                    <li>You can manually deselect auto-selected variables or add extras.</li>
+                    <li>If a selected sequence uses <code>/click</code> to call another sequence that is not selected, a warning banner appears so you know the export will be incomplete.</li>
+                    <li>Variable descriptions are included in the export. If no description is set, the variable's code comment is used as a fallback.</li>
+                    <li>Select All / Deselect All buttons for quick batch selection.</li>
+                </ul>
+            </div>
+        </div>
+
         <p>The exported string is locale-safe. Spell names are encoded as spell IDs, so the import works in any language. A German player can export a sequence and a Korean player can import it without issues.</p>
 
         <h3>Importing</h3>
@@ -1551,6 +1609,10 @@
                         <td><code>/gems status</code></td>
                         <td style="text-align: left;">Show addon version and sequence count</td>
                     </tr>
+                    <tr>
+                        <td><code>/gems validate</code></td>
+                        <td style="text-align: left;">Validate all sequences for stale or missing spells</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -1575,8 +1637,8 @@
                 <h4>UI and Display</h4>
                 <p><code>/gems</code> (editor), <code>/gems tracker</code>, <code>/gems tracker lock</code>, <code>/gems settings</code>, <code>/gems guide</code></p>
 
-                <h4>Debug</h4>
-                <p class="mb-0"><code>/gems debug</code>, <code>/gems debugwindow</code>, <code>/gems status</code></p>
+                <h4>Debug and Maintenance</h4>
+                <p class="mb-0"><code>/gems debug</code>, <code>/gems debugwindow</code>, <code>/gems status</code>, <code>/gems validate</code></p>
             </div>
         </div>
 
