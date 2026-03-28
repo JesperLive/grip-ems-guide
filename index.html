@@ -1169,6 +1169,7 @@
             <p>A yellow warning banner appears at the top of the editor when any step references a spell that may be outdated.</p>
             <p>Hover the banner for a breakdown: "unknown" spells (removed or renamed in a patch) and "known" spells (exist in the game but not in your current spellbook -- typically talent-gated or wrong-spec).</p>
             <p>The same status is reflected in the Rotation Preview icon tinting (see above) so you can spot exactly which steps are affected.</p>
+            <p>Spell warnings now update automatically when you swap specs or change talents -- no need to close and reopen the editor.</p>
 
             <div class="collapsible" id="collapse-spell-validation">
                 <div class="collapsible-header" onclick="toggleCollapsible('collapse-spell-validation')">
@@ -1319,6 +1320,8 @@
         </div>
 
         <p>The exported string is locale-safe. Spell names are encoded as spell IDs, so the import works in any language. A German player can export a sequence and a Korean player can import it without issues.</p>
+
+        <p>In text-mode rotation preview, a Copy button lets you copy the full rotation to your clipboard for sharing in Discord or forums.</p>
 
         <h3>Importing</h3>
         <p>Run <code>/gems import</code> to open the paste window. Paste an export string from GRIP-EMS or from a compatible sequencer addon. The import preview shows every sequence in the string with color-coded status:</p>
