@@ -1131,6 +1131,9 @@
 
             <p>GRIP-EMS uses a working-copy pattern. Your edits are not live until you click <strong>Save</strong>. Changed your mind? Click <strong>Discard</strong> to throw away everything since the last save. This keeps your running rotation safe while you experiment.</p>
 
+            <h4>Metadata Editor</h4>
+            <p>A collapsible panel below the sequence name lets you edit Author, Description, Help Text, and Help Link. Four read-only fields (Class, Spec, Created, Updated) are shown alongside. Metadata is included in GRIP1 exports and preserved on import.</p>
+
             <h4>Spell Autocomplete</h4>
             <p>Press <strong>Tab</strong> inside a step to search your spellbook. It matches by spell name. Select a result and the <code>/cast SpellName</code> command is inserted for you. Fast, accurate, no typos.</p>
 
@@ -1327,10 +1330,11 @@
         <p>Run <code>/gems import</code> to open the paste window. Paste an export string from GRIP-EMS or from a compatible sequencer addon. The import preview shows every sequence in the string with color-coded status:</p>
         <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
             <li><span class="text-green fw-bold">Green</span> -- new sequence, safe to import</li>
-            <li><span class="text-gold fw-bold">Yellow</span> -- sequence exists but is different (shows the source version so you can compare)</li>
-            <li><span class="text-accent fw-bold">Red</span> -- sequence exists and is identical (skip recommended)</li>
+            <li><span class="text-gold fw-bold">Yellow</span> -- sequence exists but content is different (fingerprint comparison detects step, metadata, and variable changes)</li>
+            <li><span class="text-secondary fw-bold">Grey</span> -- sequence exists and is identical (fingerprint match, skip recommended)</li>
         </ul>
         <p>For each item you can choose Skip, Replace, or Rename. Variables included in the export are listed separately with the same options. You always see exactly what you are getting before anything changes.</p>
+        <p>GRIP1 collection strings can bundle multiple sequences and their variables into a single export. Paste the string and all items appear in the preview at once.</p>
 
         <div class="collapsible" id="collapse-import-details">
             <div class="collapsible-header" onclick="toggleCollapsible('collapse-import-details')">
