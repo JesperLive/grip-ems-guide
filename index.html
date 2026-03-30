@@ -1323,6 +1323,7 @@
         </div>
 
         <p>The exported string is locale-safe. Spell names are encoded as spell IDs, so the import works in any language. A German player can export a sequence and a Korean player can import it without issues.</p>
+        <p>Locale safety also extends to your saved sequences. Each step is backed by a spell ID tag, and if you change your WoW client language, the addon automatically retranslates all step text on login. Item names (from /equip and /equipslot) and toy names (from /usetoy) are also covered.</p>
 
         <p>In text-mode rotation preview, a Copy button lets you copy the full rotation to your clipboard for sharing in Discord or forums.</p>
 
@@ -1620,6 +1621,14 @@
                         <td><code>/gems validate</code></td>
                         <td style="text-align: left;">Validate all sequences for stale or missing spells</td>
                     </tr>
+                    <tr>
+                        <td><code>/gems testlocale</code></td>
+                        <td style="text-align: left;">Run a locale round-trip test and healing simulation</td>
+                    </tr>
+                    <tr>
+                        <td><code>/gems revalidate</code></td>
+                        <td style="text-align: left;">Force re-tag all sequences from current spell names</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -1645,7 +1654,7 @@
                 <p><code>/gems</code> (editor), <code>/gems tracker</code>, <code>/gems tracker lock</code>, <code>/gems settings</code>, <code>/gems guide</code></p>
 
                 <h4>Debug and Maintenance</h4>
-                <p class="mb-0"><code>/gems debug</code>, <code>/gems debugwindow</code>, <code>/gems status</code>, <code>/gems validate</code></p>
+                <p class="mb-0"><code>/gems debug</code>, <code>/gems debugwindow</code>, <code>/gems status</code>, <code>/gems validate</code>, <code>/gems testlocale</code>, <code>/gems revalidate</code></p>
             </div>
         </div>
 
