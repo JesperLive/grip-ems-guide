@@ -1298,12 +1298,14 @@
         <h3>Player-to-Player Sharing</h3>
         <p>Send sequences to other players via whisper, party, raid, or instance chat. The recipient gets a clickable chat link -- one click to preview, one more to accept. No copy-pasting strings, no external websites. Just click and go.</p>
         <p>Friends can enable auto-accept in settings to skip the confirmation dialog entirely. Useful for guildies who share sequences regularly.</p>
+        <p><strong>Block list:</strong> Use <code>/gems block &lt;player&gt;</code> to block a player from sending you sequences. Blocked transmissions are silently dropped. Manage your block list in Settings or via <code>/gems blocklist</code>. The block list is account-wide and persists across characters.</p>
 
         <div class="tip-box">You can only send to players who also have GRIP-EMS installed.</div>
 
         <h3>Exporting</h3>
         <p><strong>Single export:</strong> Type <code>/gems export &lt;name&gt;</code> and the sequence is copied to your clipboard as an encoded string. Paste it anywhere -- Discord, a forum post, a guild doc.</p>
         <p><strong>Multi-select export:</strong> Type <code>/gems exportall</code> to open a picker window. Check the sequences you want, and GRIP-EMS automatically includes any variables they depend on. No manual tracking required.</p>
+        <p><strong>Copy as Text:</strong> The export picker includes a "Copy as Text" button that generates a human-readable plain-text summary of selected sequences -- step function, reset conditions, keybinds, steps, KeyPress/KeyRelease, and variable dependencies. Useful for sharing outside the game without encoded strings.</p>
 
         <div class="collapsible" id="collapse-export-multi">
             <div class="collapsible-header" onclick="toggleCollapsible('collapse-export-multi')">
@@ -1391,6 +1393,18 @@
                         <tr>
                             <td style="text-align: left;">Send to a player</td>
                             <td style="text-align: left;"><code>/gems send &lt;name&gt; &lt;target&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Block a player</td>
+                            <td style="text-align: left;"><code>/gems block &lt;player&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Unblock a player</td>
+                            <td style="text-align: left;"><code>/gems unblock &lt;player&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">List blocked players</td>
+                            <td style="text-align: left;"><code>/gems blocklist</code></td>
                         </tr>
                         <tr>
                             <td style="text-align: left;">Accept last received</td>
@@ -1586,6 +1600,18 @@
                         <td style="text-align: left;">Send a sequence to a player</td>
                     </tr>
                     <tr>
+                        <td><code>/gems block &lt;player&gt;</code></td>
+                        <td style="text-align: left;">Block a player from P2P transmission</td>
+                    </tr>
+                    <tr>
+                        <td><code>/gems unblock &lt;player&gt;</code></td>
+                        <td style="text-align: left;">Unblock a player</td>
+                    </tr>
+                    <tr>
+                        <td><code>/gems blocklist</code></td>
+                        <td style="text-align: left;">List all blocked players</td>
+                    </tr>
+                    <tr>
                         <td><code>/gems accept</code></td>
                         <td style="text-align: left;">Accept the last received sequence</td>
                     </tr>
@@ -1648,7 +1674,7 @@
                 <p><code>/gems bind</code>, <code>/gems unbind</code>, <code>/gems binds</code></p>
 
                 <h4>Sharing</h4>
-                <p><code>/gems import</code>, <code>/gems export</code>, <code>/gems exportall</code>, <code>/gems send</code>, <code>/gems accept</code>, <code>/gems migrate</code></p>
+                <p><code>/gems import</code>, <code>/gems export</code>, <code>/gems exportall</code>, <code>/gems send</code>, <code>/gems block</code>, <code>/gems unblock</code>, <code>/gems blocklist</code>, <code>/gems accept</code>, <code>/gems migrate</code></p>
 
                 <h4>UI and Display</h4>
                 <p><code>/gems</code> (editor), <code>/gems tracker</code>, <code>/gems tracker lock</code>, <code>/gems settings</code>, <code>/gems guide</code></p>
