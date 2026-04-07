@@ -1564,6 +1564,14 @@
                         <td style="text-align: left;">Advance one step and show the result</td>
                     </tr>
                     <tr>
+                        <td><code>/gems repair &lt;name&gt;</code></td>
+                        <td style="text-align: left;">Analyze a sequence for issues and open the repair UI with one-click fixes</td>
+                    </tr>
+                    <tr>
+                        <td><code>/gems repairall</code></td>
+                        <td style="text-align: left;">Analyze all sequences and open the batch repair UI</td>
+                    </tr>
+                    <tr>
                         <td><code>/gems reset &lt;name&gt;</code></td>
                         <td style="text-align: left;">Reset a sequence to step 1</td>
                     </tr>
@@ -1680,7 +1688,7 @@
                 <p><code>/gems</code> (editor), <code>/gems tracker</code>, <code>/gems tracker lock</code>, <code>/gems settings</code>, <code>/gems guide</code></p>
 
                 <h4>Debug and Maintenance</h4>
-                <p class="mb-0"><code>/gems debug</code>, <code>/gems debugwindow</code>, <code>/gems status</code>, <code>/gems validate</code>, <code>/gems testlocale</code>, <code>/gems revalidate</code></p>
+                <p class="mb-0"><code>/gems debug</code>, <code>/gems debugwindow</code>, <code>/gems status</code>, <code>/gems validate</code>, <code>/gems testlocale</code>, <code>/gems revalidate</code>, <code>/gems repair</code>, <code>/gems repairall</code></p>
             </div>
         </div>
 
@@ -2297,6 +2305,18 @@
                 <p class="mb-0">You might notice a brief delay on the first keypress after making changes during combat. This is normal -- the engine is recompiling the sequence with your new steps.</p>
             </div>
         </div>
+
+        <h3 id="repair-module">Repair Module</h3>
+        <p>The Repair Module scans your sequences for common problems and offers one-click fixes. It checks 13 diagnostic categories including stale spells, structure issues, character limits, variable references, keybind conflicts, macro stub problems, engine configuration, metadata completeness, context version gaps, action tree integrity, locale safety, import artifacts, and performance concerns.</p>
+
+        <h4>Health Score</h4>
+        <p>Each sequence gets a health score from 0 to 100. The score appears as a color-coded badge on the sequence icon in the list: green (80+), yellow (50-79), or red (below 50). A score of 100 means no issues were detected.</p>
+
+        <h4>Using the Repair UI</h4>
+        <p>Open the repair window in three ways: right-click a sequence and choose <strong>Repair</strong>, type <code>/gems repair SequenceName</code>, or type <code>/gems repairall</code> to scan everything at once. Issues are grouped by category with severity indicators (CRIT, ERR, WARN, INFO). Click <strong>Fix</strong> on any individual issue or <strong>Fix All</strong> to apply every available fix in one pass.</p>
+
+        <h4>Quality Gates</h4>
+        <p>When exporting or sending sequences with critical or error issues, a confirmation dialog warns you before proceeding. After importing sequences, a chat message tells you if issues were detected so you can run <code>/gems repair</code> immediately.</p>
 
         <h3>Troubleshooting</h3>
 
