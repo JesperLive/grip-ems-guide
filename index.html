@@ -893,6 +893,7 @@
     <div class="nav-group">
         <div class="nav-group-header">Reference</div>
         <a href="#advanced">Advanced</a>
+        <a href="#roadmap">Roadmap</a>
         <a href="#glossary">Glossary</a>
         <a href="#faq">FAQ</a>
     </div>
@@ -1572,6 +1573,14 @@
                         <td style="text-align: left;">Analyze all sequences and open the batch repair UI</td>
                     </tr>
                     <tr>
+                        <td><code>/gems cvar</code></td>
+                        <td style="text-align: left;">Manage CVar profiles from chat (select, auto-switch, view changes)</td>
+                    </tr>
+                    <tr>
+                        <td><code>/gems sqw</code></td>
+                        <td style="text-align: left;">Show SQW Optimizer status, toggle on/off, or adjust buffer</td>
+                    </tr>
+                    <tr>
                         <td><code>/gems reset &lt;name&gt;</code></td>
                         <td style="text-align: left;">Reset a sequence to step 1</td>
                     </tr>
@@ -1688,6 +1697,10 @@
                 <p><code>/gems</code> (editor), <code>/gems tracker</code>, <code>/gems tracker lock</code>, <code>/gems settings</code>, <code>/gems guide</code></p>
 
                 <h4>Debug and Maintenance</h4>
+                <h4>CVar and Optimization</h4>
+                <p><code>/gems cvar</code>, <code>/gems sqw</code>, <code>/gems msadvisor</code></p>
+
+                <h4>Debug and Maintenance</h4>
                 <p class="mb-0"><code>/gems debug</code>, <code>/gems debugwindow</code>, <code>/gems status</code>, <code>/gems validate</code>, <code>/gems testlocale</code>, <code>/gems revalidate</code>, <code>/gems repair</code>, <code>/gems repairall</code></p>
             </div>
         </div>
@@ -1747,6 +1760,21 @@
             <h3>Sharing Settings</h3>
             <p><strong>Channel Protection</strong> -- Controls which chat channels can receive sequence shares. By default, whisper, party, and raid are enabled. Instance and guild channels can be toggled on or off.</p>
             <p class="mb-0"><strong>Auto-Accept from Friends</strong> -- When enabled, sequences sent by players on your friends list are automatically accepted without a confirmation dialog. Saves time in guilds where people share frequently.</p>
+        </div>
+
+        <div class="card">
+            <h3>CVar Dashboard</h3>
+            <p><strong>Profile</strong> -- Select a built-in profile (Raid, M+, Solo, PvP) or a custom profile. Each profile defines recommended CVar values for that content type.</p>
+            <p><strong>Auto-Switch</strong> -- When enabled, the addon automatically selects the best profile based on the zone you enter (raid instance, M+ dungeon, arena, open world).</p>
+            <p><strong>Per-CVar Auto-Fix</strong> -- Toggle auto-fix individually for each CVar. Only opted-in CVars are corrected on login.</p>
+            <p class="mb-0"><strong>Health Score</strong> -- Weighted 0-100 score shown in the dashboard header. Critical CVars count more heavily.</p>
+        </div>
+
+        <div class="card">
+            <h3>SQW Optimizer</h3>
+            <p><strong>Enable</strong> -- Turns the dynamic SpellQueueWindow optimizer on or off.</p>
+            <p><strong>Sensitivity (Buffer)</strong> -- Milliseconds added on top of smoothed latency. Higher values give more input forgiveness at the cost of slight delay. Default: 100ms.</p>
+            <p class="mb-0"><strong>Live Display</strong> -- Shows current SQW value with latency and buffer breakdown. Click rate advisory badge shows optimal keypress interval.</p>
         </div>
 
         <div class="card">
@@ -1822,6 +1850,30 @@
                                 <td style="text-align: left;">General</td>
                                 <td style="text-align: left;">Shown</td>
                                 <td style="text-align: left;">Show or hide the minimap icon</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">CVar Profile</td>
+                                <td style="text-align: left;">CVar Dashboard</td>
+                                <td style="text-align: left;">General</td>
+                                <td style="text-align: left;">Active CVar profile (Raid, M+, Solo, PvP, or custom)</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">CVar Auto-Switch</td>
+                                <td style="text-align: left;">CVar Dashboard</td>
+                                <td style="text-align: left;">Off</td>
+                                <td style="text-align: left;">Auto-select profile based on zone</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">SQW Optimizer</td>
+                                <td style="text-align: left;">CVar Dashboard</td>
+                                <td style="text-align: left;">Off</td>
+                                <td style="text-align: left;">Dynamic SpellQueueWindow optimization</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">SQW Buffer</td>
+                                <td style="text-align: left;">CVar Dashboard</td>
+                                <td style="text-align: left;">100ms</td>
+                                <td style="text-align: left;">Latency buffer added to smoothed EWMA value</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2318,6 +2370,39 @@
         <h4>Quality Gates</h4>
         <p>When exporting or sending sequences with critical or error issues, a confirmation dialog warns you before proceeding. After importing sequences, a chat message tells you if issues were detected so you can run <code>/gems repair</code> immediately.</p>
 
+        <h3 id="cvar-dashboard">CVar Dashboard</h3>
+        <p>The CVar Dashboard gives you full visibility into the 212 game variables (CVars) that affect combat performance, visuals, and input responsiveness. Variables are organized into 13 sections with live health scoring.</p>
+
+        <h4>Profiles</h4>
+        <p>Four built-in profiles (Raid, M+, Solo, PvP) define recommended CVar values for each content type. The addon can auto-switch profiles based on the zone you enter, or you can select a profile manually. Custom profiles can be created by cloning a built-in profile and adjusting individual values.</p>
+
+        <h4>What Changed?</h4>
+        <p>On login, the addon compares a snapshot of your CVar values from last session against current values. If anything changed (patch reset, another addon, manual edit), a notification banner shows what moved and lets you review before fixing.</p>
+
+        <h4>Per-CVar Auto-Fix</h4>
+        <p>Instead of blanket-overwriting all recommended CVars, you choose exactly which ones the addon manages. Toggle auto-fix per CVar in the dashboard. On login, only your opted-in CVars are corrected. The Fix button next to each CVar lets you apply the recommended value on demand.</p>
+
+        <h4>Health Score</h4>
+        <p>A weighted score (0-100) in the dashboard header shows overall CVar health. Critical CVars count more. The score updates live as you fix individual values or apply a profile.</p>
+
+        <h4>Slash Commands</h4>
+        <p>Use <code>/gems cvar</code> to manage profiles from chat. <code>/gems status</code> now includes CVar health summary (OK/warn/critical counts).</p>
+
+        <h3 id="sqw-optimizer">Dynamic SQW Optimizer</h3>
+        <p>The SQW (SpellQueueWindow) Optimizer automatically tunes your SpellQueueWindow CVar based on real-time network latency. This determines how early WoW accepts your next spell input before the current GCD finishes.</p>
+
+        <h4>How It Works</h4>
+        <p>The optimizer samples your world latency, smooths it using EWMA (Exponential Weighted Moving Average) with outlier rejection to filter lag spikes, adds a configurable buffer, and clamps the result between 50ms and 400ms. It rechecks every 10 seconds and on zone or spec changes. A hysteresis guard prevents flapping between similar values.</p>
+
+        <h4>Click Rate Advisory</h4>
+        <p>Based on your current GCD and the applied SQW value, the optimizer calculates your optimal click interval. The advisory badge in the dashboard shows this value so you can pace your keypresses for maximum throughput.</p>
+
+        <h4>Safety</h4>
+        <p>Your original SQW value is captured at login and automatically restored on logout. CVar writes are gated behind InCombatLockdown() to prevent taint. The CVar Dashboard marks SQW as "Managed" when the optimizer is active, disabling the manual Fix button to prevent conflicts.</p>
+
+        <h4>Controls</h4>
+        <p>Enable the optimizer in Settings or with <code>/gems sqw on</code>. Adjust the latency buffer with the sensitivity slider. Use <code>/gems sqw</code> to check current status, EWMA latency, and applied value. <code>/gems msadvisor</code> uses live optimizer data when active.</p>
+
         <h3>Troubleshooting</h3>
 
         <div class="table-wrap">
@@ -2364,7 +2449,68 @@
         <div class="tip-box">When in doubt, enable debug mode with <code>/gems debug</code> and watch the chat output as you press your keybind. It shows which step fired, what macro text was used, and whether any variables were substituted.</div>
     </section>
     <!-- ============================================================
-         SECTION 16: GLOSSARY
+         SECTION 16: ROADMAP
+         ============================================================ -->
+    <section id="roadmap">
+        <h2>Roadmap</h2>
+        <p>Major features shipped and planned for GRIP-EMS.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">Feature</th>
+                        <th style="text-align: left;">Version</th>
+                        <th style="text-align: left;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;">Sequencing Engine + Visual Editor</td>
+                        <td style="text-align: left;">v1.0</td>
+                        <td style="text-align: left;"><span class="badge badge-new">Shipped</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Context Switching (53 content types)</td>
+                        <td style="text-align: left;">v1.2</td>
+                        <td style="text-align: left;"><span class="badge badge-new">Shipped</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">P2P Sharing + Remote Browser</td>
+                        <td style="text-align: left;">v1.7</td>
+                        <td style="text-align: left;"><span class="badge badge-new">Shipped</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Repair Module (13-category diagnostics)</td>
+                        <td style="text-align: left;">v1.8</td>
+                        <td style="text-align: left;"><span class="badge badge-new">Shipped</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">CVar Dashboard (212 CVars, profiles, auto-fix)</td>
+                        <td style="text-align: left;">v1.9</td>
+                        <td style="text-align: left;"><span class="badge badge-new">Shipped</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Dynamic SQW Optimizer (EWMA latency tuning)</td>
+                        <td style="text-align: left;">v1.9</td>
+                        <td style="text-align: left;"><span class="badge badge-new">Shipped</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">CVar Profile Export/Import</td>
+                        <td style="text-align: left;">--</td>
+                        <td style="text-align: left;"><span class="badge badge-coming-soon">Planned</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">SQW History Sparkline</td>
+                        <td style="text-align: left;">--</td>
+                        <td style="text-align: left;"><span class="badge badge-coming-soon">Planned</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- ============================================================
+         SECTION 17: GLOSSARY
          ============================================================ -->
     <section id="glossary">
         <h2>Glossary</h2>
