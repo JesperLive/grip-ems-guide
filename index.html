@@ -851,6 +851,15 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <div class="nav-group">
 
+<div class="nav-group-label">ACCESSIBILITY</div>
+
+    <a class="nav-link" href="#accessibility">Accessibility</a>
+
+  </div>
+
+
+<div class="nav-group">
+
 <div class="nav-group-label">TOOLS</div>
 
     <a class="nav-link" href="#cvar">CVar Dashboard</a>
@@ -1840,6 +1849,129 @@ Phase 4: Stored Recommendations</h4>
 <p>When you bind a key, GRIP-EMS creates a SecureActionButton (macro stub) and assigns it to that key. The binding is a temporary override -- it never touches your saved WoW keybinds. When the addon disables (vehicles, skyriding), the overrides suspend automatically.</p>
 </section>
 
+<section id="accessibility" class="reveal">
+<h2>Accessibility <span class="badge badge-new">NEW</span></h2>
+
+<p>GRIP-EMS aims to be usable for players who rely on screen readers, play one-handed, play with tremor, play with low vision, or avoid motion in the UI. Settings live under the Accessibility subpanel at <code>/gems settings</code> -&gt; Accessibility. Design vocabulary follows AbleGamers APX (Accessible Player Experiences). The in-game panel is modelled on Elder Scrolls Online's Accessibility Mode: one place, grouped by population.</p>
+
+<div class="tip-box">
+This page lists features that ship in v2.0.0. Things the WoW addon API does not expose are called out separately under <a href="#accessibility-limits">What EMS cannot do</a>.
+</div>
+
+<h3>One-click Accessibility Mode</h3>
+
+<p>A single toggle in the Accessibility subpanel turns on speech, reduce-motion, the High-Contrast palette, editor scale 1.25x, large-target density, the cursor overlay, and Simplified Mode together. Toggling it off restores your prior state, not the defaults; EMS snapshots whatever you had set before the preset turned things on.</p>
+
+<p>On the first login after installation, EMS reads Blizzard's accessibility CVars (<code>colorblindMode</code>, <code>cameraBobbing</code>, gamepad-detected) and pre-applies matching EMS settings. This is one-shot. If your Blizzard settings change later, you can re-run the mirror from the Accessibility subpanel.</p>
+
+<h3>Vision</h3>
+
+<ul>
+<li>Screen readers via Blizzard's built-in text-to-speech (<code>C_VoiceChat.SpeakText</code>). Speaks the current step label when a sequence advances. One-shot in-game toast if no voice is configured.</li>
+<li>A chat-frame emitter pipes the same state messages into a user-selected chat frame (default hidden frame 9). BlindSlash, NVDA bridges, and other screen-reader relays can dock that frame and read from it.</li>
+<li>Editor scale slider from 0.8x to 2.0x in 0.05 steps. MainFrame drag-resize from 720x460 up to 1600x720.</li>
+<li>High-contrast focus ring on every focusable widget (4-edge texture, 2 px thick, 2 px outset).</li>
+<li>Font switch via LibSharedMedia with Atkinson Hyperlegible bundled.</li>
+<li>Three palette presets (Default, High Contrast, Deuteranopia-safe), seeded from Blizzard's <code>colorblindMode</code> CVar on first login. An 8-type colorblind matrix layers on top, with a 0-100% strength slider and a live 5-color preview swatch.</li>
+<li>No repeating flashes anywhere in the addon. Animations audited against WCAG 2.3.1.</li>
+</ul>
+
+<h3>Motion and vestibular</h3>
+
+<p>The reduce-motion toggle disables the two animation sites in the addon: the Tempo overlay alert pulse, and the Tracker fade-in on sequence change.</p>
+
+<h3>Motor</h3>
+
+<ul>
+<li>Keyboard-first navigation using <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> / arrow keys / <kbd>Enter</kbd> / <kbd>Esc</kbd>. Every non-EditBox widget is reachable.</li>
+<li>Numbered hotkeys: <kbd>1</kbd>..<kbd>6</kbd> and <kbd>Alt</kbd>+<kbd>1</kbd>..<kbd>6</kbd> jump to editor tabs.</li>
+<li>Resizable main window with a bottom-right drag grip.</li>
+<li>Spell, item, macro, and slash-command pickers across 14 filter modes, so long macro strings never need manual typing.</li>
+<li>Large-target density mode expands click rectangles to at least 44x44 px (WCAG 2.5.5 AAA) on action buttons, checkboxes, and tab strips.</li>
+<li>Cursor enhancement overlay with ring or crosshair shape, three sizes (1.0x / 1.5x / 2.0x), color tied to the active contrast palette.</li>
+<li>Simplified Mode for switch input, eye trackers with dwell-click, sip-and-puff, and head tracking. Collapses SequenceEditor to 2 tabs and a 3-button column (Run / Unlock editor / Close), and locks the key set to <kbd>Enter</kbd> / <kbd>Space</kbd> / <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> / <kbd>Esc</kbd>. A 500 ms post-acceptance delay (250..1500 ms slider) blocks accidental double-fires. Toggle from the subpanel, the Accessibility Mode preset, or <code>/gems simplified</code>. A single <code>/reload</code> after the first enable produces the cleanest layout; same-session toggles apply best-effort live.</li>
+<li>Undo and Redo across the sequence editor, step list, popup editor, and repair frame. <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> in each.</li>
+</ul>
+
+<h3>Cognitive, new players, ESL</h3>
+
+<ul>
+<li>Opt-in first-run tutorial. Skippable and replayable.</li>
+<li>Help popovers on every SequenceEditor section. A <code>?</code> icon opens a short tooltip-anchored guide.</li>
+<li>Plain-language tooltip text across validation messages and slash-command output.</li>
+<li>Sequence metadata fields (Author, Description, Help Text, Help Link) so authors can embed guidance that travels with the export.</li>
+</ul>
+
+<h3>Audio</h3>
+
+<p>Sound cues for validation errors, validation success, import-related info, and step advance. Four semantic cues routed through LibSharedMedia, so any sound installed by SharedMedia, WeakAuras, ElvUI, or similar is pickable per cue. Channel selection (Master / SFX / Ambience / Dialog). Opt-in, off by default.</p>
+
+<p>A visual-flash complement to sound cues is available for Deaf and hard-of-hearing players: an 80x80 frame at top-center of the screen flashes red / green / cyan / gold for the matching cue, sustained 0.6 seconds. The visual toggle is independent of the sound toggle, so users can run audio-off and visual-on or both together.</p>
+
+<h3>Theming</h3>
+
+<p>A bounded subpanel covers the everyday controls: global font, editor scale, validation-badge palette, border and background opacity, per-panel alpha. A full per-element editor lives at <code>/gems theme</code>. The full editor exposes 45 element classes across Panels, Overlays, Rows, Buttons, Text, Emphasis, and Global. Five user-named preset slots, plus copy-to-all-profiles. Themes can be shared via chat link.</p>
+
+<div class="collapsible-wrap"><button class="collapsible-toggle" onclick="toggleCollapsible(this)">Note on the 45-class taxonomy<span class="coll-arrow">&#9654;</span></button>
+<div class="collapsible-body">
+<p>The theming apply engine uses two patterns. Persistent UI (panels, singleton overlays, the focus ring) is frame-registered: EMS holds a reference to the widget and re-skins it directly when the theme changes. Transient and construction-time UI (rows, buttons, text FontStrings, emphasis state modifiers, the global addon font) is consumer-lookup: the widget reads its spec from the current theme at the moment it renders. Both patterns produce identical visible theming. Consumer-lookup classes are not unbound and are not reserved; they apply at a different point in the widget's lifecycle.</p>
+<p>Five overlay classes are reserved in the taxonomy for features not yet shipped in v2.0.0: <code>overlay.toast.info</code>, <code>overlay.toast.error</code>, <code>overlay.modal.dim</code>, <code>overlay.tooltip</code>, <code>overlay.dragPreview</code>. Their specs are in place so future work can bind them without a taxonomy change. One panel class, <code>panel.profileMgr</code>, is a Blizzard-owned surface (the AceDBOptions profile picker); EMS cannot currently reach a frame handle for it, so its theming is deferred until that handle is exposed.</p>
+</div>
+</div>
+
+<h3>Feedback panel</h3>
+
+<p>Four buttons under <code>/gems</code> -&gt; Accessibility -&gt; Feedback link to AbleGamers APX, the Game Accessibility Guidelines, a Netflix documentary on accessible play in WoW, and the support Discord. WoW has no browser-launch API, so each button opens a static-popup edit box with the URL pre-selected for <kbd>Ctrl</kbd>+<kbd>C</kbd> copy.</p>
+
+<h3>Compatibility with other accessibility addons</h3>
+
+<table>
+<tr><th>Addon</th><th>Coexists</th><th>Notes</th></tr>
+<tr><td>BlindSlash</td><td>Yes</td><td>EMS TTS speaks step announcements. The chat-frame emitter pipes state into a dedicated chat-frame slot (default frame 9) for BlindSlash to parse.</td></tr>
+<tr><td>ConsolePort</td><td>Yes</td><td>Detected at login via the gamepad-detected flag. The keybind UI accepts gamepad buttons without extra config.</td></tr>
+<tr><td>DialogueUI</td><td>Yes</td><td>No shared UI surface.</td></tr>
+<tr><td>Leatrix Plus</td><td>Yes</td><td>No shared UI surface. Leatrix's own cursor-enhancement options are a good choice for users who want more cursor textures than EMS ships.</td></tr>
+<tr><td>ElvUI</td><td>Yes</td><td>EMS owns its own frames. Anchor MainFrame inside an ElvUI layout normally.</td></tr>
+<tr><td>WeakAuras</td><td>Yes</td><td>No shared UI surface. No taint interaction.</td></tr>
+<tr><td>Atkinson Hyperlegible (font addon)</td><td>Yes</td><td>EMS bundles an in-app font switch via LibSharedMedia with Atkinson Hyperlegible included. Third-party font addons still coexist.</td></tr>
+</table>
+
+<h3 id="accessibility-limits">What EMS cannot do</h3>
+
+<p>These are capabilities the addon API does not expose. They are structural limits, not deferred features.</p>
+
+<ul>
+<li><strong>Native screen-reader integration (NVDA / JAWS / VoiceOver).</strong> WoW does not expose its UI to Windows UIAutomation, Apple Accessibility, or any assistive-technology framework. Screen readers see WoW as opaque pixels. EMS compensates with the TTS output and the chat-frame emitter above.</li>
+<li><strong>Macro-pacing slowdown.</strong> Macro cadence is global-cooldown-bound. Slowing it below the GCD breaks the rotation.</li>
+<li><strong>Voice input or speech-to-sequence.</strong> No WoW API for speech recognition. Users route through Dragon or Talon as keyboard bridges; EMS sees those bridges as regular keyboard input.</li>
+<li><strong>Orientation and reflow (WCAG 1.3.4, 1.4.10).</strong> WoW is landscape-only with a fixed UI layout. The CSS-reflow concept does not map.</li>
+<li><strong>Detection of specific assistive tech</strong> (switch controllers, eye trackers, individual screen-reader brands). Those devices emit regular keyboard or mouse events through their driver; WoW cannot tell them apart. EMS exposes what Blizzard CVars reveal (<code>colorblindMode</code>, reduced-motion proxies, gamepad-detected) and stops there.</li>
+</ul>
+
+<h3>Slash commands</h3>
+
+<table>
+<tr><th>Command</th><th>Description</th></tr>
+<tr><td><code>/gems settings</code></td><td>Open settings, then click Accessibility</td></tr>
+<tr><td><code>/gems simplified</code></td><td>Toggle Simplified Mode</td></tr>
+<tr><td><code>/gems theme</code></td><td>Open the per-element Theming editor</td></tr>
+</table>
+
+<h3>Feedback and reporting</h3>
+
+<p>The support Discord at <a href="https://discord.gg/temptingus">discord.gg/temptingus</a> is the primary channel. Accessibility reports go in the addon thread. The Feedback panel inside <code>/gems</code> -&gt; Accessibility surfaces the same link plus the three external standards EMS draws from.</p>
+
+<h3>References</h3>
+
+<ul>
+<li><a href="https://www.elderscrollsonline.com/en-us/news/post/63876">ZeniMax ESO Accessibility Player Guide</a></li>
+<li><a href="https://accessible.games/accessible-player-experiences/design-patterns/">AbleGamers APX Design Patterns</a></li>
+<li><a href="https://gameaccessibilityguidelines.com/">Game Accessibility Guidelines</a></li>
+<li>WCAG 2.2 Success Criteria 2.3.1 (Three Flashes), 2.4.7 (Focus Visible), 2.5.5 (Target Size Enhanced)</li>
+</ul>
+
+</section>
+
 <section id="cvar" class="reveal">
 <h2>CVar Dashboard</h2>
 
@@ -2694,6 +2826,8 @@ end)</pre>
 
 <p>All settings grouped by panel. Open settings with <code>/gems settings</code>.</p>
 
+<p>The <strong>Accessibility</strong> subpanel (one-click preset, speech, reduce motion, contrast preset, density, cursor overlay, simplified mode, sound cues, theming, flicker-safe palette) is documented separately. See the <a href="#accessibility">Accessibility</a> section above for the full list and design rationale.</p>
+
 <div class="settings-group">
 <h3>General</h3>
 
@@ -3279,6 +3413,14 @@ end)</pre>
 
 <div class="faq-a">
 <p>The CVar Dashboard has a per-CVar reset button and a section-level Fix All button. For a full Blizzard default reset, type /console cvar_default in chat.</p>
+</div>
+</div>
+
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is GRIP-EMS accessible?<span class="faq-arrow">&#9654;</span>
+</button>
+
+<div class="faq-a">
+<p>Yes. The Accessibility subpanel covers screen-reader support via a chat-frame emitter, three palette presets plus an 8-type colorblind matrix, a flicker-safe palette for photosensitivity, large-target density mode, Simplified Mode for switch input and eye trackers, and a one-click Accessibility preset. See the <a href="#accessibility">Accessibility</a> section above for the full feature list, or <a href="https://github.com/JesperLive/GRIP-EMS/blob/main/ACCESSIBILITY.md">ACCESSIBILITY.md</a> on GitHub for the compatibility matrix.</p>
 </div>
 </div>
 </section>
