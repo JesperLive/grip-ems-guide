@@ -1291,6 +1291,104 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
  -- branching logic with multiple condition paths</li>
 </ul>
 
+<h3>If / Else Conditional Branching</h3>
+
+<p>An If node compiles a True branch and a False branch into a single chunk of WoW macro conditional text. The macro engine evaluates the condition you typed in the Cond box at runtime and runs whichever branch matches. EMS v2.1.0 fixed multi-action branches and automatic DeMorgan negation; earlier versions silently dropped all but the first action of each branch.</p>
+
+<h4>Out-of-combat examples</h4>
+
+<p><strong>Mount toggle.</strong> Shift held casts the utility spell, otherwise summon a mount.</p>
+
+<ul>
+<li><strong>Cond:</strong> <code>mod:shift</code></li>
+<li><strong>True:</strong> Aspect of the Cheetah</li>
+<li><strong>False:</strong> Reins of the Crimson Deathcharger</li>
+</ul>
+
+<pre><code>/cast [mod:shift] Aspect of the Cheetah; Reins of the Crimson Deathcharger</code></pre>
+
+<p><strong>Indoor fallback.</strong> One-sided If with no True branch. The compiler emits an explicitly negated condition so the mount only fires outdoors.</p>
+
+<ul>
+<li><strong>Cond:</strong> <code>indoors</code></li>
+<li><strong>True:</strong> (empty)</li>
+<li><strong>False:</strong> Reins of the Crimson Deathcharger</li>
+</ul>
+
+<pre><code>/cast [noindoors] Reins of the Crimson Deathcharger</code></pre>
+
+<p><strong>Profession dailies.</strong> Different commands per branch, so the compiler splits into two lines.</p>
+
+<ul>
+<li><strong>Cond:</strong> <code>mounted</code></li>
+<li><strong>True:</strong> /dismount</li>
+<li><strong>False:</strong> /cast Mining</li>
+</ul>
+
+<pre><code>/dismount [mounted]
+/cast [nomounted] Mining</code></pre>
+
+<h4>In-combat examples</h4>
+
+<p><strong>Modifier burst.</strong> Shift swaps the filler for a cooldown.</p>
+
+<ul>
+<li><strong>Cond:</strong> <code>mod:shift</code></li>
+<li><strong>True:</strong> Bestial Wrath</li>
+<li><strong>False:</strong> Cobra Shot</li>
+</ul>
+
+<pre><code>/cast [mod:shift] Bestial Wrath; Cobra Shot</code></pre>
+
+<p><strong>Target-aware cast.</strong> Damage on hostile targets, heal on friendly.</p>
+
+<ul>
+<li><strong>Cond:</strong> <code>harm</code></li>
+<li><strong>True:</strong> Cobra Shot</li>
+<li><strong>False:</strong> Mend Pet</li>
+</ul>
+
+<pre><code>/cast [harm] Cobra Shot; Mend Pet</code></pre>
+
+<p><strong>Pet-aware Hunter.</strong> The production sequence shipped in v2.0.x and now under regression coverage.</p>
+
+<ul>
+<li><strong>Cond:</strong> <code>nopet</code></li>
+<li><strong>True:</strong> Revive Pet (spell ID 982)</li>
+<li><strong>False:</strong> Barbed Shot (spell ID 217200)</li>
+</ul>
+
+<pre><code>/cast [nopet] 982; 217200</code></pre>
+
+<h4>Condition cheat sheet</h4>
+
+<p>Conditionals players reach for first. The spec doc has the full catalog.</p>
+
+<dl>
+<dt><code>mod:shift</code></dt><dd>True while shift is held. Variants for ctrl, alt, and L/R sided forms.</dd>
+<dt><code>combat</code></dt><dd>True while in combat.</dd>
+<dt><code>nocombat</code></dt><dd>True while out of combat.</dd>
+<dt><code>harm</code></dt><dd>True when the current target is hostile.</dd>
+<dt><code>help</code></dt><dd>True when the current target is friendly.</dd>
+<dt><code>mounted</code></dt><dd>True while mounted.</dd>
+<dt><code>indoors</code></dt><dd>True while inside a building or cave.</dd>
+<dt><code>advflyable</code></dt><dd>True in zones where Skyriding is allowed (added 10.0.7).</dd>
+<dt><code>stealth</code></dt><dd>True while in stealth (Rogue, Feral Druid, etc.).</dd>
+<dt><code>nopet</code></dt><dd>True when no pet is active. Hunters and Warlocks use this for revive/summon fallbacks.</dd>
+<dt><code>spec:N</code></dt><dd>True when current spec index matches N. Use slash for OR groups, e.g. <code>spec:1/3</code>.</dd>
+<dt><code>pvpcombat</code></dt><dd>True while in PvP combat with another player. Counts PvP-flagged combat NPCs in arenas and battlegrounds. Does not trigger on NPC combat in war-mode open world.</dd>
+</dl>
+
+<p>Full list with patch history at the <a href="https://warcraft.wiki.gg/wiki/Macro_conditionals">WoW conditional reference</a>.</p>
+
+<h4>DeMorgan negation</h4>
+
+<p>If the True branch is empty, the compiler emits an explicitly negated condition for the False branch instead of an empty first clause with a semicolon fall-through. The shorter form <code>[noindoors] mount</code> compiles to a single bracket with the negated condition; the alternative <code>[indoors] ; mount</code> would compile to a two-clause macro with an empty first clause, which is harder to read and provides no behavioral advantage. The full DeMorgan rule set lives in spec section 5.</p>
+
+<h4>Path indicator</h4>
+
+<p>The editor shows a small badge next to the Cond box label. The label tells you which compile path the node took: Single line, Two-line split, Per-step, or Optimized fall-through. The Compiled Output preview pane shows the literal macrotext the engine will see. If you set a multi-action True branch and the badge reads Per-step, that is the expected path.</p>
+
 <h3>Interleave / Weave <span class="badge badge-new">NEW</span>
 </h3>
 
