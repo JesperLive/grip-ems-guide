@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v1.9.1 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.1.16 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.1.8 Guide</div>
+<div class="version">v2.1.16 Guide</div>
 
   </div>
 
@@ -914,7 +914,38 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.1.8</span>
+<span class="version-badge">v2.1.16</span>
+</div>
+
+<h3>New in v2.1.16</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9889;</div>
+
+<h3>Skyride Dismount-to-Cast <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Press a bound sequence key while skyriding at an attackable target and you dismount and cast in the same press. Needs the game's Auto Dismount in Flight option on. With no target, or a friendly one, the key falls through to the skyriding bar.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#127807;</div>
+
+<h3>Druid Forms <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Travel Form gets the same one-press treatment. With Auto Dismount in Flight and Auto Unshift both on, a sequence keypress in skyriding Travel Form cancels the form and casts.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128737;</div>
+
+<h3>Skyride Watchdog <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>The game sometimes skips the bar-change signal on dismount, leaving a key dead until a reload. A watchdog now checks the real state out of combat and restores your binds when the signals lied.</p>
+</div>
 </div>
 
 <h3>New in v2.1.8</h3>
@@ -923,8 +954,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="feature-card">
 <div class="card-icon">&#9208;</div>
 
-<h3>Hold to Freeze <span class="badge badge-new">NEW</span>
-</h3>
+<h3>Hold to Freeze</h3>
 
 <p>Hold a modifier you pick (Shift, Control, or Alt) to pause the active sequence on its current step. Let go and it continues from the same step.</p>
 </div>
@@ -932,8 +962,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="feature-card">
 <div class="card-icon">&#10006;</div>
 
-<h3>Disable a Step <span class="badge badge-new">NEW</span>
-</h3>
+<h3>Disable a Step</h3>
 
 <p>Right-click a step and choose Disable Step. It keeps its slot, shows as greyed (off), and the sequence skips it at run time. Re-enable from the same menu.</p>
 </div>
@@ -941,8 +970,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="feature-card">
 <div class="card-icon">&#128273;</div>
 
-<h3>Per-Loadout Keybinds <span class="badge badge-new">NEW</span>
-</h3>
+<h3>Per-Loadout Keybinds</h3>
 
 <p>Each talent loadout can hold its own keybind for the same sequence. Swap loadout and the keybind set swaps with it.</p>
 </div>
@@ -950,41 +978,9 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="feature-card">
 <div class="card-icon">&#127919;</div>
 
-<h3>Variant Indicators <span class="badge badge-new">NEW</span>
-</h3>
+<h3>Variant Indicators</h3>
 
 <p>Sequences that branch on modifier keys or combat state show a colored indicator on the action button, so the live variant is visible without opening the editor.</p>
-</div>
-</div>
-
-<h3>New in v1.9.1</h3>
-
-<div class="card-grid">
-<div class="feature-card">
-<div class="card-icon">&#9889;</div>
-
-<h3>Tempo Advisor <span class="badge badge-new">NEW</span>
-</h3>
-
-<p>Per-sequence click rate analysis with adaptive learning. A movable overlay tells you when to speed up or slow down.</p>
-</div>
-
-<div class="feature-card">
-<div class="card-icon">&#9850;</div>
-
-<h3>Interleave / Weave <span class="badge badge-new">NEW</span>
-</h3>
-
-<p>Set an interval on any Action node and the compiler weaves it every N steps into your rotation automatically.</p>
-</div>
-
-<div class="feature-card">
-<div class="card-icon">&#9745;</div>
-
-<h3>Import Quality <span class="badge badge-new">NEW</span>
-</h3>
-
-<p>Checksum validation, disable toggle, Pause/Pet/Toy import fixes, and clipboard metadata reading.</p>
 </div>
 </div>
 
@@ -1243,6 +1239,8 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <li>Drag steps to reorder using the handle on the left</li>
 
+<li>Right-click a step (nested steps under If and Loop nodes too) to disable or re-enable it -- a disabled step keeps its slot, shows greyed, and is skipped at run time</li>
+
 <li>Each step shows a live character count (green under 200, yellow 200-240, red 241-255)</li>
 
 <li>The interleave spinner appears on Action nodes -- set an interval to weave that spell every N steps</li>
@@ -1254,7 +1252,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 </div>
 
 <div id="ed-keybind" class="tab-panel">
-<p>Assign a keybind to this sequence. Binds are stored per-spec and auto-switch on spec change.</p>
+<p>Assign a keybind to this sequence. Binds are stored per-spec -- and per talent loadout within the spec -- and auto-switch on spec or loadout change.</p>
 
 <ul>
 <li>Press the key you want to bind</li>
@@ -1429,8 +1427,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <p>The editor shows a small badge next to the Cond box label. The label tells you which compile path the node took: Single line, Two-line split, Per-step, or Optimized fall-through. The Compiled Output preview pane shows the literal macrotext the engine will see. If you set a multi-action True branch and the badge reads Per-step, that is the expected path.</p>
 
-<h3>Interleave / Weave <span class="badge badge-new">NEW</span>
-</h3>
+<h3>Interleave / Weave</h3>
 
 <p>Set an interval (2-50) on any Action node to weave it every N steps. For example, if you set a trinket use to interval 5, the compiler inserts it every 5th step.</p>
 
@@ -1511,11 +1508,18 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="warning-box"><strong>Warning:</strong>
  If a step exceeds 255 characters after variable substitution, the macro will be truncated by WoW and may not cast correctly. Watch the character counter in the editor.</div>
 
+<h3>Hold to Freeze</h3>
+
+<p>Hold a modifier to pause the active sequence on its current step. The engine stops advancing while the modifier is down and continues from the same step when you let go. Enable it and pick the modifier (Shift, Control, or Alt) under <code>/gems settings</code> -&gt; Hold to Freeze. Useful for sitting on a proc or saving a cooldown for a burst window.</p>
+
+<h3>Variant Indicators</h3>
+
+<p>Sequences that branch on modifier keys or combat state show a colored indicator on the action button, so the live variant is visible without opening the editor. The indicator follows whichever variant is currently active.</p>
+
 </section>
 
 <section id="tempo" class="reveal">
-<h2>Tempo Advisor <span class="badge badge-new">NEW</span>
-</h2>
+<h2>Tempo Advisor</h2>
 
 <p>The Tempo Advisor analyzes your sequence to recommend an optimal click rate (milliseconds between keypresses). It starts with a theoretical estimate and gets more accurate as it learns from your actual play data.</p>
 
@@ -1772,6 +1776,12 @@ Phase 4: Stored Recommendations</h4>
 
 <p>A single import string can contain multiple sequences and their dependent variables. GRIP-EMS resolves transitive variable dependencies so nothing gets left behind.</p>
 
+<h3>Spell Names Across Languages and Classes</h3>
+
+<p>Imported and shared sequences cast correctly on any game-client language. Spell steps are stored language-neutral and render in your client's language, so a sequence written on an English client works on a German one without hand-translating each line.</p>
+
+<p>Sequences from another class resolve too: a built-in cross-class spell catalog turns the other class's spell names into castable lines. Hero-talent override abilities keep their names when an override cannot be resolved yet, and pet abilities imported as raw numbers are recovered back to their names automatically.</p>
+
 <h3>Export</h3>
 
 <ul>
@@ -1954,6 +1964,10 @@ Phase 4: Stored Recommendations</h4>
 
 <p>Keybinds are stored per-spec. When you switch specs, your binds switch automatically. Your Protection Paladin binds stay separate from your Retribution binds.</p>
 
+<h3>Per-Loadout Keybinds</h3>
+
+<p>Within a spec, each talent loadout can hold its own keybind for the same sequence. Swap loadouts and the keybind set swaps with it, the same way spec binds do on spec change.</p>
+
 <h3>Slash Commands</h3>
 
 <table>
@@ -1978,17 +1992,25 @@ Phase 4: Stored Recommendations</h4>
 
 <p>GRIP-EMS provides 12 vehicle/override bar keybind slots and 6 pet battle action buttons (abilities, swap, pass, forfeit). These are separate from your normal rotation binds and activate automatically when you enter a vehicle or pet battle.</p>
 
+<h3>Skyriding</h3>
+
+<p>Sequence keys stay live on a skyriding mount when the game's Auto Dismount in Flight option is on. Press a bound key with an attackable living target and you dismount and cast that step in one press. With no target, or a friendly one, the press falls through to whatever that key drives on the skyriding bar, so steering and mount abilities keep working. With Auto Dismount in Flight off, keys suspend while mounted instead.</p>
+
+<p>Druids get the same behavior in skyriding Travel Form when Auto Unshift is also on: the keypress cancels the form and casts.</p>
+
+<p>Dismount signals are not fully reliable -- the game occasionally skips the bar-change event, which used to leave a key dead on foot until a reload. An out-of-combat watchdog now reconciles the keybind layers against what is actually true (mounted, gliding, in a vehicle, in a pet battle) and restores your binds automatically. Vehicle keybinds also work under action bar addons like ElvUI and Bartender.</p>
+
 <h3>Gamepad Support</h3>
 
 <p>Controller and gamepad keybinds are supported with ConsolePort detection. If you use a gamepad, GRIP-EMS detects ConsolePort and maps binds to controller buttons.</p>
 
 <h3>How Macro Stubs Work</h3>
 
-<p>When you bind a key, GRIP-EMS creates a SecureActionButton (macro stub) and assigns it to that key. The binding is a temporary override -- it never touches your saved WoW keybinds. When the addon disables (vehicles, skyriding), the overrides suspend automatically.</p>
+<p>When you bind a key, GRIP-EMS creates a SecureActionButton (macro stub) and assigns it to that key. The binding is a temporary override -- it never touches your saved WoW keybinds. In vehicles and pet battles the overrides suspend automatically; while skyriding, keys stay live for dismount-to-cast when Auto Dismount in Flight is on (see Skyriding above).</p>
 </section>
 
 <section id="accessibility" class="reveal">
-<h2>Accessibility <span class="badge badge-new">NEW</span></h2>
+<h2>Accessibility</h2>
 
 <p>GRIP-EMS aims to be usable for players who rely on screen readers, play one-handed, play with tremor, play with low vision, or avoid motion in the UI. Settings live under the Accessibility subpanel at <code>/gems settings</code> -&gt; Accessibility. Design vocabulary follows AbleGamers APX (Accessible Player Experiences). The in-game panel is modelled on Elder Scrolls Online's Accessibility Mode: one place, grouped by population.</p>
 
@@ -3011,6 +3033,26 @@ end)</pre>
 </div>
 
 <div class="settings-group">
+<h3>Hold to Freeze</h3>
+
+<div class="setting-row">
+<div class="setting-name">Enable hold-to-freeze</div>
+
+<div>Pause the active sequence on its current step while the freeze modifier is held</div>
+
+<div class="setting-default">Off</div>
+</div>
+
+<div class="setting-row">
+<div class="setting-name">Freeze modifier</div>
+
+<div>Which modifier freezes: Shift, Control, or Alt</div>
+
+<div class="setting-default">Shift</div>
+</div>
+</div>
+
+<div class="settings-group">
 <h3>Tracker</h3>
 
 <div class="setting-row">
@@ -3321,7 +3363,42 @@ end)</pre>
 
 <tr><td><strong>v2.0</strong>
 </td>
-<td>CVar profile export/import, SQW sparkline, advanced triggers</td>
+<td>Accessibility suite: one-click mode, theming editor, keyboard navigation, simplified mode</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.0</strong>
+</td>
+<td>If/Else action nodes, sequence authorship, cross-class spell catalog</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.8</strong>
+</td>
+<td>In-combat variables, hold to freeze, disable a step, per-loadout keybinds, variant indicators</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.9 - v2.1.12</strong>
+</td>
+<td>Editor scroll and drag fixes, locale auto-translate, cross-class spell resolution, Loop and If duplicate preservation</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.13 - v2.1.16</strong>
+</td>
+<td>Skyriding keybind overhaul: dismount-to-cast, druid forms, exit watchdog, bar-addon compatibility</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>Next</strong>
+</td>
+<td>Loop structure preservation for imported sequences, accessibility verification pass</td>
 <td><span class="badge badge-planned">PLANNED</span>
 </td>
 </tr>
@@ -3558,7 +3635,7 @@ end)</pre>
 </button>
 
 <div class="faq-a">
-<p>Yes. The Accessibility subpanel covers screen-reader support via a chat-frame emitter, three palette presets plus an 8-type colorblind matrix, a flicker-safe palette for photosensitivity, large-target density mode, Simplified Mode for switch input and eye trackers, and a one-click Accessibility preset. See the <a href="#accessibility">Accessibility</a> section above for the full feature list, or <a href="https://github.com/JesperLive/GRIP-EMS/blob/main/ACCESSIBILITY.md">ACCESSIBILITY.md</a> on GitHub for the compatibility matrix.</p>
+<p>Yes. The Accessibility subpanel covers screen-reader support via a chat-frame emitter, three palette presets plus an 8-type colorblind matrix, a flicker-safe palette for photosensitivity, large-target density mode, Simplified Mode for switch input and eye trackers, and a one-click Accessibility preset. See the <a href="#accessibility">Accessibility</a> section above for the full feature list and the compatibility matrix.</p>
 </div>
 </div>
 </section>
@@ -3683,9 +3760,7 @@ function updateBuilderPreview() {
   /* execution preview */
   var preview = document.getElementById('builder-preview');
   if (!steps.length) {
-    preview.innerHTML = '
-<p style="color:var(--text-secondary);font-size:0.85rem;">Type some steps above to see the preview.</p>
-';
+    preview.innerHTML = '<p style="color:var(--text-secondary);font-size:0.85rem;">Type some steps above to see the preview.</p>';
     return;
   }
   var ordered = [];
@@ -3701,9 +3776,7 @@ function updateBuilderPreview() {
     ordered = shuffled.map(function(s, i) { return { n: '?', t: s.trim(), note: '' }; });
   }
   preview.innerHTML = ordered.map(function(o) {
-    return '
-<div class="preview-step">' + o.n + '. ' + o.t + o.note + '</div>
-';
+    return '<div class="preview-step">' + o.n + '. ' + o.t + o.note + '</div>';
   }).join('');
 }
 
