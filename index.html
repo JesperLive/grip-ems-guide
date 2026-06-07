@@ -1763,8 +1763,6 @@ Phase 4: Stored Recommendations</h4>
 <ul>
 <li>Sequence name, step count, step function, and metadata</li>
 
-<li>DJB2 checksum validation: green check if valid, yellow warning on mismatch, skipped if the source has no checksum</li>
-
 <li>Conflict detection: if a sequence name already exists, you get skip/replace/rename options</li>
 
 <li>Compare option: side-by-side diff against the existing sequence</li>
@@ -2617,11 +2615,10 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="import-stage" data-stage="1">
 <h3>Stage 2: Preview</h3>
 
-<p>The preview shows each detected sequence with metadata and checksum status.</p>
+<p>The preview shows each detected sequence with metadata.</p>
 
 <div class="mock-list-item"><span><strong>BM_SingleTarget</strong>
  -- 3 steps, Sequential</span>
-<span class="mock-ok">Checksum OK</span>
 </div>
 
 <div class="mock-list-item"><span>Author: MrSataana | Spec: Beast Mastery</span>
@@ -3438,11 +3435,6 @@ end)</pre>
 <div class="glossary-term"><strong>CVar</strong>
 
 <p>Console Variable. A WoW client setting stored by the game engine.</p>
-</div>
-
-<div class="glossary-term"><strong>DJB2</strong>
-
-<p>A fast hash function used for checksum validation during sequence import.</p>
 </div>
 
 <div class="glossary-term"><strong>Estimated</strong>
