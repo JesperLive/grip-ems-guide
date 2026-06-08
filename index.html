@@ -2394,6 +2394,18 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <td>Show addon version and sequence count</td>
 </tr>
 </table>
+
+<h3>Reporting a Bug</h3>
+
+<p>When something needs a developer's eyes, your settings file is the fastest way to get it fixed. The file is <code>GRIP-EMS.lua</code>, with <code>GRIP-EMS.lua.bak</code> next to it as the previous save.</p>
+
+<p>Find it from the Battle.net app: pick World of Warcraft, click the gear next to Play, and choose Show in Explorer (Reveal in Finder on Mac). Then open:</p>
+
+<pre>_retail_\WTF\Account\&lt;ACCOUNT&gt;\&lt;Realm&gt;\&lt;Character&gt;\SavedVariables\</pre>
+
+<p>Keybinds and settings are stored per character, so use the folder for the character it happened on. <code>&lt;ACCOUNT&gt;</code> is either a Battle.net number like <code>123456#1</code> or an account name in capitals.</p>
+
+<p>If your sequence keybinds disappeared, capture it the moment it happens: type <kbd>/reload</kbd>, then copy both <code>GRIP-EMS.lua</code> and <code>GRIP-EMS.lua.bak</code> out of that folder before you log in again -- logging back in overwrites the <code>.bak</code>. Send both files unedited. With <code>/gems debug</code> on, the <code>keybind-loss guard:</code> line in chat names which path triggered it.</p>
 </section>
 
 <section id="ui-tour" class="reveal">
