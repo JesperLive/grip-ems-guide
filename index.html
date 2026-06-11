@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.1.19 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.1.20 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.1.19 Guide</div>
+<div class="version">v2.1.20 Guide</div>
 
   </div>
 
@@ -914,7 +914,38 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.1.19</span>
+<span class="version-badge">v2.1.20</span>
+</div>
+
+<h3>New in v2.1.20</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9992;</div>
+
+<h3>Skyride Keys Heal at Takeoff <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A fresh login could leave your sequence keys live mid-flight on the first skyriding mount. The watchdog now fixes the swap the moment you take off and puts everything back when you land.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#9888;</div>
+
+<h3>Bind Contention Notice <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Another addon claiming the same keys for vehicles or pet battles used to win or lose in silence. The Keybinds tab now names the contended keys so you know exactly which binds to move.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#9000;</div>
+
+<h3>Keyboard Popups <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Popups answer to TAB, ENTER, and SPACE with bigger click targets, Simplified Mode announces its action buttons, and ENTER/SPACE reach the game when keyboard navigation targets nothing.</p>
+</div>
 </div>
 
 <h3>New in v2.1.19</h3>
@@ -945,34 +976,6 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 </h3>
 
 <p>The source sequencer's latest update hid its data from other addons, so migration came up empty. EMS reads the saved data directly now, and Migrate All finds your library again.</p>
-</div>
-</div>
-
-<h3>New in v2.1.16</h3>
-
-<div class="card-grid">
-<div class="feature-card">
-<div class="card-icon">&#9889;</div>
-
-<h3>Skyride Dismount-to-Cast</h3>
-
-<p>Press a bound sequence key while skyriding at an attackable target and you dismount and cast in the same press. Needs the game's Auto Dismount in Flight option on. With no target, or a friendly one, the key falls through to the skyriding bar.</p>
-</div>
-
-<div class="feature-card">
-<div class="card-icon">&#127807;</div>
-
-<h3>Druid Forms</h3>
-
-<p>Travel Form gets the same one-press treatment. With Auto Dismount in Flight and Auto Unshift both on, a sequence keypress in skyriding Travel Form cancels the form and casts.</p>
-</div>
-
-<div class="feature-card">
-<div class="card-icon">&#128737;</div>
-
-<h3>Skyride Watchdog</h3>
-
-<p>The game sometimes skips the bar-change signal on dismount, leaving a key dead until a reload. A watchdog now checks the real state out of combat and restores your binds when the signals lied.</p>
 </div>
 </div>
 
@@ -3414,6 +3417,13 @@ end)</pre>
 <tr><td><strong>v2.1.19</strong>
 </td>
 <td>Library migration fixed after the source sequencer's update hid its runtime data. Imported and received sequences keep author, signature, and edit chain; Forge-exported strings import with the source labeled. Starter Build keybind-loss closed, the Variants tab draws and names its target version, and variable saves keep every field.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.20</strong>
+</td>
+<td>Fresh-login skyride keys heal at takeoff, and the Keybinds tab warns when another addon contends vehicle or pet battle keys. ENTER and SPACE reach the game when keyboard navigation targets nothing, popups gain full keyboard handling with larger targets, and cross-class Mindbender references resolve again.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
