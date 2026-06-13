@@ -864,7 +864,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
     <a class="nav-link" href="#cvar">CVar Dashboard</a>
 
-    <a class="nav-link" href="#sqw">SQW Optimizer</a>
+    <a class="nav-link" href="#sqw">SQW Optimiser</a>
 
     <a class="nav-link" href="#repair">Repair Module</a>
 
@@ -989,7 +989,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <a class="cta-card" href="#tempo">
 <h3>Explore Tempo Advisor</h3>
 
-<p>Optimize your click rate per sequence.</p>
+<p>Optimise your click rate per sequence.</p>
 </a>
 </div>
 </section>
@@ -1127,11 +1127,11 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <li>Paste the string into the import window</li>
 
-<li>Pick which sequences to import. Conflicts are color-coded with skip, replace, and rename options per item.</li>
+<li>Pick which sequences to import. Conflicts are colour-coded with skip, replace, and rename options per item.</li>
 </ol>
 
 <div class="tip-box"><strong>Tip:</strong>
- GRIP-EMS auto-detects the format. GRIP1 (native), legacy serialized, and raw macrotext (/cast lines) are all supported.</div>
+ GRIP-EMS auto-detects the format. GRIP1 (native), legacy serialised, and raw macrotext (/cast lines) are all supported.</div>
 
 </section>
 
@@ -1208,7 +1208,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <li>Sort sequences by name, class, or recently updated</li>
 
-<li>Side-by-side sequence comparison with color-coded diff</li>
+<li>Side-by-side sequence comparison with colour-coded diff</li>
 
 <li>Stale spell detection: flags renamed or removed spells</li>
 </ul>
@@ -1293,7 +1293,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 </div>
 
 <div id="ed-raw" class="tab-panel">
-<p>View and edit the raw serialized data for this sequence. For advanced users who want to inspect or manually tweak the underlying data structure.</p>
+<p>View and edit the raw serialised data for this sequence. For advanced users who want to inspect or manually tweak the underlying data structure.</p>
 </div>
 </section>
 
@@ -1392,7 +1392,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <h4>Condition cheat sheet</h4>
 
-<p>Conditionals players reach for first. The spec doc has the full catalog.</p>
+<p>Conditionals players reach for first. The spec doc has the full catalogue.</p>
 
 <dl>
 <dt><code>mod:shift</code></dt><dd>True while shift is held. Variants for ctrl, alt, and L/R sided forms.</dd>
@@ -1413,11 +1413,11 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <h4>DeMorgan negation</h4>
 
-<p>If the True branch is empty, the compiler emits an explicitly negated condition for the False branch instead of an empty first clause with a semicolon fall-through. The shorter form <code>[noindoors] mount</code> compiles to a single bracket with the negated condition; the alternative <code>[indoors] ; mount</code> would compile to a two-clause macro with an empty first clause, which is harder to read and provides no behavioral advantage. The full DeMorgan rule set lives in spec section 5.</p>
+<p>If the True branch is empty, the compiler emits an explicitly negated condition for the False branch instead of an empty first clause with a semicolon fall-through. The shorter form <code>[noindoors] mount</code> compiles to a single bracket with the negated condition; the alternative <code>[indoors] ; mount</code> would compile to a two-clause macro with an empty first clause, which is harder to read and provides no behavioural advantage. The full DeMorgan rule set lives in spec section 5.</p>
 
 <h4>Path indicator</h4>
 
-<p>The editor shows a small badge next to the Cond box label. The label tells you which compile path the node took: Single line, Two-line split, Per-step, or Optimized fall-through. The Compiled Output preview pane shows the literal macrotext the engine will see. If you set a multi-action True branch and the badge reads Per-step, that is the expected path.</p>
+<p>The editor shows a small badge next to the Cond box label. The label tells you which compile path the node took: Single line, Two-line split, Per-step, or Optimised fall-through. The Compiled Output preview pane shows the literal macrotext the engine will see. If you set a multi-action True branch and the badge reads Per-step, that is the expected path.</p>
 
 <h3>Interleave / Weave</h3>
 
@@ -1506,14 +1506,14 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <h3>Variant Indicators</h3>
 
-<p>Sequences that branch on modifier keys or combat state show a colored indicator on the action button, so the live variant is visible without opening the editor. The indicator follows whichever variant is currently active.</p>
+<p>Sequences that branch on modifier keys or combat state show a coloured indicator on the action button, so the live variant is visible without opening the editor. The indicator follows whichever variant is currently active.</p>
 
 </section>
 
 <section id="tempo" class="reveal">
 <h2>Tempo Advisor</h2>
 
-<p>The Tempo Advisor analyzes your sequence to recommend an optimal click rate (milliseconds between keypresses). It starts with a theoretical estimate and gets more accurate as it learns from your actual play data.</p>
+<p>The Tempo Advisor analyses your sequence to recommend an optimal click rate (milliseconds between keypresses). It starts with a theoretical estimate and gets more accurate as it learns from your actual play data.</p>
 
 <h3>4-Phase System</h3>
 
@@ -1521,12 +1521,12 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h4><span class="phase-num">1</span>
 Phase 1: Spell Classification</h4>
 
-<p>The advisor categorizes every spell in your sequence into one of 7 timing categories: <strong>OFF_GCD</strong>
+<p>The advisor categorises every spell in your sequence into one of 7 timing categories: <strong>OFF_GCD</strong>
  (instant, no cooldown trigger), <strong>ON_GCD_INSTANT</strong>
  (triggers the GCD but casts instantly), <strong>ON_GCD_CAST</strong>
  (has a cast time on the GCD), <strong>LONG_CAST</strong>
  (cast time longer than the GCD), <strong>CHANNEL</strong>
- (channeled spell), <strong>PAUSE_CLICKS</strong>
+ (channelled spell), <strong>PAUSE_CLICKS</strong>
  (wait step), <strong>UNKNOWN</strong>
  (spell data not yet cached).</p>
 </div>
@@ -1606,7 +1606,7 @@ Phase 4: Stored Recommendations</h4>
 <div class="collapsible-body">
 <p>The advisor builds an NxN matrix where N is the number of steps. Each cell represents the expected time (in ms) transitioning from step i to step j. For Sequential step function, only the diagonal+1 cells matter. For Priority, the entire first row is weighted heavily since step 1 is always attempted first.</p>
 
-<p>Off-GCD spells get a near-zero transition time. Channeled spells use their full channel duration. The final recommendation is the weighted average across all likely transitions, plus a configurable buffer.</p>
+<p>Off-GCD spells get a near-zero transition time. Channelled spells use their full channel duration. The final recommendation is the weighted average across all likely transitions, plus a configurable buffer.</p>
 </div>
 </div>
 
@@ -1770,7 +1770,7 @@ Phase 4: Stored Recommendations</h4>
 
 <p>Imported and shared sequences cast correctly on any game-client language. Spell steps are stored language-neutral and render in your client's language, so a sequence written on an English client works on a German one without hand-translating each line.</p>
 
-<p>Sequences from another class resolve too: a built-in cross-class spell catalog turns the other class's spell names into castable lines. Hero-talent override abilities keep their names when an override cannot be resolved yet, and pet abilities imported as raw numbers are recovered back to their names automatically.</p>
+<p>Sequences from another class resolve too: a built-in cross-class spell catalogue turns the other class's spell names into castable lines. Hero-talent override abilities keep their names when an override cannot be resolved yet, and pet abilities imported as raw numbers are recovered back to their names automatically.</p>
 
 <h3>Export</h3>
 
@@ -1986,7 +1986,7 @@ Phase 4: Stored Recommendations</h4>
 
 <p>Sequence keys stay live on a skyriding mount when the game's Auto Dismount in Flight option is on. Press a bound key with an attackable living target and you dismount and cast that step in one press. With no target, or a friendly one, the press falls through to whatever that key drives on the skyriding bar, so steering and mount abilities keep working. With Auto Dismount in Flight off, keys suspend while mounted instead.</p>
 
-<p>Druids get the same behavior in skyriding Travel Form when Auto Unshift is also on: the keypress cancels the form and casts.</p>
+<p>Druids get the same behaviour in skyriding Travel Form when Auto Unshift is also on: the keypress cancels the form and casts.</p>
 
 <p>Dismount signals are not fully reliable -- the game occasionally skips the bar-change event, which used to leave a key dead on foot until a reload. An out-of-combat watchdog now reconciles the keybind layers against what is actually true (mounted, gliding, in a vehicle, in a pet battle) and restores your binds automatically. Vehicle keybinds also work under action bar addons like ElvUI and Bartender.</p>
 
@@ -2022,7 +2022,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <li>Editor scale slider from 0.8x to 2.0x in 0.05 steps. MainFrame drag-resize from 720x460 up to 1600x720.</li>
 <li>High-contrast focus ring on every focusable widget (4-edge texture, 2 px thick, 2 px outset).</li>
 <li>Font switch via LibSharedMedia with Atkinson Hyperlegible bundled.</li>
-<li>Three palette presets (Default, High Contrast, Deuteranopia-safe), seeded from Blizzard's <code>colorblindMode</code> CVar on first login. An 8-type colorblind matrix layers on top, with a 0-100% strength slider and a live 5-color preview swatch.</li>
+<li>Three palette presets (Default, High Contrast, Deuteranopia-safe), seeded from Blizzard's <code>colorblindMode</code> CVar on first login. An 8-type colourblind matrix layers on top, with a 0-100% strength slider and a live 5-colour preview swatch.</li>
 <li>No repeating flashes anywhere in the addon. Animations audited against WCAG 2.3.1.</li>
 </ul>
 
@@ -2038,7 +2038,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <li>Resizable main window with a bottom-right drag grip.</li>
 <li>Spell, item, macro, and slash-command pickers across 14 filter modes, so long macro strings never need manual typing.</li>
 <li>Large-target density mode expands click rectangles to at least 44x44 px (WCAG 2.5.5 AAA) on action buttons, checkboxes, and tab strips.</li>
-<li>Cursor enhancement overlay with ring or crosshair shape, three sizes (1.0x / 1.5x / 2.0x), color tied to the active contrast palette.</li>
+<li>Cursor enhancement overlay with ring or crosshair shape, three sizes (1.0x / 1.5x / 2.0x), colour tied to the active contrast palette.</li>
 <li>Simplified Mode for switch input, eye trackers with dwell-click, sip-and-puff, and head tracking. Collapses SequenceEditor to 2 tabs and a 3-button column (Run / Unlock editor / Close), and locks the key set to <kbd>Enter</kbd> / <kbd>Space</kbd> / <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> / <kbd>Esc</kbd>. A 500 ms post-acceptance delay (250..1500 ms slider) blocks accidental double-fires. Toggle from the subpanel, the Accessibility Mode preset, or <code>/gems simplified</code>. A single <code>/reload</code> after the first enable produces the cleanest layout; same-session toggles apply best-effort live.</li>
 <li>Undo and Redo across the sequence editor, step list, popup editor, and repair frame. <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> in each.</li>
 </ul>
@@ -2056,7 +2056,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <p>Sound cues for validation errors, validation success, import-related info, and step advance. Four semantic cues routed through LibSharedMedia, so any sound installed by SharedMedia, WeakAuras, ElvUI, or similar is pickable per cue. Channel selection (Master / SFX / Ambience / Dialog). Opt-in, off by default.</p>
 
-<p>A visual-flash complement to sound cues is available for Deaf and hard-of-hearing players: an 80x80 frame at top-center of the screen flashes red / green / cyan / gold for the matching cue, sustained 0.6 seconds. The visual toggle is independent of the sound toggle, so users can run audio-off and visual-on or both together.</p>
+<p>A visual-flash complement to sound cues is available for Deaf and hard-of-hearing players: an 80x80 frame at top-centre of the screen flashes red / green / cyan / gold for the matching cue, sustained 0.6 seconds. The visual toggle is independent of the sound toggle, so users can run audio-off and visual-on or both together.</p>
 
 <h3>Theming</h3>
 
@@ -2129,7 +2129,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <h3>Health Score</h3>
 
-<p>A weighted 0-100 score summarizing your CVar health. Critical settings (like SpellQueueWindow or maxfps) carry more weight than cosmetic ones. The score updates live as you change values.</p>
+<p>A weighted 0-100 score summarising your CVar health. Critical settings (like SpellQueueWindow or maxfps) carry more weight than cosmetic ones. The score updates live as you change values.</p>
 
 <h3>Auto-Switching Profiles</h3>
 
@@ -2137,7 +2137,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <ul>
 <li><strong>Raid</strong>
- -- optimized for 10-30 player instances</li>
+ -- optimised for 10-30 player instances</li>
 
 <li><strong>M+</strong>
  -- tuned for Mythic+ dungeons</li>
@@ -2208,15 +2208,15 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </section>
 
 <section id="sqw" class="reveal">
-<h2>SQW Optimizer</h2>
+<h2>SQW Optimiser</h2>
 
-<p>Dynamic SpellQueueWindow optimization that adjusts your spell queue timing in real time based on measured network latency.</p>
+<p>Dynamic SpellQueueWindow optimisation that adjusts your spell queue timing in real time based on measured network latency.</p>
 
 <h3>How It Works</h3>
 
 <p>WoW has a console variable called <code>SpellQueueWindow</code> that controls how many milliseconds early you can queue your next spell cast. Too low and you clip GCDs. Too high and you lose reaction time.</p>
 
-<p>The SQW Optimizer continuously measures your latency using EWMA (Exponentially Weighted Moving Average) smoothing with outlier rejection, then sets the SpellQueueWindow to an optimal value.</p>
+<p>The SQW Optimiser continuously measures your latency using EWMA (Exponentially Weighted Moving Average) smoothing with outlier rejection, then sets the SpellQueueWindow to an optimal value.</p>
 
 <h3>Formula</h3>
 
@@ -2236,11 +2236,11 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <h3>Dashboard Integration</h3>
 
 <p>When enabled, the CVar Dashboard shows a <strong>Managed</strong>
- badge on SpellQueueWindow and skips it in the health score calculation (since the optimizer is handling it).</p>
+ badge on SpellQueueWindow and skips it in the health score calculation (since the optimiser is handling it).</p>
 
 <h3>Logout Restore</h3>
 
-<p>On logout, the optimizer restores SpellQueueWindow to its pre-optimization value so your setting is clean if you disable the addon later.</p>
+<p>On logout, the optimiser restores SpellQueueWindow to its pre-optimisation value so your setting is clean if you disable the addon later.</p>
 
 <h3>Slash Commands</h3>
 
@@ -2263,9 +2263,9 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <h3>How to Use</h3>
 
 <ul>
-<li><code>/gems repair &lt;name&gt;</code> -- analyze a single sequence</li>
+<li><code>/gems repair &lt;name&gt;</code> -- analyse a single sequence</li>
 
-<li><code>/gems repairall</code> -- analyze every sequence</li>
+<li><code>/gems repairall</code> -- analyse every sequence</li>
 
 <li>The editor shows a health score badge per sequence in the list</li>
 </ul>
@@ -2303,7 +2303,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <h3>Fix All</h3>
 
 <p>After running a repair, click <strong>Fix All</strong>
- to apply all safe fixes in one click. Fixes that might change behavior (like removing duplicate steps) are marked for review.</p>
+ to apply all safe fixes in one click. Fixes that might change behaviour (like removing duplicate steps) are marked for review.</p>
 
 <h3>Quality Gating</h3>
 
@@ -2834,7 +2834,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </tr>
 
 <tr data-cat="UI"><td><code>/gems msadvisor</code></td>
-<td>Analyze sequence timing for optimal click rate</td>
+<td>Analyse sequence timing for optimal click rate</td>
 <td>UI</td>
 </tr>
 
@@ -2859,13 +2859,13 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </tr>
 
 <tr data-cat="Diagnostics"><td><code>/gems repair &lt;name&gt;</code></td>
-<td>Analyze and repair a sequence<br><span class="cmd-example">/gems repair BM_ST</span>
+<td>Analyse and repair a sequence<br><span class="cmd-example">/gems repair BM_ST</span>
 </td>
 <td>Diagnostics</td>
 </tr>
 
 <tr data-cat="Diagnostics"><td><code>/gems repairall</code></td>
-<td>Analyze and repair all sequences</td>
+<td>Analyse and repair all sequences</td>
 <td>Diagnostics</td>
 </tr>
 
@@ -2928,7 +2928,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </div>
 </div>
 
-<div class="collapsible-wrap"><button class="collapsible-toggle" onclick="toggleCollapsible(this)">Optimize your click rate<span class="coll-arrow">&#9654;</span>
+<div class="collapsible-wrap"><button class="collapsible-toggle" onclick="toggleCollapsible(this)">Optimise your click rate<span class="coll-arrow">&#9654;</span>
 </button>
 
 <div class="collapsible-body">
@@ -3166,7 +3166,7 @@ end)</pre>
 </div>
 
 <div class="settings-group">
-<h3>SQW Optimizer</h3>
+<h3>SQW Optimiser</h3>
 
 <div class="setting-row">
 <div class="setting-name">Enabled</div>
@@ -3329,7 +3329,7 @@ end)</pre>
 
 <tr><td><strong>v1.7</strong>
 </td>
-<td>Hierarchical actions, macro recorder, 11-language localization</td>
+<td>Hierarchical actions, macro recorder, 11-language localisation</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
@@ -3350,7 +3350,7 @@ end)</pre>
 
 <tr><td><strong>v1.9.0</strong>
 </td>
-<td>CVar Dashboard, SQW Optimizer, spell cache viewer</td>
+<td>CVar Dashboard, SQW Optimiser, spell cache viewer</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
@@ -3371,7 +3371,7 @@ end)</pre>
 
 <tr><td><strong>v2.1.0</strong>
 </td>
-<td>If/Else action nodes, sequence authorship, cross-class spell catalog</td>
+<td>If/Else action nodes, sequence authorship, cross-class spell catalogue</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
@@ -3413,7 +3413,7 @@ end)</pre>
 
 <tr><td><strong>v2.1.19</strong>
 </td>
-<td>Library migration fixed after the source sequencer's update hid its runtime data. Imported and received sequences keep author, signature, and edit chain; Forge-exported strings import with the source labeled. Starter Build keybind-loss closed, the Variants tab draws and names its target version, and variable saves keep every field.</td>
+<td>Library migration fixed after the source sequencer's update hid its runtime data. Imported and received sequences keep author, signature, and edit chain; Forge-exported strings import with the source labelled. Starter Build keybind-loss closed, the Variants tab draws and names its target version, and variable saves keep every field.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
@@ -3476,7 +3476,7 @@ end)</pre>
 
 <div class="glossary-term"><strong>EWMA</strong>
 
-<p>Exponentially Weighted Moving Average. Used by the SQW Optimizer to smooth latency data.</p>
+<p>Exponentially Weighted Moving Average. Used by the SQW Optimiser to smooth latency data.</p>
 </div>
 
 <div class="glossary-term"><strong>GCD</strong>
@@ -3486,7 +3486,7 @@ end)</pre>
 
 <div class="glossary-term"><strong>GRIP1</strong>
 
-<p>The native serialization format for GRIP-EMS sequences. A compressed Lua table string.</p>
+<p>The native serialisation format for GRIP-EMS sequences. A compressed Lua table string.</p>
 </div>
 
 <div class="glossary-term"><strong>Health Score</strong>
@@ -3659,7 +3659,7 @@ end)</pre>
 </button>
 
 <div class="faq-a">
-<p>Yes. The Accessibility subpanel covers screen-reader support via a chat-frame emitter, three palette presets plus an 8-type colorblind matrix, a flicker-safe palette for photosensitivity, large-target density mode, Simplified Mode for switch input and eye trackers, and a one-click Accessibility preset. See the <a href="#accessibility">Accessibility</a> section above for the full feature list and the compatibility matrix.</p>
+<p>Yes. The Accessibility subpanel covers screen-reader support via a chat-frame emitter, three palette presets plus an 8-type colourblind matrix, a flicker-safe palette for photosensitivity, large-target density mode, Simplified Mode for switch input and eye trackers, and a one-click Accessibility preset. See the <a href="#accessibility">Accessibility</a> section above for the full feature list and the compatibility matrix.</p>
 </div>
 </div>
 </section>
