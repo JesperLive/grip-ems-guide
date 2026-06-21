@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.1.27 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.1.28 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.1.27 Guide</div>
+<div class="version">v2.1.28 Guide</div>
 
   </div>
 
@@ -914,7 +914,29 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.1.27</span>
+<span class="version-badge">v2.1.28</span>
+</div>
+
+<h3>New in v2.1.28</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128257;</div>
+
+<h3>Drag a Step Into a Loop <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Drop a step onto a loop's row in the step list, or drag it into a loop open in the detail pane, and the step moves inside the loop. Undo puts it back, and a drop that would nest too deep is refused with a hint.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128260;</div>
+
+<h3>Macro Steps Refresh Themselves <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A step you built from one of your macros can update after you edit that macro, so you do not have to open the step and click Refresh. Off by default; turn it on in Settings.</p>
+</div>
 </div>
 
 <h3>New in v2.1.27</h3>
@@ -3461,6 +3483,13 @@ end)</pre>
 <tr><td><strong>v2.1.27</strong>
 </td>
 <td>Sorting sequences by Last Updated no longer errors on older text timestamps. The cross-class All Classes list is rebuilt against the current 12.0.7 client.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.28</strong>
+</td>
+<td>Drag a step into a loop to nest it, by dropping it on the loop's row or into a loop open in the detail pane, with undo and a depth-limit refusal. Macro-reference steps can refresh themselves after you edit the underlying macro, off by default. Step-list drag lands where you point again, and an If that only fills its Else branch respects the nesting limit.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
