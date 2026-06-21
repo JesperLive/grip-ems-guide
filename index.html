@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.1.20 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.1.27 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.1.20 Guide</div>
+<div class="version">v2.1.27 Guide</div>
 
   </div>
 
@@ -914,65 +914,56 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.1.20</span>
+<span class="version-badge">v2.1.27</span>
 </div>
 
-<h3>New in v2.1.20</h3>
+<h3>New in v2.1.27</h3>
 
 <div class="card-grid">
 <div class="feature-card">
-<div class="card-icon">&#9992;</div>
+<div class="card-icon">&#128203;</div>
 
-<h3>Skyride Keys Heal at Takeoff <span class="badge badge-new">NEW</span>
+<h3>Last-Updated Sort Fixed <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>A fresh login could leave your sequence keys live mid-flight on the first skyriding mount. The watchdog now fixes the swap the moment you take off and puts everything back when you land.</p>
+<p>Sorting your sequences by Last Updated could error out when an older sequence stored its timestamp as text. Every timestamp now reads the same way, so the list sorts cleanly no matter how old the sequence is.</p>
 </div>
 
 <div class="feature-card">
-<div class="card-icon">&#9888;</div>
+<div class="card-icon">&#128269;</div>
 
-<h3>Bind Contention Notice <span class="badge badge-new">NEW</span>
+<h3>All Classes List Refreshed <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>Another addon claiming the same keys for vehicles or pet battles used to win or lose in silence. The Keybinds tab now names the contended keys so you know exactly which binds to move.</p>
-</div>
-
-<div class="feature-card">
-<div class="card-icon">&#9000;</div>
-
-<h3>Keyboard Popups <span class="badge badge-new">NEW</span>
-</h3>
-
-<p>Popups answer to TAB, ENTER, and SPACE with bigger click targets, Simplified Mode announces its action buttons, and ENTER/SPACE reach the game when keyboard navigation targets nothing.</p>
+<p>The cross-class spell list the conditional picker browses is rebuilt against the current 12.0.7 client, so spells from every class match today's game data.</p>
 </div>
 </div>
 
-<h3>New in v2.1.19</h3>
+<h3>New in v2.1.26</h3>
 
 <div class="card-grid">
 <div class="feature-card">
-<div class="card-icon">&#9997;</div>
+<div class="card-icon">&#9889;</div>
 
-<h3>Authors Survive Sharing</h3>
+<h3>Nochanneling Step Tag</h3>
 
-<p>Import a shared sequence and the author's name, signature, and edit history arrive intact. No more unknown badges on sequences your friends actually built.</p>
+<p>The Spell Picker conditional list gains a [nochanneling] tag next to [channeling], for steps that should only fire when you are not already channelling.</p>
 </div>
 
 <div class="feature-card">
-<div class="card-icon">&#128296;</div>
+<div class="card-icon">&#128263;</div>
 
-<h3>Forge Import</h3>
+<h3>Quieter CVar Notice</h3>
 
-<p>Sequence strings exported by GRIP - Forge paste straight into the same import box. The preview names Forge as the source and keeps the build's author.</p>
+<p>The in-session CVar-change chat notice is off by default now instead of printing every five minutes. Turn it back on in Settings or with /gems cvar notice on; What Changed and /gems cvar changes still show pending changes on demand.</p>
 </div>
 
 <div class="feature-card">
-<div class="card-icon">&#128230;</div>
+<div class="card-icon">&#128208;</div>
 
-<h3>Migration Fixed</h3>
+<h3>Truer Rotation Preview</h3>
 
-<p>The source sequencer's latest update hid its data from other addons, so migration came up empty. EMS reads the saved data directly now, and Migrate All finds your library again.</p>
+<p>The editor's Icons, Text, and Compiled previews now follow a Loop's Repeat count and step function. A Priority loop set to Repeat 2 used to preview the wrong icon and first action; the preview shows what the sequence actually fires and refreshes as you edit.</p>
 </div>
 </div>
 
@@ -3421,6 +3412,55 @@ end)</pre>
 <tr><td><strong>v2.1.20</strong>
 </td>
 <td>Fresh-login skyride keys heal at takeoff, and the Keybinds tab warns when another addon contends vehicle or pet battle keys. ENTER and SPACE reach the game when keyboard navigation targets nothing, popups gain full keyboard handling with larger targets, and cross-class Mindbender references resolve again.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.21</strong>
+</td>
+<td>Interleaved steps space against their original positions, fixing rotations that drifted out of order and the keybind stalls that came with them. Western-locale text gains a parity backfill.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.22</strong>
+</td>
+<td>A sequence whose steps are all interleave actions no longer loses its base rotation on import; EMS detects the case, warns, and offers a one-click fix. Click Rate tooltips corrected across every locale, and user-facing text moves to British spelling.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.23</strong>
+</td>
+<td>Imported bare-name macro steps inline the bundled macro body and auto-heal on login, so a shared sequence runs without hunting for a matching macro. Disabled steps stay disabled through import instead of switching back on.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.24</strong>
+</td>
+<td>Skyriding keys yield to the sequence layer cleanly, cast buttons register for click steps, and VK-only keys cast by name when auto-dismount is off. The client build 12.0.7 joins the supported list.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.25</strong>
+</td>
+<td>Priority and Reverse Priority loops honour their Repeat count instead of firing once. A multi-version sequence keeps its macro on your action bar when the active version changes, rather than orphaning the copy you dragged there.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.26</strong>
+</td>
+<td>A [nochanneling] step tag joins [channeling] in the Spell Picker. The CVar-change chat notice is off by default, the per-step edit box grows taller before it scrolls, native exports record their EMS version, and the rotation preview follows a Loop's Repeat count and step function.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.1.27</strong>
+</td>
+<td>Sorting sequences by Last Updated no longer errors on older text timestamps. The cross-class All Classes list is rebuilt against the current 12.0.7 client.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
