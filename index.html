@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.2.0 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.0 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.2.0 Guide</div>
+<div class="version">v2.3.0 Guide</div>
 
   </div>
 
@@ -914,7 +914,38 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.2.0</span>
+<span class="version-badge">v2.3.0</span>
+</div>
+
+<h3>New in v2.3.0</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128204;</div>
+
+<h3>Live-Version Quick-Swap <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Pin a sequence's version to lock it as the live one until you clear the pin, regardless of what your context or talents would otherwise pick. Badges show which version is live.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128269;</div>
+
+<h3>Spell Picker Inserts at Your Cursor <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Picking a spell drops it where your cursor is and replaces a highlighted selection, instead of appending at the end of the box.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#127919;</div>
+
+<h3>Plugin Action Bars (API v3) <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Addon authors can put a sequence on an action bar -- read its per-step spell data, create and pick up its macro, and register a /gems subcommand. Nothing changes unless you run a plugin that uses it.</p>
+</div>
 </div>
 
 <h3>New in v2.2.0</h3>
@@ -3484,6 +3515,13 @@ end)</pre>
 <tr><td><strong>v2.1.28</strong>
 </td>
 <td>Drag a step into a loop to nest it, by dropping it on the loop's row or into a loop open in the detail pane, with undo and a depth-limit refusal. Macro-reference steps can refresh themselves after you edit the underlying macro, off by default. Step-list drag lands where you point again, and an If that only fills its Else branch respects the nesting limit.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.0</strong>
+</td>
+<td>Quick-swap the live version of a sequence with a pin, plus badges showing which is live. Keyboard navigation reaches the Keybind tab, Export window, and Theming editor. The spell picker inserts at the cursor and replaces a highlighted selection. Plugin API v3 lets addons drive action bars -- per-step spell data, the sequence macro, and a /gems subcommand.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
