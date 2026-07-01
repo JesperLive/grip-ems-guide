@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.1 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.2 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.1 Guide</div>
+<div class="version">v2.3.2 Guide</div>
 
   </div>
 
@@ -914,37 +914,28 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.1</span>
+<span class="version-badge">v2.3.2</span>
 </div>
 
-<h3>New in v2.3.1</h3>
+<h3>New in v2.3.2</h3>
 
 <div class="card-grid">
 <div class="feature-card">
 <div class="card-icon">&#128230;</div>
 
-<h3>Richer Exports <span class="badge badge-new">NEW</span>
+<h3>Load-on-Demand Locale Bundle <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>Native exports carry the build a sequence was made for -- class, spec, and talent loadout. An import shows what it was built around, and the talent string stays author-only.</p>
+<p>The spell-name translations behind cross-language sharing now live in a companion addon, GRIP-EMS_LocaleNames. It ships in the same download and loads only when a sequence needs a name from another class or language -- about a megabyte less in the base addon at login. Leave it enabled.</p>
 </div>
 
 <div class="feature-card">
-<div class="card-icon">&#128221;</div>
+<div class="card-icon">&#127991;</div>
 
-<h3>Per-Sequence Changelog <span class="badge badge-new">NEW</span>
+<h3>GRIP Category <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>Note what changed between your revisions in a per-sequence changelog field. It travels on export and import.</p>
-</div>
-
-<div class="feature-card">
-<div class="card-icon">&#128274;</div>
-
-<h3>Stronger Verified Badge <span class="badge badge-new">NEW</span>
-</h3>
-
-<p>The verified badge covers the macro steps now, so a tampered sequence reads as tampered. Cross-language imports no longer false-flag.</p>
+<p>The AddOns list groups the whole GRIP family under a GRIP category, with the locale bundle nested under EMS. The cursor overlay is also built on first enable instead of at every login.</p>
 </div>
 </div>
 
@@ -3546,6 +3537,13 @@ end)</pre>
 <tr><td><strong>v2.1.28</strong>
 </td>
 <td>Drag a step into a loop to nest it, by dropping it on the loop's row or into a loop open in the detail pane, with undo and a depth-limit refusal. Macro-reference steps can refresh themselves after you edit the underlying macro, off by default. Step-list drag lands where you point again, and an If that only fills its Else branch respects the nesting limit.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.2</strong>
+</td>
+<td>Cross-language spell-name data moved to a load-on-demand companion addon shipping in the same download, keeping about a megabyte out of the base load. The cursor overlay is built on first enable instead of at every login. The AddOns list groups the GRIP family under a GRIP category with the locale bundle nested under EMS.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
