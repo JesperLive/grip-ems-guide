@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.3 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.4 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.3 Guide</div>
+<div class="version">v2.3.4 Guide</div>
 
   </div>
 
@@ -914,7 +914,38 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.3</span>
+<span class="version-badge">v2.3.4</span>
+</div>
+
+<h3>New in v2.3.4</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128273;</div>
+
+<h3>Rename Keeps Everything <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Renaming a sequence no longer wipes its identity. The verification badge, fork history, privacy mode, macro dependencies, sound cues, and (from the list) its Conditions assignments carry through a rename, and its hold-mode keybind follows it. A rename never changes a sequence's signature, so a verified sequence stays verified. Plugin-created sequences can no longer be renamed by hand, so a plugin keeps control of what it owns.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#127793;</div>
+
+<h3>Talent Strings Stick <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>An imported talent loadout string now shows in the metadata editor and survives saving, renaming, and duplicating. The plugin API's GetSequenceInfo reports the talent string plus four more fields.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#129529;</div>
+
+<h3>Conditions Cleanup <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Setting up Conditions no longer leaves the step list stacked over the other tabs -- it stays hidden until you return to the Steps tab. The All button confirms once and lists every version it will change, and the All, None, and Default Version controls gained tooltips. Fixed: the metadata panel no longer runs its dependency list into the changelog row, and a German typo in the Conditions conflict message.</p>
+</div>
 </div>
 
 <h3>New in v2.3.3</h3>
