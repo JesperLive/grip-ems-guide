@@ -1,0 +1,41 @@
+name: Deploy Guide to Pages
+
+# Robust GitHub Actions Pages deploy (replaces the legacy "Deploy from a branch"
+# builder, which intermittently returned "Deployment failed, try again later.").
+# The concurrency group serialises deploys so overlapping mirror pushes (the EMS
+# deploy-guide.yml on a Guide change plus sync-guide.yml on a release tag) can
+# never race into a failed Pages deployment. A transient failure can be re-run
+# cleanly from the Actions tab.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload guide artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
