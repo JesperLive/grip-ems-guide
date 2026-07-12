@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.5 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.7 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.5 Guide</div>
+<div class="version">v2.3.7 Guide</div>
 
   </div>
 
@@ -914,7 +914,42 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.5</span>
+<span class="version-badge">v2.3.7</span>
+</div>
+
+<h3>New in v2.3.7</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#127919;</div>
+
+<h3>Right Icon, Right Count <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A Priority or Reverse Priority sequence repeats its early steps as it runs, so four steps you wrote actually run as ten. EMS was reading the step icon off the four you wrote while the sequence sat on one of the ten it runs, so the macro stub and the action bar showed the wrong spell on most presses, the tracker rendered &quot;7/4&quot;, and the spoken step announcement called out the wrong step name against the wrong total. Icon, step counter and speech all count the steps that actually run now, and hand-advancing a sequence wraps in the right place. Sequential and Random sequences were never affected.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128268;</div>
+
+<h3>Authored Step Order for Plugins <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A new <code>API:GetAuthoredSteps(name)</code> returns a sequence's steps in the order they were written, before loops unroll and interleave copies are inserted. It pairs with <code>API:GetSequenceSteps</code>, which is the order they run in. <code>SEQUENCE_STEP_ADVANCED</code> and <code>API:GetSequenceList</code> now ship a step index and a step count in the same domain, so mapping one onto the other no longer yields the wrong spell.</p>
+</div>
+</div>
+
+<h3>New in v2.3.6</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128736;</div>
+
+<h3>Sturdier Editing, Truer Imports <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>The Source tab no longer drops your frame rate on a large sequence or throws a validation error, and a sequence that contains a loop now saves instead of failing on the word <code>repeat</code>. Disabled steps inside a Loop or IF node stay out of the compiled macro, and a corrupted sequence entry is skipped and reported instead of crashing the editor, the compiler, or the repair scan at login. Imported sequences track their source more closely: a Priority loop keeps its weighted pattern, an interval-less edge repeat compiles in place, and an empty cast-sequence line is dropped with a warning. The CVar Dashboard gains a NamePlate Stacking recommendation, and spell validation waits until you leave combat before it pings.</p>
+</div>
 </div>
 
 <h3>New in v2.3.5</h3>
@@ -3633,6 +3668,41 @@ end)</pre>
 <tr><td><strong>v2.3.2</strong>
 </td>
 <td>Cross-language spell-name data moved to a load-on-demand companion addon shipping in the same download, keeping about a megabyte out of the base load. The cursor overlay is built on first enable instead of at every login. The AddOns list groups the GRIP family under a GRIP category with the locale bundle nested under EMS.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.3</strong>
+</td>
+<td>Every export string carries the full story -- author, class, spec, talents, what it casts and what it needs -- so sharing sites can fill a post straight from the paste string, and collections carry the same per-sequence detail as single exports. Player-to-player sends bundle the macros a sequence depends on, and the exporter identity follows your privacy mode.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.4</strong>
+</td>
+<td>Renaming a sequence keeps its identity: verification badge, fork history, privacy mode, macro dependencies, sound cues, Conditions assignments and hold-mode keybind all carry through. Imported talent strings survive saving, renaming and duplicating. Plugin-created sequences can no longer be renamed by hand.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.5</strong>
+</td>
+<td>The flat step list takes more than one step at a time. Ctrl-click toggles a step, shift-click grabs the range from your last pick, and a plain click goes back to one. Duplicate and Delete act on the whole block as a single undo. Outline and action-tree sequences keep single-select.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.6</strong>
+</td>
+<td>The Source tab stays responsive on large sequences and saves a sequence that contains a loop. Disabled steps inside a Loop or IF node stay out of the compiled macro, and a corrupted sequence entry is skipped and reported instead of crashing the editor at login. Imports track their source more closely, and the CVar Dashboard gains a NamePlate Stacking recommendation.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.7</strong>
+</td>
+<td>The step index and the step count finally agree. Priority and Reverse Priority sequences stop showing the wrong spell on the macro stub and action bar, the tracker stops rendering &quot;7/4&quot;, and the spoken step announcement names the step being cast. A new API:GetAuthoredSteps accessor gives plugins the authored base order.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
