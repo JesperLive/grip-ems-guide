@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.9 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.10 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.9 Guide</div>
+<div class="version">v2.3.10 Guide</div>
 
   </div>
 
@@ -914,7 +914,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.9</span>
+<span class="version-badge">v2.3.10</span>
+</div>
+
+<h3>New in v2.3.10</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9635;</div>
+
+<h3>Rows That Render <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>The Spell Cache Viewer's Spells tab painted every row blank, and so did the Remote Browser (<code>/gems browse</code>). Rows in both are plain buttons that arrive without backdrop methods, and the row setup called one of those methods before it existed, which killed the rest of the row before the icon, name and spell id landed. The Spells tab had not painted a row since v1.7.0-Beta. With the rows up, the spell rename behind them works: renames and Clear Overrides apply to the live cache instead of waiting for a reload, a renamed spell re-sorts into its new alphabetical slot, and renaming a spell onto another spell's exact name no longer leaves that second spell unfindable by name after you clear the override. Also in this release: the Set Keybind button no longer stays greyed out for good after you create a sequence in combat, and <code>/gems test</code> no longer burns your first-open tutorial or leaves the window oversized afterwards.</p>
+</div>
 </div>
 
 <h3>New in v2.3.9</h3>
@@ -3743,6 +3756,13 @@ end)</pre>
 <tr><td><strong>v2.3.9</strong>
 </td>
 <td>Keybind fixes for per-loadout mode: Clear removes a per-spec bind instead of claiming there is none, suppressed keys stop rendering across the UI, clearing a key sweeps its suppress markers, and the conflict warning reads the merged view. The test runner flags a filter that matches nothing.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.10</strong>
+</td>
+<td>Spell Cache Viewer and Remote Browser rows render instead of painting blank, and the spell rename behind them applies to the live cache. The Set Keybind button no longer sticks greyed out after an in-combat create.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
