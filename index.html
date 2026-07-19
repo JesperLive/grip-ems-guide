@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.11 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.12 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.11 Guide</div>
+<div class="version">v2.3.12 Guide</div>
 
   </div>
 
@@ -914,7 +914,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.11</span>
+<span class="version-badge">v2.3.12</span>
+</div>
+
+<h3>New in v2.3.12</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9935;</div>
+
+<h3>Delves Get a Profile <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Delves ran the General CVar baseline -- the context system detected Delves, DelvesLow and DelvesHigh, but no built-in profile was mapped to them. The fifth built-in profile turns enemy minion nameplates on, raises the nameplate ranges to 41 yards, and widens the soft-target interact arc, with all three delve contexts routed to it. If you mapped your own profile to the base Delves context before this release, the built-in tier entries resolve first now; map DelvesLow and DelvesHigh yourself to keep your setup -- your own mapping on a tiered key still wins. The SQW Optimizer's latency ring also draws a trend line in the CVar health subpanel: the last 10 samples with the newest highlighted, plus the session low and high.</p>
+</div>
 </div>
 
 <h3>New in v2.3.11</h3>
@@ -3786,6 +3799,13 @@ end)</pre>
 <tr><td><strong>v2.3.11</strong>
 </td>
 <td>The CVar Health score keeps a login-to-login history with a trend line, the Raiding section models Raid Spell Density, the raid and PvP profiles carry nameplate stacking masks, and the header counts categories and CVars from the registry. Garbled Korean locale text restored.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.12</strong>
+</td>
+<td>Delves get the fifth built-in CVar profile with all three delve contexts mapped to it, and the SQW Optimizer's latency ring draws a trend line in the CVar health subpanel.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
