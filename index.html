@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.10 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.11 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.10 Guide</div>
+<div class="version">v2.3.11 Guide</div>
 
   </div>
 
@@ -914,7 +914,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.10</span>
+<span class="version-badge">v2.3.11</span>
+</div>
+
+<h3>New in v2.3.11</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128200;</div>
+
+<h3>The Dashboard Keeps Score <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>The CVar Health score keeps history: one snapshot per login, another whenever the score moves, and a trend line under the header score with the range beside it. The Raiding section gains a Raid Spell Density row -- with raid-specific graphics settings on, the RAID-prefixed mirror governs spell density in raids, so you could raid at the default density while every row showed green; the new row recommends 1 and joins the score and auto-fix. The raid and PvP profiles apply nameplate stacking masks, the header computes its category and CVar counts from the registry instead of a hard-coded string that had drifted, garbled Korean text reads as Korean again, and the Disable button no longer opens rename mode when clicked at its left edge.</p>
+</div>
 </div>
 
 <h3>New in v2.3.10</h3>
@@ -3763,6 +3776,13 @@ end)</pre>
 <tr><td><strong>v2.3.10</strong>
 </td>
 <td>Spell Cache Viewer and Remote Browser rows render instead of painting blank, and the spell rename behind them applies to the live cache. The Set Keybind button no longer sticks greyed out after an in-combat create.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.11</strong>
+</td>
+<td>The CVar Health score keeps a login-to-login history with a trend line, the Raiding section models Raid Spell Density, the raid and PvP profiles carry nameplate stacking masks, and the header counts categories and CVars from the registry. Garbled Korean locale text restored.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
