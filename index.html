@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.13 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.14 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.13 Guide</div>
+<div class="version">v2.3.14 Guide</div>
 
   </div>
 
@@ -914,7 +914,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.13</span>
+<span class="version-badge">v2.3.14</span>
+</div>
+
+<h3>New in v2.3.14</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9000;</div>
+
+<h3>Key Down Casting Turns Itself On <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>The macro engine only steps forward when the game is set to cast on key press. That is the ActionButtonUseKeyDown setting, and while it sits at 0 a sequence looks like it does nothing at all. Nearly every report of the addon doing nothing came down to that one value. EMS now sets it on at every login, so a fresh install just works and you don't have to go hunting through the game settings first. Its row is gone from the CVar Health dashboard, since a setting the addon requires and keeps on for you isn't a recommendation.</p>
+</div>
 </div>
 
 <h3>New in v2.3.13</h3>
@@ -3826,6 +3839,13 @@ end)</pre>
 <tr><td><strong>v2.3.13</strong>
 </td>
 <td>The CVar Health registry grows to 255 variables across 14 sections with a new Combat Audio section, the dashboard gains search and a show-only-issues filter, numeric CVars become sliders and on/off CVars tickboxes, and the graphics dropdowns read their tier names from the game's own strings.</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.14</strong>
+</td>
+<td>Key Down Casting is set on at every login so a fresh install works without changing a game setting first, and its CVar Health row is removed.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
