@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.15 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.16 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.15 Guide</div>
+<div class="version">v2.3.16 Guide</div>
 
   </div>
 
@@ -914,7 +914,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.15</span>
+<span class="version-badge">v2.3.16</span>
+</div>
+
+<h3>New in v2.3.16</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9997;</div>
+
+<h3>Imported Sequences Keep Their Author <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Saving an imported sequence used to put your name on it. A sequence in the older signature format upgraded itself the first time you saved, and that upgrade wrote your identity into the original-author field. When the import arrived with no signature at all there was nothing to upgrade, but the upgrade ran regardless, so your byline landed on someone else's sequence and was then signed as yours. An unsigned import stays unsigned now, in both the main editor and the popup editor. A related fix: an import arriving with no provenance field at all used to show the amber "Damaged" badge, because all three import paths defaulted that field to a value the verifier does not recognise. It reads "Provenance unknown" now, which is what it is. The provenance badge also explains itself: hover it and the verification state is spelled out in a sentence for all six states, Verified, Modified, Tampered, Damaged, Forked and Provenance unknown, text that shipped translated in every locale and had never once been displayed.</p>
+</div>
 </div>
 
 <h3>New in v2.3.15</h3>
@@ -3866,6 +3879,13 @@ end)</pre>
 <tr><td><strong>v2.3.15</strong>
 </td>
 <td>Import hardening -- broken sequence data reports instead of raising; Forge native payload reader</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.16</strong>
+</td>
+<td>An unsigned import no longer picks up your byline on save; the provenance verdict badge explains itself on hover</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
