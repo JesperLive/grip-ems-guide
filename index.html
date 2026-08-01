@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.16 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.17 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +791,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.16 Guide</div>
+<div class="version">v2.3.17 Guide</div>
 
   </div>
 
@@ -914,7 +914,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.16</span>
+<span class="version-badge">v2.3.17</span>
+</div>
+
+<h3>New in v2.3.17</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128274;</div>
+
+<h3>Variables Get a Sandbox <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A variable's function body used to execute with the whole game environment in reach, which meant it could read and write any other addon's data and any saved setting on your account. It now runs against a fixed list of what a variable needs: the condition helpers from the Insert Helper button, the standard Lua functions, and the read-only game queries for spells, auras, items and unit state. The list covers reads only, so a variable can ask what your cooldown is, whether you know a spell, how many of an item you carry, whether you are mounted, stealthed, in combat or in a group, but it cannot cast, send a chat message, run a macro, change a setting or schedule anything for later. Some existing variables may stop returning a value; if one does, turn on debug output and the variable name and the exact thing it reached are named once each. Separately, a sequence marked do-not-share is honoured now: the mark travels with the sequence, so it will not export to a string, will not go out over player-to-player sharing, and will not be sent if somebody asks for it directly. The export window says which sequence was refused and why, the import preview shows the mark before you commit, and a marked sequence is left out of the list other players browse rather than listed with the author's help text stripped.</p>
+</div>
 </div>
 
 <h3>New in v2.3.16</h3>
@@ -3886,6 +3899,13 @@ end)</pre>
 <tr><td><strong>v2.3.16</strong>
 </td>
 <td>An unsigned import no longer picks up your byline on save; the provenance verdict badge explains itself on hover</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.17</strong>
+</td>
+<td>Variable bodies run against a fixed read-only list; a do-not-share mark blocks export and player-to-player sharing</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
