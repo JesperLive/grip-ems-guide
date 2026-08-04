@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+<!--
+Created: 2026-03-20
+Updated: 2026-08-04
+WoW Patch at last update: 12.0.7 Midnight (Retail LIVE)
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.17 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.18 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -791,7 +796,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.17 Guide</div>
+<div class="version">v2.3.18 Guide</div>
 
   </div>
 
@@ -914,7 +919,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.17</span>
+<span class="version-badge">v2.3.18</span>
+</div>
+
+<h3>New in v2.3.18</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128101;</div>
+
+<h3>Sequences From Your Other Characters <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>The sequence list can show what your alts have saved. Tick the Other characters box above the list and every sequence from another character appears alongside your own, sorted and filtered together. Those rows are read-only, greyed, and carry the owner's name, and clicking one prints a note instead of loading it. Sequences are still stored per character and nothing about that changed, so a character appears only once it has logged in with this release. To move one, right-click it and pick Copy to character: the copy is handed over the next time that character logs in, and a name collision renames the incoming sequence instead of overwriting what is already there. Also in this release: the step counter, the tracker icon and the action bar overlay repaint when a sequence resets, where all three used to keep showing the step from before the reset while the engine sat correctly at step 1. The Copy button under the rotation preview opens the export window instead of an edit box positioned off screen where you could not see it. The CVar Health dashboard grows to 284 settings across 14 sections.</p>
+</div>
 </div>
 
 <h3>New in v2.3.17</h3>
@@ -3908,6 +3926,13 @@ end)</pre>
 <tr><td><strong>v2.3.17</strong>
 </td>
 <td>Variable bodies run against a fixed read-only list; a do-not-share mark blocks export and player-to-player sharing</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.18</strong>
+</td>
+<td>Cross-character sequence visibility with push-copy to another character; reset paths repaint the tracker HUD and bar overlay</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
