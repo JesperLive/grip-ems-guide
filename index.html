@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <!--
 Created: 2026-03-20
-Updated: 2026-08-04
+Updated: 2026-08-09
 WoW Patch at last update: 12.0.7 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.18 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.3.19 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -796,7 +796,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.18 Guide</div>
+<div class="version">v2.3.19 Guide</div>
 
   </div>
 
@@ -919,7 +919,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.18</span>
+<span class="version-badge">v2.3.19</span>
+</div>
+
+<h3>New in v2.3.19</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128736;</div>
+
+<h3>Patch 12.1 Support <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Support for game patch 12.1. Midnight removed the option to load an out-of-date addon, so an addon that does not name the new patch does not load at all. This release names it. Also in this release: importing a collection with protected content inside it tells you why it was refused, where the import used to say only that it failed to decode, and the six nested places that read a collection now give the same explanation the top-level paste has always given. A linked copy of protected content no longer imports as an empty sequence or variable; that shape holds a reference to content kept by the source sequencer plus a list of changes, not the content itself, so reading it produced a sequence or variable with the right name and nothing inside it. Theme links from a connected realm keep working on 12.1, where the check deciding whether a link came from one of your connected realms called a game function that 12.1 removes and now calls the replacement instead.</p>
+</div>
 </div>
 
 <h3>New in v2.3.18</h3>
@@ -3933,6 +3946,13 @@ end)</pre>
 <tr><td><strong>v2.3.18</strong>
 </td>
 <td>Cross-character sequence visibility with push-copy to another character; reset paths repaint the tracker HUD and bar overlay</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.3.19</strong>
+</td>
+<td>Names game patch 12.1; nested protected content is refused with a reason instead of a decode error, and connected-realm theme links call the 12.1 replacement</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
