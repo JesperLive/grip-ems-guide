@@ -933,6 +933,11 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <p>Your sequence keybind kept showing correctly in /gems after a /reload or after zoning into a delve or a dungeon, but pressing it did nothing, and opening the Keybind tab and setting it to the same key again was the only way to bring it back until the next loading screen. The addon re-applies sequence keybinds at runtime rather than storing them in the game's own binding list, and a loading screen drops the live binding. The code that puts it back had been grouped with the once-per-login startup work and gated behind the same flag, so on a zone change it never ran at all. It runs on every world load now, and runs a second time shortly after the loading screen ends.</p>
 </div>
+</div>
+
+<h3>New in v2.4.0</h3>
+
+<div class="card-grid">
 <div class="feature-card">
 <div class="card-icon">&#9889;</div>
 
