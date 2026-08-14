@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <!--
 Created: 2026-03-20
-Updated: 2026-08-09
-WoW Patch at last update: 12.0.7 Midnight (Retail LIVE)
+Updated: 2026-08-14
+WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.3.19 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.0 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -796,7 +796,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.3.19 Guide</div>
+<div class="version">v2.4.0 Guide</div>
 
   </div>
 
@@ -919,7 +919,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.3.19</span>
+<span class="version-badge">v2.4.0</span>
+</div>
+
+<h3>New in v2.4.0</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9889;</div>
+
+<h3>Hold While Channeling and Keybind Conflicts <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Hold While Channeling is a setting on each sequence version. With Hold cursor on, a press that lands while you are channeling casts nothing and leaves the step counter where it is, so you stop clipping your own channel and stop spending steps on it. A third option, Hold + release at max, ends an empowered spell the moment it reaches maximum rank instead of letting the rest of the hold window run down. The control only appears if your spellbook has an empowered spell in it, and the hold on its own works for any channel from any source. Known issue on release at max: on at least one tester's client the empower ends at the first rank instead of at maximum, on every press, with nothing on screen to say so; it does not reproduce on the development client and the cause is still open, so if your empowered casts are ending early, set that version back to Hold cursor. The other new thing is a keybind conflict panel, reached from the Check Conflicts button on the Keybind tab or with /gems keys. It takes every key bound to a sequence on your current spec, plus the vehicle bar and pet battle slots, and reports what your saved key bindings have on that key, what the keypress actually reaches, whether a modifier on it redirects your casts, and whether a click binding holds it. Where the addon behind a binding can be named, it names it and the file and line it came from. Two kinds of conflict can be cleared from the panel itself, Fix All does the whole list after telling you the count first, and Undo puts back the last binding it changed and refuses if something else has claimed that key since.</p>
+</div>
 </div>
 
 <h3>New in v2.3.19</h3>
@@ -3953,6 +3966,13 @@ end)</pre>
 <tr><td><strong>v2.3.19</strong>
 </td>
 <td>Names game patch 12.1; nested protected content is refused with a reason instead of a decode error, and connected-realm theme links call the 12.1 replacement</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.0</strong>
+</td>
+<td>Hold While Channeling per sequence version, with an option to release an empowered spell at maximum rank; a keybind conflict panel that reports and clears what else is bound to your sequence keys; Plugin API version 4</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
