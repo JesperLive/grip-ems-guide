@@ -8,7 +8,7 @@ WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.0 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.1 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -796,7 +796,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.0 Guide</div>
+<div class="version">v2.4.1 Guide</div>
 
   </div>
 
@@ -919,12 +919,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.0</span>
+<span class="version-badge">v2.4.1</span>
 </div>
 
-<h3>New in v2.4.0</h3>
+<h3>New in v2.4.1</h3>
 
 <div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128273;</div>
+
+<h3>Sequence keybinds survive a loading screen <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Your sequence keybind kept showing correctly in /gems after a /reload or after zoning into a delve or a dungeon, but pressing it did nothing, and opening the Keybind tab and setting it to the same key again was the only way to bring it back until the next loading screen. The addon re-applies sequence keybinds at runtime rather than storing them in the game's own binding list, and a loading screen drops the live binding. The code that puts it back had been grouped with the once-per-login startup work and gated behind the same flag, so on a zone change it never ran at all. It runs on every world load now, and runs a second time shortly after the loading screen ends.</p>
+</div>
 <div class="feature-card">
 <div class="card-icon">&#9889;</div>
 
@@ -3973,6 +3981,13 @@ end)</pre>
 <tr><td><strong>v2.4.0</strong>
 </td>
 <td>Hold While Channeling per sequence version, with an option to release an empowered spell at maximum rank; a keybind conflict panel that reports and clears what else is bound to your sequence keys; Plugin API version 4</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.1</strong>
+</td>
+<td>Sequence keybinds are re-applied on every world load, so they survive a reload and zoning into an instance</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
