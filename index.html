@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <!--
 Created: 2026-03-20
-Updated: 2026-08-14
+Updated: 2026-08-15
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.2 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.3 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -796,7 +796,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.2 Guide</div>
+<div class="version">v2.4.3 Guide</div>
 
   </div>
 
@@ -919,7 +919,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.2</span>
+<span class="version-badge">v2.4.3</span>
+</div>
+
+<h3>New in v2.4.3</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128274;</div>
+
+<h3>Imports no longer overwrite a macro you wrote yourself <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>If an import carried a macro with the same name as one already in your macro list, the addon replaced your macro's body with the imported one and started treating it as its own, with no prompt and no undo. Sequences already handled a name clash by renaming; macros did not. Now a name that belongs to a macro the addon did not create is left alone, and you get a line in chat naming it, so you can rename either side and import again. That macro is also counted as skipped in the import summary rather than reported as imported. If you import while in combat the summary is written before the work runs, so it still counts the macro as imported until combat ends and the chat line arrives.</p>
+</div>
 </div>
 
 <h3>New in v2.4.2</h3>
@@ -4013,6 +4026,13 @@ end)</pre>
 <tr><td><strong>v2.4.2</strong>
 </td>
 <td>Step spell names are re-resolved out of combat, so a temporary form or proc name no longer sticks in the step list</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.3</strong>
+</td>
+<td>An import leaves a macro the addon does not own alone instead of overwriting it, names it in chat, and counts it as skipped</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
