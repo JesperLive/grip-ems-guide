@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <!--
 Created: 2026-03-20
-Updated: 2026-08-15
+Updated: 2026-08-17
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.3 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.4 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -796,7 +796,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.3 Guide</div>
+<div class="version">v2.4.4 Guide</div>
 
   </div>
 
@@ -919,7 +919,29 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.3</span>
+<span class="version-badge">v2.4.4</span>
+</div>
+
+<h3>New in v2.4.4</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128302;</div>
+
+<h3>A temporary spell swap is no longer saved into your step text <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A Blood Death Knight running San'layn found a Heart Strike step rewritten to Vampiric Strike, which is not a name the game will cast. A Guardian Druid found Maul and Ravage doing nothing at all. Demon Hunters and Monks saw Cull, Eradicate and Rushing Wind Kick left sitting in the step list. It is all one cause. The addon kept your step text current by asking the game which spell is active right now and saving the answer, and the game answers that question the same way for a talent you chose as for a form you are standing in, a channel you are part way through, or a buff that happens to be up. The swapped name is not written anywhere now. Your steps keep the ordinary base name, which is the name the game wants, since casting Maul casts whatever Maul currently turns into.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128269;</div>
+
+<h3>The step list shows the spell you would cast right now <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Because the swapped name is no longer saved, the step list works it out as it draws each row instead, so a step written as Maul reads as Ravage while Ravage is the version your talents give you, and reads as Maul again on its own once it is not. A row you are part way through editing shows what you typed rather than the worked out name, so nothing paints over you while you are typing. Getting this wrong now shows the wrong label for a moment and corrects itself, and it can no longer leave a macro that does nothing. Step text that was already saved wrong is repaired for you, once, the first time the addon reads your spellbook after you update.</p>
+</div>
 </div>
 
 <h3>New in v2.4.3</h3>
@@ -4033,6 +4055,13 @@ end)</pre>
 <tr><td><strong>v2.4.3</strong>
 </td>
 <td>An import no longer overwrites a macro you wrote yourself, so a name clash leaves your macro untouched and tells you which one it skipped</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.4</strong>
+</td>
+<td>A temporary spell swap is never saved into step text, so your steps keep the ordinary base name and the step list works the current name out as it draws</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
