@@ -942,7 +942,11 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <p>If a version's steps come from its action tree, the popup editor let you type into the step rows and press Save, and the save discarded what you typed. It rebuilds the steps from the tree on the way through, so the edit was overwritten inside the same save that was supposed to store it. Those rows and their spell pickers are now switched off for that version, with a line above the list saying the tree is driving the steps. Change them in the structured editor, which compiles the tree instead of fighting it.</p>
 </div>
+</div>
 
+<h3>New in v2.4.5</h3>
+
+<div class="card-grid">
 <div class="feature-card">
 <div class="card-icon">&#127919;</div>
 
@@ -4093,6 +4097,20 @@ end)</pre>
 <tr><td><strong>v2.4.4</strong>
 </td>
 <td>A temporary spell swap is never saved into step text, so your steps keep the ordinary base name and the step list works the current name out as it draws</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.5</strong>
+</td>
+<td>The step visualizer reads each step's own text, so a keypress box full of conditional casts no longer shows the same spell on every row</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.6</strong>
+</td>
+<td>Undo is discarded when you switch version, and step rows are locked on a version whose action tree drives them, so neither can write a change into a version you did not edit</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
