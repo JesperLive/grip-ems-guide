@@ -8,7 +8,7 @@ WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.5 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.6 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -796,7 +796,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.5 Guide</div>
+<div class="version">v2.4.6 Guide</div>
 
   </div>
 
@@ -919,12 +919,30 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.5</span>
+<span class="version-badge">v2.4.6</span>
 </div>
 
-<h3>New in v2.4.5</h3>
+<h3>New in v2.4.6</h3>
 
 <div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9003;</div>
+
+<h3>Undo after switching version no longer changes the wrong version <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Undo remembers a step by its position. Switching version in the popup editor swapped the working copy but kept the undo history, so pressing Ctrl+Z after a switch removed a step from the version you had just moved to, at the position it held in the version you left, and armed Save on top of it. Between two flat versions nothing stopped that reaching your saved sequence, so a version you never edited could be written back a step short. The undo history is now cleared on the switch, the same as it already was when you open a sequence or close the editor.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128274;</div>
+
+<h3>Step rows on a tree-driven version no longer accept edits that get thrown away <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>If a version's steps come from its action tree, the popup editor let you type into the step rows and press Save, and the save discarded what you typed. It rebuilds the steps from the tree on the way through, so the edit was overwritten inside the same save that was supposed to store it. Those rows and their spell pickers are now switched off for that version, with a line above the list saying the tree is driving the steps. Change them in the structured editor, which compiles the tree instead of fighting it.</p>
+</div>
+
 <div class="feature-card">
 <div class="card-icon">&#127919;</div>
 
