@@ -12,7 +12,7 @@ WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.7 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.8 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.7 Guide</div>
+<div class="version">v2.4.8 Guide</div>
 
   </div>
 
@@ -923,7 +923,38 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.7</span>
+<span class="version-badge">v2.4.8</span>
+</div>
+
+<h3>New in v2.4.8</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128274;</div>
+
+<h3>EMS asks before a sequence you did not write leaves your client <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Sending a sequence to another player, answering someone's request for one, or exporting one to a string now raises a confirmation naming the author, and nothing is sent or produced until you agree. The name shown is the person the content came from, followed back through however many times it has been copied, so a copy of someone else's work names them rather than you. For a batch you are asked once, and the prompt names every author in it. Sequences you wrote yourself are unaffected: they still send, export and answer requests with no prompt. If a request arrives while you are in combat, nothing is sent and nothing pops up; you get one line in chat telling you a request went unanswered.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128100;</div>
+
+<h3>Editing or receiving someone else's sequence no longer makes it yours <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Several routes quietly transferred authorship. Opening an older sequence written by another player and pressing Save re-signed it under your name; a sequence arriving with no author at all was treated as new work created here; a sequence arriving from another player could claim you as its original author; and a duplicate of another player's sequence was read as your own work. An arriving sequence is now recorded as having come from elsewhere whatever it does or does not carry, and what the addon asks about follows the content rather than the signature, so a copy of a copy is still checked. EMS also stops answering other clients' requests for your sequence list or for a sequence's details with anything you did not write.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128683;</div>
+
+<h3>The do-not-share mark survives duplicating, saving, renaming and a Raw tab edit <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A sequence whose author marked it do-not-share lost that mark when it was copied, and separately when it was saved, saved from a popup editor window, or renamed, so the one restriction the addon will not let you share around quietly lifted the first time you touched the sequence. All of those paths keep it now, and every sharing route refuses the copy exactly as it refuses the original. The mark and the attestation that goes with it are also fixed in the Raw tab, alongside the author name, the signature and the origin, so retyping the text cannot remove them. A sequence converted from another sequencer can no longer be duplicated at all, because a duplicate is stamped as yours and would have prompted for nothing.</p>
+</div>
 </div>
 
 <h3>New in v2.4.7</h3>
@@ -4166,6 +4197,13 @@ end)</pre>
 <tr><td><strong>v2.4.7</strong>
 </td>
 <td>The guide's New in list has its own v2.3.1 section, so the three things that shipped in v2.3.1 are listed where they belong instead of being left out</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.8</strong>
+</td>
+<td>A sequence you did not write is confirmed by name before it is sent, answered or exported, a do-not-share mark survives every copy and edit, and no save, duplicate or arrival transfers authorship to you</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
