@@ -5,14 +5,14 @@ Not licensed for AI or ML training. See LICENSE section 3.
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-08-25
+Updated: 2026-09-01
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.8 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.9 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.8 Guide</div>
+<div class="version">v2.4.9 Guide</div>
 
   </div>
 
@@ -923,7 +923,38 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.8</span>
+<span class="version-badge">v2.4.9</span>
+</div>
+
+<h3>New in v2.4.9</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128204;</div>
+
+<h3>Macro buttons no longer swap contents after a delete or rename <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Deleting any macro moves every macro below it up one place. EMS remembered its own macros by position and corrected only the one it had just deleted, so from that point every other macro it owned was recorded one place too high. The next change to one of those sequences wrote into the wrong macro and left that macro's name alone, leaving a button labelled for one sequence that runs a different one, and handing the sequence whose name was taken a fresh macro on every reload. Renaming a sequence deletes a macro as part of the rename, which is why renaming imported sequences set this off, and deleting a macro yourself in the macro window did it too. EMS now finds its macros by what they contain and looks each one up at the moment it writes. Sequences whose long names shorten to the same macro name no longer end up sharing one either, because EMS checks the macro names you actually have, including macros you made yourself.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128269;</div>
+
+<h3>The import window tells you why something was left out <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Paste an import the addon cannot take, say a collection whose sequences are all stored in a form EMS will not read, and the preview came up completely blank: no list, no summary, and no explanation anywhere on the screen. The reasons existed the whole time, but you only saw them after pressing Import, which nothing on that empty screen gave you any reason to press. The preview now opens with a Not imported section listing one plain line for each thing that was turned away, above whatever it did manage to read. Those lines wrap onto as many rows as they need, and nothing in that section can be ticked or counted towards what you import. An import with nothing wrong with it looks exactly as it did before.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128203;</div>
+
+<h3>Import tick boxes stop coming unticked on their own <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>In a preview long enough to scroll, ticking or unticking one sequence could leave a different row further up looking unticked when it was still going to be imported, or put a gold auto tag on a row that had no business carrying one. The count on the Import button was right the whole time and so was what actually got imported; only the row you were looking at was wrong. Rows are reused as you scroll, and one row was still following the settings of whatever had previously been in its place.</p>
+</div>
 </div>
 
 <h3>New in v2.4.8</h3>
@@ -4204,6 +4235,13 @@ end)</pre>
 <tr><td><strong>v2.4.8</strong>
 </td>
 <td>A sequence you did not write is confirmed by name before it is sent, answered or exported, a do-not-share mark survives every copy and edit, and no save, duplicate or arrival transfers authorship to you</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.9</strong>
+</td>
+<td>EMS finds its macros by what they contain instead of by position, so deleting or renaming a sequence no longer writes into the wrong macro, and two sequences can no longer be handed one macro name; the import preview lists what it turned away and why, and its tick boxes stay with the row they belong to</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
