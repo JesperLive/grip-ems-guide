@@ -12,7 +12,7 @@ WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.9 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.10 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.9 Guide</div>
+<div class="version">v2.4.10 Guide</div>
 
   </div>
 
@@ -923,7 +923,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.9</span>
+<span class="version-badge">v2.4.10</span>
+</div>
+
+<h3>New in v2.4.10</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#127919;</div>
+
+<h3>The tracker button shows the right spell on Priority sequences <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>On Priority, on Reverse Priority, and on any step order added by a plugin, the tracker button showed the first spell in your keypress box whichever step was actually running. If your keypress opened with something like a shift-modified stun, that stun is what the button showed the whole way through. The v2.4.5 fix that stopped the tracker painting a keypress spell onto every row only ever reached sequences set to Sequential. Casting was never affected and your stored steps were never wrong; only the button was. Every step order now reports the step's own spell.</p>
+</div>
 </div>
 
 <h3>New in v2.4.9</h3>
@@ -4242,6 +4255,13 @@ end)</pre>
 <tr><td><strong>v2.4.9</strong>
 </td>
 <td>EMS finds its macros by what they contain instead of by position, so deleting or renaming a sequence no longer writes into the wrong macro, and two sequences can no longer be handed one macro name; the import preview lists what it turned away and why, and its tick boxes stay with the row they belong to</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.10</strong>
+</td>
+<td>The tracker button reports each step's own spell on Priority, on Reverse Priority and on plugin step orders, so a keypress spell no longer shows on every step outside Sequential</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
