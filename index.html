@@ -5,14 +5,14 @@ Not licensed for AI or ML training. See LICENSE section 3.
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-09-01
+Updated: 2026-09-02
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.10 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.11 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.10 Guide</div>
+<div class="version">v2.4.11 Guide</div>
 
   </div>
 
@@ -923,7 +923,38 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.10</span>
+<span class="version-badge">v2.4.11</span>
+</div>
+
+<h3>New in v2.4.11</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128230;</div>
+
+<h3>Collections that imported as empty now import <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Some exports store each sequence in a collection as a two part package, the name followed by the sequence, instead of the sequence on its own. EMS unpacked that package when a sequence arrived still encoded and not when it arrived as plain data, and that gap sat in every route it has: the preview, the import itself, and the older migration path. A collection built the second way reported no macro versions found for every sequence in it. The preview named the sequences it had just read and then showed nothing, which is the confusing part: it had reached them, it just could not see inside. Nothing was wrong with those strings and nothing you already had was changed. Every route unpacks it now, so the versions and their steps come through.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128737;</div>
+
+<h3>One badly stored sequence no longer takes the rest of the addon with it <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>If a sequence ended up saved in a shape EMS did not expect, whether from an old import or a hand edited file, reading it could stop whatever was asking: activating it, saving it in the editor, the step count and step text on the tracker, and another addon asking about the sequence through the plugin interface, which could also be handed a step count that was plainly wrong. One of these sequences could also quietly empty itself, because rebuilding it read the steps back out of a shape that could not be read and wrote the empty result over the ones you had, leaving no steps and nothing on screen to say so. Those reads check the shape first now, so a sequence EMS cannot use is passed over and the steps it does have are left alone.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128269;</div>
+
+<h3>A malformed import says what it could not read <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>An import holding a version in a shape EMS did not expect could stop the preview, or get past the preview and then stop when you pressed Import. Both points check the shape before reading it now. The preview lists what it could not read in the Not imported section with the reason and offers you the rest; a sequence still unreadable when you press Import is set aside whole, with the reason printed in chat, and the other sequences in the same paste import as normal. Separately, a legacy sequence whose keypress was stored as a list no longer stops the preview when you paste a copy of one you already have.</p>
+</div>
 </div>
 
 <h3>New in v2.4.10</h3>
@@ -4262,6 +4293,13 @@ end)</pre>
 <tr><td><strong>v2.4.10</strong>
 </td>
 <td>The tracker button reports each step's own spell on Priority, on Reverse Priority and on plugin step orders, so a keypress spell no longer shows on every step outside Sequential</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.11</strong>
+</td>
+<td>Collections whose sequences carry a name wrapper import on every route, a malformed import reports what it could not read instead of stopping, and a badly stored sequence no longer stops activation, an editor save, the tracker or the plugin interface, nor empties its own steps on a rebuild</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
