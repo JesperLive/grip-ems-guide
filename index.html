@@ -5,14 +5,14 @@ Not licensed for AI or ML training. See LICENSE section 3.
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-09-02
+Updated: 2026-09-03
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.11 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.12 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.11 Guide</div>
+<div class="version">v2.4.12 Guide</div>
 
   </div>
 
@@ -923,7 +923,29 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.11</span>
+<span class="version-badge">v2.4.12</span>
+</div>
+
+<h3>New in v2.4.12</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#127991;</div>
+
+<h3>A damaged version no longer breaks the version display <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>If a sequence held a version stored in a shape EMS did not expect, nothing on screen would tell you which of its versions was live: no LIVE badge in the editor, no marker beside the version in its menu, no tag on the sequence list row, and no number on the tracker, on a sequence that had a live version the whole time. The tracker also disagreed with itself, printing a number in one place and a blank in another for the same sequence, and the list and the editor disagreed the same way. Where two versions happened to hold the same value, the badge picked the wrong one and named it live. Every part of the addon works the live version out the same way now.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128260;</div>
+
+<h3>Context and talent changes no longer queue an endless reload <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A sequence with context overrides queued a reload of itself on every context change and every talent loadout change, then queued another on the next one, and never stopped, because what EMS had written down about the live version and what it read back never matched. They match now, so a reload is queued only when something has actually changed. The v2.4.11 guards that stopped a badly stored sequence taking the rest of the addon with it also sit at the one place they all read from now, so the reads that were left over are covered too.</p>
+</div>
 </div>
 
 <h3>New in v2.4.11</h3>
@@ -4300,6 +4322,13 @@ end)</pre>
 <tr><td><strong>v2.4.11</strong>
 </td>
 <td>Collections whose sequences carry a name wrapper import on every route, a malformed import reports what it could not read instead of stopping, and a badly stored sequence no longer stops activation, an editor save, the tracker or the plugin interface, nor empties its own steps on a rebuild</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.12</strong>
+</td>
+<td>A sequence holding a damaged version keeps its version display: the LIVE badge, the version menu marker, the list row tag and the tracker number all agree on the same live version, the wrong version is no longer named live when two hold the same value, and a context or talent loadout change no longer queues an endless reload</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
