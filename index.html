@@ -5,14 +5,14 @@ Not licensed for AI or ML training. See LICENSE section 3.
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-09-03
+Updated: 2026-09-07
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.12 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.13 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.12 Guide</div>
+<div class="version">v2.4.13 Guide</div>
 
   </div>
 
@@ -923,7 +923,38 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.12</span>
+<span class="version-badge">v2.4.13</span>
+</div>
+
+<h3>New in v2.4.13</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128221;</div>
+
+<h3>Editing one version no longer rewrites the others <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Every save, and every quick change that persists on its own such as ticking a reset box, typing in the KeyPress or KeyRelease field, moving the reset timer or picking a step function, read back all of a sequence's versions and worked their step names out again from whatever the game reported those names as at that moment. On a character whose talents replace one spell with another, that rewrote versions you had not opened: a version holding Rising Sun Kick came back holding the replacement. Only the version you are editing is worked out again now, and it stays that way a second later when the sequence is re-signed in the background.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#9000;</div>
+
+<h3>The keybind panel checks modified keys too <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A sequence is bound on one key, and the keybind conflict panel only ever looked at that key, so a sequence whose steps or keypress text branch on shift, control or alt was reported clear while the modified key was held by something else and the branch never ran. Those combinations are read out of the sequence's own text now and checked beside the plain key, in the panel and in /gems keys, and each one another addon or a game binding holds is listed under the sequence it belongs to. A modified key nothing holds is not listed, and neither is one held by the sequence's own variant button.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128100;</div>
+
+<h3>Your own sequences are treated as your own <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A new sequence is marked as your own work the moment it is created, and the check deciding whether a sequence came from elsewhere read that mark as a sign that it had. Saving one for the first time skipped the step that records you as its author, so you were asked to confirm authorship before sending, exporting or answering another player's request for your own work, and the author name you picked in the editor was dropped instead of being kept.</p>
+</div>
 </div>
 
 <h3>New in v2.4.12</h3>
@@ -4329,6 +4360,13 @@ end)</pre>
 <tr><td><strong>v2.4.12</strong>
 </td>
 <td>A sequence holding a damaged version keeps its version display: the LIVE badge, the version menu marker, the list row tag and the tracker number all agree on the same live version, the wrong version is no longer named live when two hold the same value, and a context or talent loadout change no longer queues an endless reload</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.13</strong>
+</td>
+<td>Editing one version of a sequence no longer works out the step names in its other versions, so a talent swap cannot rewrite a version you did not open; the keybind conflict panel and /gems keys check the modifier combinations a sequence branches on, and list each one another addon or a game binding holds; and a sequence you wrote yourself is recorded as your own work when it is first saved, so it is no longer treated as though it came from elsewhere</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
