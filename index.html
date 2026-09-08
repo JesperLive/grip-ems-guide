@@ -944,7 +944,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h3>Hold While Channeling shows for every character <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>The control only appeared if your character had an empowered spell, and the hold mode has nothing to do with empowered spells: it acts on any channel from any source. So a Demon Hunter channelling Void Ray could not reach the setting at all, because the only other way to see it was to already have it switched on. Release at max, the third option in that dropdown, is the only empower-specific one, and choosing it on a character with no empowered spell does nothing rather than something wrong.</p>
+<p>The control only appeared if your character had an empowered spell, and the hold mode has nothing to do with empowered spells: it acts on any channel from any source. So a Demon Hunter channelling Void Ray could not reach the setting at all, because the only other way to see it was to already have it switched on. Release at max, the third option in that dropdown, is the only empower-specific one, and on a character with no empowered spell it behaves exactly like Hold cursor, because the hold still applies and only the release half has nothing to act on.</p>
 </div>
 </div>
 
@@ -4389,6 +4389,13 @@ end)</pre>
 <tr><td><strong>v2.4.13</strong>
 </td>
 <td>Editing one version of a sequence no longer works out the step names in its other versions, so a talent swap cannot rewrite a version you did not open; the keybind conflict panel and /gems keys check the modifier combinations a sequence branches on, and list each one another addon or a game binding holds; and a sequence you wrote yourself is recorded as your own work when it is first saved, so it is no longer treated as though it came from elsewhere</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.14</strong>
+</td>
+<td>A step keeps the spell name you typed after a talent replaces it, because the spell recorded alongside your text is resolved from your words rather than from whatever the game serves at that moment, and a version you wrote for another loadout shows the names you gave it; and Hold While Channeling reaches every character instead of only one with an empowered spell, since the hold acts on any channel from any source</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
