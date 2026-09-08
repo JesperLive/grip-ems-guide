@@ -5,14 +5,14 @@ Not licensed for AI or ML training. See LICENSE section 3.
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-09-07
+Updated: 2026-09-08
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.13 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.14 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.13 Guide</div>
+<div class="version">v2.4.14 Guide</div>
 
   </div>
 
@@ -923,7 +923,29 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.13</span>
+<span class="version-badge">v2.4.14</span>
+</div>
+
+<h3>New in v2.4.14</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9999;</div>
+
+<h3>Your spell names survive a talent change <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>v2.4.13 stopped a save from touching versions you had not opened, and that turned out not to be where the problem was: the version you did have open was still worked out again from whatever the game reported at that moment. On a Mistweaver with Rushing Wind Kick talented over Rising Sun Kick, a step you had typed as Rising Sun Kick came back as Rushing Wind Kick and stayed that way in your saved file. The spell recorded alongside your text is now the one your words name rather than the one your talents currently serve, your step text is left exactly as you typed it when there is no other language to bring it across from, and a version you wrote for a different loadout shows the names you gave it instead of the replacement live on your character right now.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128065;</div>
+
+<h3>Hold While Channeling shows for every character <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>The control only appeared if your character had an empowered spell, and the hold mode has nothing to do with empowered spells: it acts on any channel from any source. So a Demon Hunter channelling Void Ray could not reach the setting at all, because the only other way to see it was to already have it switched on. Release at max, the third option in that dropdown, is the only empower-specific one, and choosing it on a character with no empowered spell does nothing rather than something wrong.</p>
+</div>
 </div>
 
 <h3>New in v2.4.13</h3>
