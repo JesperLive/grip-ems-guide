@@ -5,14 +5,14 @@ Not licensed for AI or ML training. See LICENSE section 3.
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-09-08
+Updated: 2026-09-10
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.14 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.15 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.14 Guide</div>
+<div class="version">v2.4.15 Guide</div>
 
   </div>
 
@@ -923,7 +923,29 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.14</span>
+<span class="version-badge">v2.4.15</span>
+</div>
+
+<h3>New in v2.4.15</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128229;</div>
+
+<h3>Imported sequences cast again <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Every import on v2.4.14 stored its spells as the raw {spell:186289} form the transport uses instead of as spell names. The sequence showed up in your list, the keybind lit up, and nothing was cast, and deleting it and importing it again gave you the same result. What kept it hidden is that each damaged copy was stamped as already being in your language, so the repair panel read that stamp and reported the sequence clean, and the check that runs when you log in read the same stamp and passed over it every time. Imports store spell names again, a sequence already damaged on your character is listed in the repair panel as an error with a Fix button, and the login check repairs it whether or not an earlier repair had cleared its stored spell tags.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128295;</div>
+
+<h3>A linked sequence is repaired in one pass <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>The repair rebuilt each sequence as it finished with it, so where one sequence used another as one of its steps and both were damaged, the first could be rebuilt from the second before the second had been repaired and came back holding the broken text again. That took a second login to settle. Every sequence is repaired first and rebuilt afterwards now, so one pass is enough whichever order they come up in. The message EMS prints afterwards no longer says a locale change was detected on a client whose language never changed.</p>
+</div>
 </div>
 
 <h3>New in v2.4.14</h3>
@@ -4396,6 +4418,13 @@ end)</pre>
 <tr><td><strong>v2.4.14</strong>
 </td>
 <td>A step keeps the spell name you typed after a talent replaces it, because the spell recorded alongside your text is resolved from your words rather than from whatever the game serves at that moment, and a version you wrote for another loadout shows the names you gave it; and Hold While Channeling reaches every character instead of only one with an empowered spell, since the hold acts on any channel from any source</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.15</strong>
+</td>
+<td>A sequence imported on v2.4.14 casts again: the import stores spell names instead of the raw transport form, a copy already damaged on your character is reported in the repair panel as an error and repaired by the check that runs at login even where an earlier repair had cleared its stored spell tags, and a sequence that embeds another is repaired in one pass rather than needing a second login</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
