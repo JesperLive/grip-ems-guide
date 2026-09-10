@@ -1290,7 +1290,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h3>The Importer Survives Broken Data <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>A sequence whose stored data went bad -- an import cut short, a hand-edited SavedVariables file, an export from a buggy tool -- used to raise a Lua error in whatever touched it first: the import preview, the importer, the exporter, the repair scan at login, or a template copy. Those paths now report the broken entry and carry on. The repair analyzer picked up thirteen guards of its own, and its "Empty steps array" fix applies cleanly to a corrupt sequence instead of raising. A Forge export can also carry a native GRIP-EMS sequence inside its envelope now, read directly with the source labelled in the import preview, and the in-game test suite grew the fixtures that prove each new guard live.</p>
+<p>A sequence whose stored data went bad (an import cut short, a hand-edited SavedVariables file, an export from a buggy tool) used to raise a Lua error in whatever touched it first: the import preview, the importer, the exporter, the repair scan at login, or a template copy. Those paths now report the broken entry and carry on. The repair analyzer picked up thirteen guards of its own, and its "Empty steps array" fix applies cleanly to a corrupt sequence instead of raising. A Forge export can also carry a native GRIP-EMS sequence inside its envelope now, read directly with the source labelled in the import preview, and the in-game test suite grew the fixtures that prove each new guard live.</p>
 </div>
 </div>
 
@@ -1329,7 +1329,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h3>Delves Get a Profile <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>Delves ran the General CVar baseline -- the context system detected Delves, DelvesLow and DelvesHigh, but no built-in profile was mapped to them. The fifth built-in profile turns enemy minion nameplates on, raises the nameplate ranges to 41 yards, and widens the soft-target interact arc, with all three delve contexts routed to it. If you mapped your own profile to the base Delves context before this release, the built-in tier entries resolve first now; map DelvesLow and DelvesHigh yourself to keep your setup -- your own mapping on a tiered key still wins. The SQW Optimizer's latency ring also draws a trend line in the CVar health subpanel: the last 10 samples with the newest highlighted, plus the session low and high.</p>
+<p>Delves ran the General CVar baseline. The context system detected Delves, DelvesLow and DelvesHigh, but no built-in profile was mapped to them. The fifth built-in profile turns enemy minion nameplates on, raises the nameplate ranges to 41 yards, and widens the soft-target interact arc, with all three delve contexts routed to it. If you mapped your own profile to the base Delves context before this release, the built-in tier entries resolve first now; map DelvesLow and DelvesHigh yourself to keep your setup. Your own mapping on a tiered key still wins. The SQW Optimizer's latency ring also draws a trend line in the CVar health subpanel: the last 10 samples with the newest highlighted, plus the session low and high.</p>
 </div>
 </div>
 
@@ -1342,7 +1342,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h3>The Dashboard Keeps Score <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>The CVar Health score keeps history: one snapshot per login, another whenever the score moves, and a trend line under the header score with the range beside it. The Raiding section gains a Raid Spell Density row -- with raid-specific graphics settings on, the RAID-prefixed mirror governs spell density in raids, so you could raid at the default density while every row showed green; the new row recommends 1 and joins the score and auto-fix. The raid and PvP profiles apply nameplate stacking masks, the header computes its category and CVar counts from the registry instead of a hard-coded string that had drifted, garbled Korean text reads as Korean again, and the Disable button no longer opens rename mode when clicked at its left edge.</p>
+<p>The CVar Health score keeps history: one snapshot per login, another whenever the score moves, and a trend line under the header score with the range beside it. The Raiding section gains a Raid Spell Density row. With raid-specific graphics settings on, the RAID-prefixed mirror governs spell density in raids, so you could raid at the default density while every row showed green; the new row recommends 1 and joins the score and auto-fix. The raid and PvP profiles apply nameplate stacking masks, the header computes its category and CVar counts from the registry instead of a hard-coded string that had drifted, garbled Korean text reads as Korean again, and the Disable button no longer opens rename mode when clicked at its left edge.</p>
 </div>
 </div>
 
@@ -1368,7 +1368,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h3>Clear Means Clear <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>Keybind fixes for per-loadout mode. Clear now removes a bind made before per-loadout keybinds were switched on, instead of claiming there was no keybinding and leaving the key alive. Suppressing a key in the active loadout hides it in the Current Keybind box, the sequence list, the step tooltip, and the tracker -- not just in the live driver. Clearing a per-spec key sweeps its suppress markers so a later rebind of the same key is not silently hidden, and the conflict warning on key capture reads the merged view, so it sees loadout binds and stays quiet about suppressed keys. The in-game test runner now flags a category filter that matches nothing instead of printing a green zero-test summary.</p>
+<p>Keybind fixes for per-loadout mode. Clear now removes a bind made before per-loadout keybinds were switched on, instead of claiming there was no keybinding and leaving the key alive. Suppressing a key in the active loadout used to hide it only in the live driver. It is now hidden in the Current Keybind box, the sequence list, the step tooltip, and the tracker as well. Clearing a per-spec key sweeps its suppress markers so a later rebind of the same key is not silently hidden, and the conflict warning on key capture reads the merged view, so it sees loadout binds and stays quiet about suppressed keys. The in-game test runner now flags a category filter that matches nothing instead of printing a green zero-test summary.</p>
 </div>
 </div>
 
@@ -1460,7 +1460,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h3>Conditions Cleanup <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>Setting up Conditions no longer leaves the step list stacked over the other tabs -- it stays hidden until you return to the Steps tab. The All button confirms once and lists every version it will change, and the All, None, and Default Version controls gained tooltips. Fixed: the metadata panel no longer runs its dependency list into the changelog row, and a German typo in the Conditions conflict message.</p>
+<p>Setting up Conditions no longer leaves the step list stacked over the other tabs. It stays hidden until you return to the Steps tab. The All button confirms once and lists every version it will change, and the All, None, and Default Version controls gained tooltips. Fixed: the metadata panel no longer runs its dependency list into the changelog row, and a German typo in the Conditions conflict message.</p>
 </div>
 </div>
 
@@ -1473,7 +1473,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h3>Exports That Tell the Whole Story <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>Every export string now carries when it was made, the addon and game version, author, class and spec, talents, spells used, and what the sequence depends on -- so sharing sites can fill in a post straight from the paste string. Exporter identity follows your privacy mode.</p>
+<p>Every export string now carries when it was made, the addon and game version, author, class and spec, talents, spells used, and what the sequence depends on. Sharing sites can fill in a post straight from the paste string. Exporter identity follows your privacy mode.</p>
 </div>
 
 <div class="feature-card">
@@ -1495,7 +1495,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h3>Load-on-Demand Locale Bundle <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>The spell-name translations behind cross-language sharing now live in a companion addon, GRIP-EMS_LocaleNames. It ships in the same download and loads only when a sequence needs a name from another class or language -- about a megabyte less in the base addon at login. Leave it enabled.</p>
+<p>The spell-name translations behind cross-language sharing now live in a companion addon, GRIP-EMS_LocaleNames. It ships in the same download and loads only when a sequence needs a name from another class or language, so the base addon loads about a megabyte less at login. Leave GRIP-EMS_LocaleNames enabled.</p>
 </div>
 
 <div class="feature-card">
@@ -1566,7 +1566,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h3>Plugin Action Bars (API v3) <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>Addon authors can put a sequence on an action bar -- read its per-step spell data, create and pick up its macro, and register a /gems subcommand. Nothing changes unless you run a plugin that uses it.</p>
+<p>Addon authors can put a sequence on an action bar, read its per-step spell data, create and pick up its macro, and register a /gems subcommand. Nothing changes unless you run a plugin that uses it.</p>
 </div>
 </div>
 
@@ -1579,7 +1579,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <h3>Plugin Support <span class="badge badge-new">NEW</span>
 </h3>
 
-<p>Other addons can extend GRIP-EMS through a public API -- adding import and export formats, settings and a settings panel, variables, conditions, and step functions, and mounting their own panel in the editor. A plugin's export format appears in the export window's format picker. If you do not run a plugin that uses it, nothing changes.</p>
+<p>Other addons can extend GRIP-EMS through a public API. A plugin can add import and export formats, settings and a settings panel, variables, conditions, and step functions, and mount its own panel in the editor. A plugin's export format appears in the export window's format picker. If you do not run a plugin that uses it, nothing changes.</p>
 </div>
 
 <div class="feature-card">
@@ -1808,16 +1808,16 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <ul>
 <li><strong>Sequential</strong>
- -- the default. Step 1, then 2, then 3, then back to 1.</li>
+ is the default. Step 1, then 2, then 3, then back to 1.</li>
 
 <li><strong>Priority</strong>
- -- always tries step 1 first. Falls through to step 2 if step 1 fails (spell on cooldown, out of range, etc.), then step 3, and so on.</li>
+ always tries step 1 first. Falls through to step 2 if step 1 fails (spell on cooldown, out of range, etc.), then step 3, and so on.</li>
 
 <li><strong>Reverse Priority</strong>
- -- same as Priority but starting from the last step.</li>
+ is the same as Priority but starts from the last step.</li>
 
 <li><strong>Random</strong>
- -- picks a random step each press.</li>
+ picks a random step each press.</li>
 </ul>
 
 <h3>Reset Conditions</h3>
@@ -1826,19 +1826,19 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <ul>
 <li><strong>combat</strong>
- -- reset when you leave combat</li>
+ resets the sequence when you leave combat</li>
 
 <li><strong>target</strong>
- -- reset when your target changes</li>
+ resets the sequence when your target changes</li>
 
 <li><strong>gear</strong>
- -- reset on equipment change</li>
+ resets the sequence on equipment change</li>
 
 <li><strong>spec</strong>
- -- reset on spec change</li>
+ resets the sequence on spec change</li>
 
 <li><strong>N</strong>
- (number) -- reset after N seconds idle</li>
+ (number) resets the sequence after N seconds idle</li>
 </ul>
 
 <p>Example: <code>target/combat/5</code> resets on target change, combat end, or 5 seconds idle.</p>
@@ -1891,11 +1891,11 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <li>Drag steps to reorder using the handle on the left</li>
 
-<li>Right-click a step (nested steps under If and Loop nodes too) to disable or re-enable it -- a disabled step keeps its slot, shows greyed, and is skipped at run time</li>
+<li>Right-click a step (nested steps under If and Loop nodes too) to disable or re-enable it: a disabled step keeps its slot, shows greyed, and is skipped at run time</li>
 
 <li>Each step shows a live character count (green under 200, yellow 200-240, red 241-255)</li>
 
-<li>The interleave spinner appears on Action nodes -- set an interval to weave that spell every N steps</li>
+<li>The interleave spinner appears on Action nodes: set an interval to weave that spell every N steps</li>
 
 <li>KeyPress/KeyRelease editor for per-step prefix/suffix macrotext</li>
 
@@ -1904,7 +1904,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 </div>
 
 <div id="ed-keybind" class="tab-panel">
-<p>Assign a keybind to this sequence. Binds are stored per-spec -- and per talent loadout within the spec -- and auto-switch on spec or loadout change.</p>
+<p>Assign a keybind to this sequence. Binds are stored per-spec and per talent loadout within the spec. They auto-switch on spec or loadout change.</p>
 
 <ul>
 <li>Press the key you want to bind</li>
@@ -1966,19 +1966,19 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <ul>
 <li><strong>Action</strong>
- -- a single macro step (the leaf node)</li>
+ is a single macro step (the leaf node)</li>
 
 <li><strong>Loop</strong>
- -- repeats its children a set number of times or indefinitely</li>
+ repeats its children a set number of times or indefinitely</li>
 
 <li><strong>Repeat</strong>
- -- runs its children N times then moves on</li>
+ runs its children N times then moves on</li>
 
 <li><strong>Conditional</strong>
- -- evaluates a Lua condition before running children</li>
+ evaluates a Lua condition before running children</li>
 
 <li><strong>If / ElseIf / Else</strong>
- -- branching logic with multiple condition paths</li>
+ nodes provide branching logic with multiple condition paths</li>
 </ul>
 
 <h3>If / Else Conditional Branching</h3>
@@ -2087,10 +2087,10 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <ol>
 <li><strong>Flatten</strong>
- -- expand Loop, Repeat, and Conditional nodes into a linear step list</li>
+ expands Loop, Repeat, and Conditional nodes into a linear step list</li>
 
 <li><strong>Interleave</strong>
- -- insert weaved actions at their configured intervals</li>
+ inserts weaved actions at their configured intervals</li>
 </ol>
 
 <p>Interleave works inside Loop blocks. The editor shows an <code>[IL:N]</code> indicator on interleaved rows in the step list.</p>
@@ -2435,15 +2435,15 @@ Phase 4: Stored Recommendations</h4>
 <h3>Export</h3>
 
 <ul>
-<li><code>/gems export &lt;name&gt;</code> -- copy a single sequence to clipboard</li>
+<li><code>/gems export &lt;name&gt;</code> copies a single sequence to the clipboard</li>
 
-<li><code>/gems exportall</code> -- open a multi-select export window, pick sequences to export as a collection</li>
+<li><code>/gems exportall</code> opens a multi-select export window where you pick sequences to export as a collection</li>
 
 <li>The export metadata editor lets you set collection name, author, description, and embed a talent string</li>
 
 <li>Single-sequence export auto-detects variable dependencies</li>
 
-<li>Every export string carries full sequence details -- author, class and spec, talents, spells used, and dependencies -- so sharing sites can fill in a post straight from the string</li>
+<li>Every export string carries full sequence details (author, class and spec, talents, spells used, and dependencies), so sharing sites can fill in a post straight from the string</li>
 </ul>
 
 <h3>Text Export</h3>
@@ -2463,7 +2463,7 @@ Phase 4: Stored Recommendations</h4>
 <h3>Sending</h3>
 
 <ul>
-<li><code>/gems send &lt;name&gt; &lt;player&gt;</code> -- send via whisper</li>
+<li><code>/gems send &lt;name&gt; &lt;player&gt;</code> sends a sequence via whisper</li>
 
 <li>Sequences sent in party or raid chat show as clickable links</li>
 
@@ -2473,7 +2473,7 @@ Phase 4: Stored Recommendations</h4>
 <h3>Receiving</h3>
 
 <ul>
-<li><code>/gems accept</code> -- accept the last received sequence</li>
+<li>Accept the last received sequence with <code>/gems accept</code></li>
 
 <li>Chat links: click the link to accept immediately</li>
 
@@ -2483,11 +2483,11 @@ Phase 4: Stored Recommendations</h4>
 <h3>Block List</h3>
 
 <ul>
-<li><code>/gems block &lt;player&gt;</code> -- block a player from sending you sequences</li>
+<li><code>/gems block &lt;player&gt;</code> blocks a player from sending you sequences</li>
 
-<li><code>/gems unblock &lt;player&gt;</code> -- remove from block list</li>
+<li><code>/gems unblock &lt;player&gt;</code> removes a player from the block list</li>
 
-<li><code>/gems blocklist</code> -- show all blocked players</li>
+<li><code>/gems blocklist</code> shows all blocked players</li>
 
 <li>Blocked players are auto-declined silently</li>
 </ul>
@@ -2506,16 +2506,16 @@ Phase 4: Stored Recommendations</h4>
 
 <ul>
 <li><strong>Always</strong>
- -- visible at all times</li>
+ keeps the tracker visible at all times</li>
 
 <li><strong>In Combat</strong>
- -- appears when you enter combat, hides when you leave</li>
+ shows the tracker when you enter combat and hides it when you leave</li>
 
 <li><strong>Has Target</strong>
- -- visible when you have a target selected</li>
+ shows the tracker when you have a target selected</li>
 
 <li><strong>Never</strong>
- -- completely hidden</li>
+ hides the tracker completely</li>
 </ul>
 
 <p>Cycle through modes with <code>/gems tracker</code>.</p>
@@ -2549,7 +2549,7 @@ Phase 4: Stored Recommendations</h4>
 <ol>
 <li>Type <code>/gems record</code> to start recording</li>
 
-<li>Play your rotation normally -- each spell you cast is captured as a step</li>
+<li>Play your rotation normally; each spell you cast is captured as a step</li>
 
 <li>Type <code>/gems record</code> again to stop</li>
 
@@ -2573,7 +2573,7 @@ Phase 4: Stored Recommendations</h4>
 <ul>
 <li>Discovering your natural rotation before fine-tuning in the editor</li>
 
-<li>Quick prototyping -- record a rough version, then polish it</li>
+<li>Quick prototyping: record a rough version, then polish it</li>
 
 <li>Checking which spells you actually press during a fight</li>
 </ul>
@@ -2650,7 +2650,7 @@ Phase 4: Stored Recommendations</h4>
 
 <p>Druids get the same behaviour in skyriding Travel Form when Auto Unshift is also on: the keypress cancels the form and casts.</p>
 
-<p>Dismount signals are not fully reliable -- the game occasionally skips the bar-change event, which used to leave a key dead on foot until a reload. An out-of-combat watchdog now reconciles the keybind layers against what is actually true (mounted, gliding, in a vehicle, in a pet battle) and restores your binds automatically. Vehicle keybinds also work under action bar addons like ElvUI and Bartender.</p>
+<p>Dismount signals are not fully reliable. The game occasionally skips the bar-change event, which used to leave a key dead on foot until a reload. An out-of-combat watchdog now reconciles the keybind layers against what is actually true (mounted, gliding, in a vehicle, in a pet battle) and restores your binds automatically. Vehicle keybinds also work under action bar addons like ElvUI and Bartender.</p>
 
 <h3>Gamepad Support</h3>
 
@@ -2658,7 +2658,7 @@ Phase 4: Stored Recommendations</h4>
 
 <h3>How Macro Stubs Work</h3>
 
-<p>When you bind a key, GRIP-EMS creates a SecureActionButton (macro stub) and assigns it to that key. The binding is a temporary override -- it never touches your saved WoW keybinds. In vehicles and pet battles the overrides suspend automatically; while skyriding, keys stay live for dismount-to-cast when Auto Dismount in Flight is on (see Skyriding above).</p>
+<p>When you bind a key, GRIP-EMS creates a SecureActionButton (macro stub) and assigns it to that key. The binding is a temporary override. It never touches your saved WoW keybinds. In vehicles and pet battles the overrides suspend automatically; while skyriding, keys stay live for dismount-to-cast when Auto Dismount in Flight is on (see Skyriding above).</p>
 </section>
 
 <section id="accessibility" class="reveal">
@@ -2799,19 +2799,19 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <ul>
 <li><strong>Raid</strong>
- -- optimised for 10-30 player instances</li>
+ (optimised for 10-30 player instances)</li>
 
 <li><strong>M+</strong>
- -- tuned for Mythic+ dungeons</li>
+ (tuned for Mythic+ dungeons)</li>
 
 <li><strong>Delves</strong>
- -- minion nameplates and interact tuning for delve runs</li>
+ (minion nameplates and interact tuning for delve runs)</li>
 
 <li><strong>Solo</strong>
- -- balanced for world content and questing</li>
+ (balanced for world content and questing)</li>
 
 <li><strong>PvP</strong>
- -- low-latency settings for arenas and battlegrounds</li>
+ (low-latency settings for arenas and battlegrounds)</li>
 </ul>
 
 <h3>Custom Profiles</h3>
@@ -2827,9 +2827,9 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <ul>
 <li>Per-CVar auto-fix opt-in (set a variable to auto-correct on login)</li>
 
-<li>Fix All Critical -- reset all high-weight variables to recommended</li>
+<li>Fix All Critical (reset all high-weight variables to recommended)</li>
 
-<li>Per-section Fix All -- correct everything in one section at once</li>
+<li>Per-section Fix All (correct everything in one section at once)</li>
 </ul>
 
 <h3>What Changed</h3>
@@ -2891,13 +2891,13 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <ul>
 <li><strong>ewma_latency</strong>
- -- smoothed average of recent latency samples</li>
+ is the smoothed average of recent latency samples</li>
 
 <li><strong>buffer</strong>
- -- configurable padding (default 20ms)</li>
+ is configurable padding (default 20ms)</li>
 
 <li><strong>clamp</strong>
- -- hard floor of 50ms, ceiling of 400ms</li>
+ applies a hard floor of 50ms and a ceiling of 400ms</li>
 </ul>
 
 <h3>Dashboard Integration</h3>
@@ -2930,9 +2930,9 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <h3>How to Use</h3>
 
 <ul>
-<li><code>/gems repair &lt;name&gt;</code> -- analyse a single sequence</li>
+<li><code>/gems repair &lt;name&gt;</code> analyses a single sequence</li>
 
-<li><code>/gems repairall</code> -- analyse every sequence</li>
+<li><code>/gems repairall</code> analyses every sequence</li>
 
 <li>The editor shows a health score badge per sequence in the list</li>
 </ul>
@@ -3020,11 +3020,11 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <h3>Debug Mode</h3>
 
-<p><code>/gems debug</code> -- toggle debug mode. When on, the engine prints every decision to chat: which step was selected, why, and what macro text was generated.</p>
+<p><code>/gems debug</code> toggles debug mode. When on, the engine prints every decision to chat: which step was selected, why, and what macro text was generated.</p>
 
 <h3>Debug Window</h3>
 
-<p><code>/gems debugwindow</code> -- open a scrollback window (500-message buffer) that collects debug output without flooding your chat frame.</p>
+<p><code>/gems debugwindow</code> opens a scrollback window (500-message buffer) that collects debug output without flooding your chat frame.</p>
 
 <h3>Execution Tracer</h3>
 
@@ -3064,7 +3064,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <p>Keybinds and settings are stored per character, so use the folder for the character it happened on. <code>&lt;ACCOUNT&gt;</code> is either a Battle.net number like <code>123456#1</code> or an account name in capitals.</p>
 
-<p>If your sequence keybinds disappeared, capture it the moment it happens: type <kbd>/reload</kbd>, then copy both <code>GRIP-EMS.lua</code> and <code>GRIP-EMS.lua.bak</code> out of that folder before you log in again -- logging back in overwrites the <code>.bak</code>. Send both files unedited. With <code>/gems debug</code> on, the <code>keybind-loss guard:</code> line in chat names which path triggered it.</p>
+<p>If your sequence keybinds disappeared, capture it the moment it happens: type <kbd>/reload</kbd>, then copy both <code>GRIP-EMS.lua</code> and <code>GRIP-EMS.lua.bak</code> out of that folder before you log in again. Logging back in overwrites the <code>.bak</code>. Send both files unedited. With <code>/gems debug</code> on, the <code>keybind-loss guard:</code> line in chat names which path triggered it.</p>
 </section>
 
 <section id="ui-tour" class="reveal">
@@ -3289,7 +3289,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <p>The preview shows each detected sequence with metadata.</p>
 
 <div class="mock-list-item"><span><strong>BM_SingleTarget</strong>
- -- 3 steps, Sequential</span>
+ (3 steps, Sequential)</span>
 </div>
 
 <div class="mock-list-item"><span>Author: MrSataana | Spec: Beast Mastery</span>
@@ -3565,7 +3565,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <div class="collapsible-body">
 <ol>
-<li><code>/gems</code> -- open the editor</li>
+<li>Run <code>/gems</code> to open the editor</li>
 
 <li>Click <strong>New</strong>
 , name your sequence</li>
@@ -4101,7 +4101,7 @@ end)</pre>
 
 <tr><td><strong>v2.1.22</strong>
 </td>
-<td>A sequence whose steps are all interleave actions no longer loses its base rotation on import; EMS detects the case, warns, and offers a one-click fix. Click Rate tooltips corrected across every locale, and user-facing text moves to British spelling.</td>
+<td>A sequence whose steps are all interleave actions no longer loses its base rotation on import; EMS detects the case and warns you, and the Repair tab clears the interleave flags in one click. Click Rate tooltips corrected across every locale, and user-facing text moves to British spelling.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
@@ -4150,14 +4150,14 @@ end)</pre>
 
 <tr><td><strong>v2.2.0</strong>
 </td>
-<td>A plugin API lets other addons extend GRIP-EMS -- import and export formats, settings and panels, variables, conditions, and step functions; a plugin's export format shows in the export picker. The loop-and-branch self-heal also runs on context switches now, so swapping versions on entering a dungeon or arena keeps step grouping.</td>
+<td>A plugin API lets other addons extend GRIP-EMS with import and export formats, settings and panels, variables, conditions, and step functions. A plugin's export format shows in the export picker. The loop-and-branch self-heal also runs on context switches now, so swapping versions on entering a dungeon or arena keeps step grouping.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
 
 <tr><td><strong>v2.3.0</strong>
 </td>
-<td>Quick-swap the live version of a sequence with a pin, plus badges showing which is live. Keyboard navigation reaches the Keybind tab, Export window, and Theming editor. The spell picker inserts at the cursor and replaces a highlighted selection. Plugin API v3 lets addons drive action bars -- per-step spell data, the sequence macro, and a /gems subcommand.</td>
+<td>Quick-swap the live version of a sequence with a pin, plus badges showing which is live. Keyboard navigation reaches the Keybind tab, Export window, and Theming editor. The spell picker inserts at the cursor and replaces a highlighted selection. Plugin API v3 lets addons drive action bars: per-step spell data, the sequence macro, and a /gems subcommand.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
@@ -4178,7 +4178,7 @@ end)</pre>
 
 <tr><td><strong>v2.3.3</strong>
 </td>
-<td>Every export string carries the full story -- author, class, spec, talents, what it casts and what it needs -- so sharing sites can fill a post straight from the paste string, and collections carry the same per-sequence detail as single exports. Player-to-player sends bundle the macros a sequence depends on, and the exporter identity follows your privacy mode.</td>
+<td>Every export string carries the full story (author, class, spec, talents, what it casts and what it needs), so sharing sites can fill a post straight from the paste string, and collections carry the same per-sequence detail as single exports. Player-to-player sends bundle the macros a sequence depends on, and the exporter identity follows your privacy mode.</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
@@ -4262,7 +4262,7 @@ end)</pre>
 
 <tr><td><strong>v2.3.15</strong>
 </td>
-<td>Import hardening -- broken sequence data reports instead of raising; Forge native payload reader</td>
+<td>Import hardening: broken sequence data reports instead of raising; Forge native payload reader</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
