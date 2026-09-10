@@ -12,7 +12,7 @@ WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.15 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.16 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.15 Guide</div>
+<div class="version">v2.4.16 Guide</div>
 
   </div>
 
@@ -923,7 +923,38 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.15</span>
+<span class="version-badge">v2.4.16</span>
+</div>
+
+<h3>New in v2.4.16</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9989;</div>
+
+<h3>A repair reports what it did <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Pressing Fix in the repair panel said the sequence had been repaired whether or not anything changed, so a repair that found nothing left to do read exactly like one that rewrote a step. A fix that changes nothing says so now, and a fix that has to wait for you to leave combat says it is queued rather than reporting itself finished.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128161;</div>
+
+<h3>Every Fix button explains itself <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Rows across the repair panel left the Fix button blank, so hovering the button showed no text. Hovering it now says what pressing Fix will do, and on a row whose button is greyed out it says what to do by hand instead.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128260;</div>
+
+<h3>The login repair pass finishes the list <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A damaged sequence stopped the repair pass that runs when you log in. The pass halted at the first stored sequence it could not read, and everything stored after that one was left as it was. It passes over what it cannot read now, so the sequences after a damaged one are still repaired.</p>
+</div>
 </div>
 
 <h3>New in v2.4.15</h3>
@@ -4425,6 +4456,13 @@ end)</pre>
 <tr><td><strong>v2.4.15</strong>
 </td>
 <td>A sequence imported on v2.4.14 casts again: the import stores spell names instead of the raw transport form, a copy already damaged on your character is reported in the repair panel as an error and repaired by the check that runs at login even where an earlier repair had cleared its stored spell tags, and a sequence that embeds another is repaired in one pass rather than needing a second login</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.16</strong>
+</td>
+<td>A repair run from the repair panel reports its own outcome, so one that changes nothing says so and one that has to wait for combat to end says it is queued, a panel row explains on hover what its own Fix button will do, or what to do by hand where that button is greyed out, and a stored sequence the login repair pass cannot read is passed over instead of halting the pass, so the sequences after it are still repaired</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
