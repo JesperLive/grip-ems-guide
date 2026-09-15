@@ -5,14 +5,14 @@ Not licensed for AI or ML training. See LICENSE section 3.
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-09-10
+Updated: 2026-09-16
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.16 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.17 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.16 Guide</div>
+<div class="version">v2.4.17 Guide</div>
 
   </div>
 
@@ -923,7 +923,29 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.16</span>
+<span class="version-badge">v2.4.17</span>
+</div>
+
+<h3>New in v2.4.17</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128273;</div>
+
+<h3>Pinned versions switch without a reload <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Pinning a version on a sequence that has modifier variants takes effect straight away. Switching the pinned version needed a /reload before the key did anything different. Until then the key fired whichever version you had just switched away from, and on some switches it cast nothing at all. A sequence with no modifier variants was never affected, and that's the reason: only the variant path swaps the buttons out instead of refreshing them, and only the refresh re-pointed your keybinds and your action bars at the new ones. Both paths do that now. Reported by Munnky on an Unholy Death Knight.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128295;</div>
+
+<h3>A login repair that examined nothing tries again <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>The repair pass that runs when you log in no longer marks itself finished after a pass that could not read anything. A sequence imported from someone whose talents you do not have can carry a spell your client knows nothing about. The step is uncastable, the button lights up, nothing fires, and the repair panel tells you the spell is not learned. The pass counted a step like that as fine, set the flag that says it has run, and never looked again. It now counts that step as left behind and leaves the flag unset, so it tries again at every login until the step can be resolved. A character that already spent its one attempt on an earlier build gets a fresh one. Reported through GauPanda for three affected players, and named on the original thread by itmeTeemo.</p>
+</div>
 </div>
 
 <h3>New in v2.4.16</h3>
@@ -4463,6 +4485,13 @@ end)</pre>
 <tr><td><strong>v2.4.16</strong>
 </td>
 <td>A repair run from the repair panel reports its own outcome, so one that changes nothing says so and one that has to wait for combat to end says it is queued, a panel row explains on hover what its own Fix button will do, or what to do by hand where that button is greyed out, and a stored sequence the login repair pass cannot read is passed over instead of halting the pass, so the sequences after it are still repaired</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.17</strong>
+</td>
+<td>Pinning a version on a sequence with modifier variants takes effect without a reload, because both reload paths now re-point your keybinds and action bars at the buttons they just produced instead of only the in-place one, and the login repair pass counts a step it cannot evaluate as left behind instead of marking itself finished, so a character carrying an imported spell its talents never granted is retried at every login and one that already spent its single attempt gets another</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
