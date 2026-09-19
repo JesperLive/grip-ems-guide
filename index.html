@@ -5,14 +5,14 @@ Not licensed for AI or ML training. See LICENSE section 3.
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-09-18
+Updated: 2026-09-19
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRIP-EMS Guide v2.4.19 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.20 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -800,7 +800,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.19 Guide</div>
+<div class="version">v2.4.20 Guide</div>
 
   </div>
 
@@ -923,7 +923,38 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.19</span>
+<span class="version-badge">v2.4.20</span>
+</div>
+
+<h3>New in v2.4.20</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#127912;</div>
+
+<h3>Four interface colours are easier to read <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Muted text, secondary text, the pink accent and the focus border were all dark enough against the backgrounds behind them to be hard to read, particularly on a dim monitor. They are lighter now. Error text was a hard saturated red and is a paler pink, which still reads as an error. The High Contrast and Deuteranopia-safe palettes got the same treatment for their error colour and their accent.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128295;</div>
+
+<h3>Theming fixes you can see <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Three windows were never themed at all: the Conditional Builder, the Conditional Picker and the Keybind Conflict panel. They follow the general panel style now and show up in the theming editor. The Unsilence buttons under the silenced contrast list never appeared, and they do now. Saving a theme to a slot, or importing one, left its colours tied to the theme you were using, and Copy to All Profiles gave every profile the same theme instead of its own. Both copy properly now. The step editor in the popup window did not colour macro text, and it does.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#127760;</div>
+
+<h3>The font list says why a font is missing <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Atkinson Hyperlegible ships with EMS for easier reading and carries Latin characters only. On Korean, Chinese and Russian clients it was missing from the font list with nothing to say why. A line under the font picker now explains it. Every other font is still offered there.</p>
+</div>
 </div>
 
 <h3>New in v2.4.19</h3>
@@ -4550,6 +4581,13 @@ end)</pre>
 <tr><td><strong>v2.4.19</strong>
 </td>
 <td>The chat line that reports a Key Press too long for your steps names the sequence, version, variant, modifier, key and the steps that run without it, and each button says it once instead of on every zone change, recompile and variant button; a Key Release overflow is named as the Key Release, and Priority, Reverse Priority and plugin step functions are counted at all; importing a bundle offers to rename a macro whose name matches one you already own, and the conditions picker's spell list is rebuilt against the current patch</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.20</strong>
+</td>
+<td>Four interface colours lifted and the error red softened across all three palettes; three windows that were never themed at all now follow the panel style and appear in the theming editor; the Unsilence buttons under the silenced contrast list appear; saving a theme to a slot or importing one no longer ties its colours to the live theme, and Copy to All Profiles gives each profile its own; the step editor in the popup window colours macro text; a shared theme with bad font fields is refused rather than half-applied; the font list says why the bundled face is missing on Korean, Chinese and Russian clients</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
