@@ -5,7 +5,7 @@ Not licensed for AI or ML training. See LICENSE section 3.
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-09-20
+Updated: 2026-09-26
 WoW Patch at last update: 12.1.0 Midnight (Retail LIVE)
 -->
 <html lang="en">
@@ -2788,6 +2788,14 @@ Phase 4: Stored Recommendations</h4>
 <tr><td><code>/gems binds</code></td>
 <td>List all keybinds for the current spec</td>
 </tr>
+
+<tr><td><code>/gems stepkey &lt;name&gt; &lt;step&gt; &lt;key&gt;</code></td>
+<td>Give a step of the running version a key that turns it off and on</td>
+</tr>
+
+<tr><td><code>/gems stepkey clear &lt;key&gt;</code></td>
+<td>Remove a step toggle key. With no arguments, /gems stepkey lists them</td>
+</tr>
 </table>
 
 <h3>Vehicle and Pet Battle Binds</h3>
@@ -3479,7 +3487,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <section id="commands" class="reveal">
 <h2>Slash Commands</h2>
 
-<p>All 42 slash commands at a glance. Type <code>/gems help</code> in-game for a quick reference.</p>
+<p>All 44 slash commands at a glance. Type <code>/gems help</code> in-game for a quick reference.</p>
 
 <div class="cmd-filter-wrap"><input type="text" class="cmd-filter" id="cmd-filter" placeholder="Filter commands..." oninput="filterCommands()"></div>
 
@@ -3569,6 +3577,17 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <tr data-cat="Keybinds"><td><code>/gems binds</code></td>
 <td>Show all keybinds for the current spec</td>
+<td>Keybinds</td>
+</tr>
+
+<tr data-cat="Keybinds"><td><code>/gems stepkey &lt;name&gt; &lt;step&gt; &lt;key&gt;</code></td>
+<td>Give a step of the running version a key that turns it off and on<br><span class="cmd-example">/gems stepkey BM_ST 3 CTRL-F7</span>
+</td>
+<td>Keybinds</td>
+</tr>
+
+<tr data-cat="Keybinds"><td><code>/gems stepkey clear &lt;key&gt;</code></td>
+<td>Remove a step toggle key. With no arguments, /gems stepkey lists them</td>
 <td>Keybinds</td>
 </tr>
 
