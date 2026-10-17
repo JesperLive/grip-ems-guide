@@ -5,7 +5,7 @@ Not licensed for AI training or for reuse through AI tools. See LICENSE section 
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-10-14
+Updated: 2026-10-17
 WoW Patch at last update: 12.1.5 Midnight (Retail LIVE)
 -->
 <html lang="en">
@@ -13,7 +13,7 @@ WoW Patch at last update: 12.1.5 Midnight (Retail LIVE)
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="tdm-reservation" content="1">
-  <title>GRIP-EMS Guide v2.4.20 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.21 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -801,7 +801,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.20 Guide</div>
+<div class="version">v2.4.21 Guide</div>
 
   </div>
 
@@ -872,7 +872,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <div class="nav-group-label">TOOLS</div>
 
-    <a class="nav-link" href="#cvar">CVar Dashboard</a>
+    <a class="nav-link" href="#cvar">CVar Health</a>
 
     <a class="nav-link" href="#sqw">SQW Optimiser</a>
 
@@ -924,7 +924,65 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.20</span>
+<span class="version-badge">v2.4.21</span>
+</div>
+
+<h3>New in v2.4.21</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9000;</div>
+
+<h3>A key of its own for each step <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A step can have its own key that turns it off and on. Right-click a step, choose Set Toggle Key and press the key you want. Out of combat that key turns the step off or back on at once, and chat names the step and the sequence. In combat it changes nothing and says so. <code>/gems stepkey</code> sets, clears and lists these keys, which is also how to reach them in Simplified Mode. A key that is already bound to something is refused.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128260;</div>
+
+<h3>Reset modifiers and reset timers work <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Reset modifiers and reset timers now work. Holding a modifier you had set to send a sequence back to step 1 did nothing at all, and a reset timer never fired. A modifier variant no longer treats its own modifier as a reset, and modifier variants now work on a keybind that already has a modifier in it, such as Ctrl+4.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128204;</div>
+
+<h3>Version switches change what a sequence casts <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Set Default and Delete Version now switch the steps a sequence casts and bring its variants along. Pinning a version or entering a context now changes what the sequence casts as well. A version switch made in combat now holds when combat ends.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128230;</div>
+
+<h3>An import makes the macros its string carries <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Importing an EMS export string makes the macros it carries. The import window, <code>/gems import</code> and a friend's auto-accepted send all make them. Exporting or sending a sequence takes along the macros it uses that are gone from your macro list.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128221;</div>
+
+<h3>The popup editor shows its steps again <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A popup editor's step boxes show their steps again. They drew empty, and typing into one replaced that step with what you typed. A popup editor also follows changes made to its sequence elsewhere.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#127760;</div>
+
+<h3>EMS loads on WoW Forever <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>v2.4.20 stopped at a Lua error at every Forever login, because two spec functions it called are gone from that client. WoW Forever no longer prints the spell catalogue notice at every login.</p>
+</div>
 </div>
 
 <h3>New in v2.4.20</h3>
@@ -1833,7 +1891,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <ol>
 <li>Download the latest release from CurseForge or Wago.</li>
 
-<li>Extract the <code>GRIP-EMS</code> folder into:<br><code>World of Warcraft/_retail_/Interface/AddOns/GRIP-EMS/</code></li>
+<li>Extract both folders, <code>GRIP-EMS</code> and <code>GRIP-EMS_LocaleNames</code>, into:<br><code>World of Warcraft/_retail_/Interface/AddOns/</code><br>The second folder is a load-on-demand data bundle. Leave it enabled.</li>
 
 <li>Restart WoW or type <code>/reload</code> in chat.</li>
 </ol>
@@ -1891,7 +1949,8 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <p>Click <strong>Save</strong>
 , switch to the <strong>Keybind</strong>
- tab, and press your desired key.</p>
+ tab, click <strong>Set Keybind</strong>
+ and press your desired key.</p>
 </div>
 </div>
 
@@ -1942,7 +2001,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 </ol>
 
 <div class="tip-box"><strong>Tip:</strong>
- GRIP-EMS auto-detects the format. GRIP1 (native), legacy serialised, and raw macrotext (/cast lines) are all supported.</div>
+ GRIP-EMS auto-detects the format. EMS1 and GRIP1 (native), legacy serialised, and raw macrotext (/cast lines) are all supported.</div>
 
 </section>
 
@@ -1962,41 +2021,43 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
  is the default. Step 1, then 2, then 3, then back to 1.</li>
 
 <li><strong>Priority</strong>
- always tries step 1 first. Falls through to step 2 if step 1 fails (spell on cooldown, out of range, etc.), then step 3, and so on.</li>
+ plays a list that grows by one step each round: 1, then 1 2, then 1 2 3, up to all your steps, and then starts over. With three steps it fires 1, 1, 2, 1, 2, 3, so step 1 fires most often and the last step least.</li>
 
-<li><strong>Reverse Priority</strong>
- is the same as Priority but starts from the last step.</li>
+<li><strong>Rev. Priority</strong>
+ builds the same list the other way round. With three steps it fires 3, 2, 3, 1, 2, 3, so the last step fires most often and step 1 least.</li>
 
 <li><strong>Random</strong>
  picks a random step each press.</li>
 </ul>
+
+<p>Every step function moves on with each press. None of them checks whether a step's spell is ready or in range.</p>
 
 <h3>Reset Conditions</h3>
 
 <p>Reset conditions send the sequencer back to step 1. You can combine them:</p>
 
 <ul>
-<li><strong>combat</strong>
- resets the sequence when you leave combat</li>
+<li><strong>Reset on Combat End</strong>
+ (<code>combat</code>) resets the sequence when you leave combat</li>
 
-<li><strong>target</strong>
- resets the sequence when your target changes</li>
+<li><strong>Reset on Target Change</strong>
+ (<code>target</code>) resets the sequence when your target changes out of combat</li>
 
-<li><strong>gear</strong>
- resets the sequence on equipment change</li>
+<li><strong>Equipment Change</strong>
+ (<code>gear</code>) resets the sequence on equipment change out of combat</li>
 
-<li><strong>spec</strong>
- resets the sequence on spec change</li>
+<li><strong>Spec Change</strong>
+ (<code>spec</code>) resets the sequence on spec change</li>
 
-<li><strong>N</strong>
- (number) resets the sequence after N seconds idle</li>
+<li><strong>Timer (sec)</strong>
+ (a number, N) resets the sequence after N seconds idle</li>
 </ul>
 
 <p>Example: <code>target/combat/5</code> resets on target change, combat end, or 5 seconds idle.</p>
 
 <h3>Macro Stub</h3>
 
-<p>Each sequence creates a SecureActionButton (macro stub) at load time. This is the button that WoW fires when you press the keybind. The addon updates its macro text each keypress to point to the current step.</p>
+<p>Each sequence creates a SecureActionButton at load time. This is the button that WoW fires when you press the keybind. The addon updates its macro text each keypress to point to the current step. The sequence's macro stub is a character macro, named with <code>GEMS:</code> in front, that clicks the button, so you can drag it to an action bar.</p>
 
 <h3>Variables</h3>
 
@@ -2017,11 +2078,13 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <li>Metadata editor: Author, Description, Help Text, Help Link</li>
 
-<li>Sort sequences by name, class, or recently updated</li>
+<li>Sort button that cycles the sequence list through A-Z, Class and Recent</li>
 
 <li>Side-by-side sequence comparison with colour-coded diff</li>
 
 <li>Stale spell detection: flags renamed or removed spells</li>
+
+<li>Rotation preview: icon strip or text list. In text mode its Copy button opens the text in a window to copy with <kbd>Ctrl+C</kbd></li>
 </ul>
 
 <h3>Editor Tabs</h3>
@@ -2029,10 +2092,13 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="tab-bar" data-group="editor-tabs"><button class="tab active" data-tab="ed-steps">Steps</button>
 <button class="tab" data-tab="ed-keybind">Keybind</button>
 <button class="tab" data-tab="ed-macros">Macros</button>
+<button class="tab" data-tab="ed-context">Conditions</button>
 <button class="tab" data-tab="ed-vars">Variables</button>
-<button class="tab" data-tab="ed-context">Context</button>
-<button class="tab" data-tab="ed-raw">Raw</button>
+<button class="tab" data-tab="ed-variants">Variants</button>
+<button class="tab" data-tab="ed-raw">Source</button>
 </div>
+
+<p>The tabs run in this order. The Variants tab shows only while <strong>Show Variants tab in Sequence Editor</strong> is on in the General settings, and it is off by default.</p>
 
 <div id="ed-steps" class="tab-panel active">
 <p>The Steps tab is where you build your rotation. Each line is one macro step.</p>
@@ -2044,21 +2110,21 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <li>Right-click a step (nested steps under If and Loop nodes too) to disable or re-enable it: a disabled step keeps its slot, shows greyed, and is skipped at run time</li>
 
-<li>Each step shows a live character count (green under 200, yellow 200-240, red 241-255)</li>
+<li>Each step shows a live character count against the 255 limit, its share of Key Press and Key Release included: green up to 200, yellow above that, red at 255</li>
 
 <li>The interleave spinner appears on Action nodes: set an interval to weave that spell every N steps</li>
 
-<li>KeyPress/KeyRelease editor for per-step prefix/suffix macrotext</li>
+<li>Key Press and Key Release boxes for macro text that runs before and after every step</li>
 
 <li>Working-copy editing: Save or Discard when you are ready</li>
 </ul>
 </div>
 
 <div id="ed-keybind" class="tab-panel">
-<p>Assign a keybind to this sequence. Binds are stored per-spec and per talent loadout within the spec. They auto-switch on spec or loadout change.</p>
+<p>Assign a keybind to this sequence. Binds are stored per spec, and per talent loadout within the spec while <strong>Per-loadout keybinds</strong> is on, which it is not by default. They auto-switch on spec or loadout change.</p>
 
 <ul>
-<li>Press the key you want to bind</li>
+<li>Click <strong>Set Keybind</strong> and press the key you want to bind</li>
 
 <li>Vehicle and pet battle keybind slots available (12 + 6)</li>
 
@@ -2067,19 +2133,19 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 </div>
 
 <div id="ed-macros" class="tab-panel">
-<p>View the generated macro text for each step. Useful for debugging why a step might not fire correctly.</p>
+<p>Manage the character macro that runs this sequence and the macros the sequence uses.</p>
 
 <ul>
-<li>Shows the final 255-char macro per step</li>
+<li><strong>Macro Stub</strong> names this sequence's macro and its slot, and counts the per-character macro slots used</li>
 
-<li>Rotation preview: icon strip or text list</li>
+<li><strong>Macro Dependencies</strong>: tick the macros this sequence uses so they go with it on export. A ticked macro that is gone from your macro list shows marked not in /macro</li>
 
-<li>Copy to clipboard from text mode</li>
+<li><strong>Refresh</strong> scans again for EMS macro stubs, and <strong>Clean Orphans</strong> deletes the stubs of sequences that no longer exist</li>
 </ul>
 </div>
 
 <div id="ed-vars" class="tab-panel">
-<p>Manage variables used in this sequence. Variables use <code>~varname~</code> syntax and get substituted at runtime.</p>
+<p>Manage your account-wide variables, which any sequence can use. Variables use <code>~varname~</code> syntax and get substituted at runtime.</p>
 
 <ul>
 <li>Plain text variables for shared macro fragments</li>
@@ -2095,16 +2161,18 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
  section for the full list of 53 context types.</p>
 
 <ul>
-<li>Collapsible groups with Select All / Clear All</li>
-
-<li>Per-context variable overrides</li>
+<li>Collapsible groups, each with <strong>All</strong> and <strong>None</strong> buttons</li>
 
 <li>Visual fallback chain indicator</li>
 </ul>
 </div>
 
+<div id="ed-variants" class="tab-panel">
+<p>Add and remove a sequence's Shift, Ctrl and Alt variants: steps that play while you hold that modifier on the sequence's key.</p>
+</div>
+
 <div id="ed-raw" class="tab-panel">
-<p>View and edit the raw serialised data for this sequence. For advanced users who want to inspect or manually tweak the underlying data structure.</p>
+<p>View and edit this sequence's data as a Lua table. For advanced users who want to inspect or manually tweak the underlying data structure. <strong>Edit</strong> opens the text for editing, and the button reads <strong>Apply</strong> while you edit.</p>
 </div>
 </section>
 
@@ -2115,21 +2183,23 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <h3>Node Types</h3>
 
+<p>The <strong>+ Add</strong> menu adds each of these:</p>
+
 <ul>
-<li><strong>Action</strong>
- is a single macro step (the leaf node)</li>
+<li><strong>Step</strong>
+ is a single macro step (the leaf node). <strong>Action (Interleave)</strong> adds one that fires every N steps, and <strong>Macro</strong> adds one whose text comes from a macro you pick</li>
 
 <li><strong>Loop</strong>
- repeats its children a set number of times or indefinitely</li>
+ plays its children with a step function of its own, as many times as its Repeat box says, up to 50</li>
 
-<li><strong>Repeat</strong>
- runs its children N times then moves on</li>
+<li><strong>Pause</strong>
+ adds key presses that cast nothing</li>
 
-<li><strong>Conditional</strong>
- evaluates a Lua condition before running children</li>
+<li><strong>If</strong>
+ has a True branch and a False branch, played on the condition in its Cond box</li>
 
-<li><strong>If / ElseIf / Else</strong>
- nodes provide branching logic with multiple condition paths</li>
+<li><strong>Embed</strong>
+ plays the steps of another sequence</li>
 </ul>
 
 <h3>If / Else Conditional Branching</h3>
@@ -2228,23 +2298,23 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <h4>Path indicator</h4>
 
-<p>The editor shows a small badge next to the Cond box label. The label tells you which compile path the node took: Single line, Two-line split, Per-step, or Optimised fall-through. The Compiled Output preview pane shows the literal macrotext the engine will see. If you set a multi-action True branch and the badge reads Per-step, that is the expected path.</p>
+<p>The editor shows a small badge next to the Cond box label. The label tells you which compile path the node took: Single line, Two-line split, Per-step, or Fall-through. The Compiled output preview pane shows the literal macrotext the engine will see. If you set a multi-action True branch and the badge reads Per-step, that is the expected path.</p>
 
 <h3>Interleave / Weave</h3>
 
-<p>Set an interval (2-50) on any Action node to weave it every N steps. For example, if you set a trinket use to interval 5, the compiler inserts it every 5th step.</p>
+<p>Set an interval (1-50) on any step node to weave it every N steps. For example, if you set a trinket use to interval 5, the compiler inserts it every 5th step.</p>
 
 <p>The compiler works in two phases:</p>
 
 <ol>
 <li><strong>Flatten</strong>
- expands Loop, Repeat, and Conditional nodes into a linear step list</li>
+ expands Loop, If, Embed and Pause nodes into a linear step list</li>
 
 <li><strong>Interleave</strong>
  inserts weaved actions at their configured intervals</li>
 </ol>
 
-<p>Interleave works inside Loop blocks. The editor shows an <code>[IL:N]</code> indicator on interleaved rows in the step list.</p>
+<p>Interleave works inside Loop blocks. The editor shows an <code>[IL:Ns]</code> indicator on interleaved rows in the step list, such as <code>[IL:5s]</code>.</p>
 
 <div class="tip-box"><strong>Tip:</strong>
  Use Interleave for maintenance buffs, trinket procs, or cooldowns that you want fired at regular intervals without disrupting the main rotation flow.</div>
@@ -2253,7 +2323,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 </button>
 
 <div class="collapsible-body">
-<p>The ActionCompiler walks the tree depth-first. Each leaf Action node becomes a step. Loop and Repeat nodes multiply their children. Conditional and If/Else nodes evaluate at compile time if the condition is static, or produce a conditional macro line otherwise.</p>
+<p>The ActionCompiler walks the tree depth-first. Each leaf step becomes a step. A Loop multiplies its children by its Repeat count, an Embed copies in the other sequence's steps and a Pause adds empty steps. An If node puts its condition on its branches' macro lines, and an If whose condition is empty or does not parse adds nothing.</p>
 
 <p>After flattening, the interleave pass scans for nodes with an Interval property and inserts them at the specified positions. The final output is a standard step list that the sequencing engine processes normally.</p>
 </div>
@@ -2273,7 +2343,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <li>The step function decides which step to fire (Sequential, Priority, etc.)</li>
 
-<li>The macro stub text is updated with the chosen step</li>
+<li>The sequence's button takes the chosen step as its macro text</li>
 
 <li>WoW fires the SecureActionButton, casting the spell</li>
 
@@ -2303,7 +2373,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <ul>
 <li>Variable substitution (<code>~varname~</code> replaced at runtime)</li>
 
-<li>KeyPress/KeyRelease prefix and suffix text</li>
+<li>Key Press and Key Release text before and after each step</li>
 
 <li>Conditional compilation from hierarchical action nodes</li>
 </ul>
@@ -2317,7 +2387,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 
 <h3>Variant Indicators</h3>
 
-<p>Sequences that branch on modifier keys or combat state show a coloured indicator on the action button, so the live variant is visible without opening the editor. The indicator follows whichever variant is currently active.</p>
+<p>A sequence with modifier variants shows a coloured indicator for each variant in the Tracker HUD and on its action bar buttons, so you can see its variants without opening the editor. <strong>TrackerHUD variant indicators</strong> and <strong>Action bar variant indicators</strong> turn them on and off, and both are on by default. With no recommendation for a sequence, every variant slot sits at full brightness.</p>
 
 </section>
 
@@ -2363,7 +2433,7 @@ Phase 4: Stored Recommendations</h4>
 <p>Each sequence stores its own recommendation (recommended MS, sample count, blend ratio). Recommendations update adaptively as you play, and persist across sessions.</p>
 </div>
 
-<h3>Faster/Slower Overlay</h3>
+<h3>Faster, Slower Overlay</h3>
 
 <p>A movable dark-themed widget that shows:</p>
 
@@ -2372,9 +2442,9 @@ Phase 4: Stored Recommendations</h4>
 
 <li>A delta bar showing how far off you are</li>
 
-<li>Confidence level: <strong>Estimated</strong>
- (under 30 samples) or <strong>Calibrated</strong>
- (30+ samples)</li>
+<li>Confidence after the complexity: <strong>(est.)</strong>
+ for an estimate, or <strong>(cal.)</strong>
+ once 30 play samples have calibrated it</li>
 
 <li>Optional CPS sparkline (10-bar rolling chart) showing your actual clicks per second</li>
 
@@ -2385,7 +2455,7 @@ Phase 4: Stored Recommendations</h4>
 
 <h3>Audio Alerts</h3>
 
-<p>When enabled, the advisor plays a subtle sound if your click rate drifts too far from the recommendation. This is opt-in via Settings.</p>
+<p>With <strong>Enable mismatch alerts</strong> on, the advisor alerts you when your click rate drifts too far from the recommendation, through <strong>Visual alerts</strong> and <strong>Audio alerts</strong>. Mismatch alerts are off by default.</p>
 
 <h3>Slash Commands</h3>
 
@@ -2394,20 +2464,24 @@ Phase 4: Stored Recommendations</h4>
 <th>Description</th>
 </tr>
 
-<tr><td><code>/gems fs</code></td>
-<td>Show current Tempo Advisor status</td>
+<tr><td><code>/gems fs &lt;name&gt;</code></td>
+<td>Analyse a sequence and recommend a click rate, for the sequence you pressed last if you give no name</td>
 </tr>
 
-<tr><td><code>/gems fs on</code></td>
-<td>Enable the Faster/Slower overlay</td>
+<tr><td><code>/gems fs overlay</code></td>
+<td>Show or hide the Tempo Advisor overlay</td>
 </tr>
 
-<tr><td><code>/gems fs off</code></td>
-<td>Disable the overlay</td>
+<tr><td><code>/gems fs lock</code></td>
+<td>Lock or unlock the Tempo Advisor overlay</td>
+</tr>
+
+<tr><td><code>/gems fs alert</code></td>
+<td>Turn the Tempo Advisor's mismatch alerts on or off</td>
 </tr>
 
 <tr><td><code>/gems fs reset</code></td>
-<td>Clear stored data and start fresh</td>
+<td>Clear every off-GCD classification the Tempo Advisor saved and analyse your sequences again</td>
 </tr>
 </table>
 
@@ -2415,9 +2489,9 @@ Phase 4: Stored Recommendations</h4>
 </button>
 
 <div class="collapsible-body">
-<p>The advisor builds an NxN matrix where N is the number of steps. Each cell represents the expected time (in ms) transitioning from step i to step j. For Sequential step function, only the diagonal+1 cells matter. For Priority, the entire first row is weighted heavily since step 1 is always attempted first.</p>
+<p>The advisor lists a transition from each step to the step after it, and for Random from every step to every other step. A Priority or Rev. Priority sequence is first expanded into the list it actually plays, so a step that list repeats counts each time it appears.</p>
 
-<p>Off-GCD spells get a near-zero transition time. Channelled spells use their full channel duration. The final recommendation is the weighted average across all likely transitions, plus a configurable buffer.</p>
+<p>An off-GCD spell gets the shortest click rate the advisor allows. Every other transition takes its spell's time, less your spell queue window, plus your latency. The recommendation is the shortest of these.</p>
 </div>
 </div>
 
@@ -2431,27 +2505,27 @@ Phase 4: Stored Recommendations</h4>
 <th>Default</th>
 </tr>
 
-<tr><td>Mode</td>
-<td>Off / Overlay / Auto-Set</td>
-<td>Overlay</td>
-</tr>
-
-<tr><td>Buffer</td>
-<td>Extra MS padding on the recommendation</td>
-<td>10</td>
-</tr>
-
-<tr><td>Sparkline</td>
-<td>Show CPS sparkline on the overlay</td>
+<tr><td>Auto-adjust click rate per sequence</td>
+<td>Click rate adjusts for each sequence when you activate it</td>
 <td>On</td>
 </tr>
 
-<tr><td>Audio Alerts</td>
-<td>Sound on tempo mismatch</td>
+<tr><td>Show click rate overlay</td>
+<td>Show the Faster, Slower overlay</td>
 <td>Off</td>
 </tr>
 
-<tr><td>Hold Mode CVar</td>
+<tr><td>Show CPS sparkline</td>
+<td>Show CPS sparkline on the overlay</td>
+<td>Off</td>
+</tr>
+
+<tr><td>Enable mismatch alerts</td>
+<td>Alert on tempo mismatch, through Visual alerts and Audio alerts, both on</td>
+<td>Off</td>
+</tr>
+
+<tr><td>Enable Hold Mode</td>
 <td>Let the advisor manage Hold to Cast</td>
 <td>Off</td>
 </tr>
@@ -2464,54 +2538,56 @@ Phase 4: Stored Recommendations</h4>
 <section id="context" class="reveal">
 <h2>Context System</h2>
 
-<p>GRIP-EMS detects 53 context types across 7 groups. When you enter a raid, dungeon, arena, battleground, or delve, the addon automatically switches to the matching sequence version if one exists.</p>
+<p>GRIP-EMS detects 53 context types across 6 groups. When you enter a raid, dungeon, arena, battleground, or delve, the addon automatically switches to the matching sequence version if one exists.</p>
 
 <h3>Context Types</h3>
 
-<h4>Content</h4>
+<h4>Raids</h4>
 
-<div class="context-tags"><span class="context-tag">Raid Normal</span>
-<span class="context-tag">Raid Heroic</span>
-<span class="context-tag">Raid Mythic</span>
-<span class="context-tag">Dungeon Normal</span>
-<span class="context-tag">Dungeon Heroic</span>
-<span class="context-tag">Dungeon Mythic</span>
-<span class="context-tag">M+ Low</span>
-<span class="context-tag">M+ Mid</span>
-<span class="context-tag">M+ High</span>
-<span class="context-tag">Delve T1-T3</span>
-<span class="context-tag">Delve T4-T6</span>
-<span class="context-tag">Delve T7-T8</span>
-<span class="context-tag">Delve T9+</span>
-<span class="context-tag">Timewalking</span>
-<span class="context-tag">Solo</span>
-<span class="context-tag">World Content</span>
+<div class="context-tags"><span class="context-tag">Raid</span>
+<span class="context-tag">Raid: LFR</span>
+<span class="context-tag">Raid: Heroic</span>
+<span class="context-tag">Raid: Mythic</span>
 </div>
 
-<h4>Rated PvP</h4>
+<h4>Dungeons</h4>
 
-<div class="context-tags"><span class="context-tag">Arena 2v2</span>
-<span class="context-tag">Arena 3v3</span>
-<span class="context-tag">Rated BG</span>
+<div class="context-tags"><span class="context-tag">Normal Dungeon</span>
+<span class="context-tag">Heroic Dungeon</span>
+<span class="context-tag">Mythic Dungeon</span>
+<span class="context-tag">Mythic+</span>
+<span class="context-tag">Mythic+ (Low Key)</span>
+<span class="context-tag">Mythic+ (Mid Key)</span>
+<span class="context-tag">Mythic+ (High Key)</span>
+</div>
+
+<h4>PvP</h4>
+
+<div class="context-tags"><span class="context-tag">Arena</span>
+<span class="context-tag">Rated Arena</span>
 <span class="context-tag">Solo Shuffle</span>
+<span class="context-tag">Battleground</span>
+<span class="context-tag">Rated Battleground</span>
+<span class="context-tag">BG Blitz</span>
 </div>
 
 <h4>Arena Maps</h4>
 
-<div class="context-tags"><span class="context-tag">Nagrand Arena</span>
-<span class="context-tag">Blade's Edge</span>
-<span class="context-tag">Dalaran Sewers</span>
+<div class="context-tags"><span class="context-tag">Blade's Edge Arena</span>
+<span class="context-tag">Nagrand Arena</span>
 <span class="context-tag">Ruins of Lordaeron</span>
-<span class="context-tag">Ashamane's Fall</span>
+<span class="context-tag">Dalaran Sewers</span>
+<span class="context-tag">Tiger's Peak</span>
+<span class="context-tag">Tol'Viron Arena</span>
 <span class="context-tag">Black Rook Hold Arena</span>
-<span class="context-tag">Empyrean Domain</span>
-<span class="context-tag">Enigma Crucible</span>
+<span class="context-tag">Ashamane's Fall</span>
 <span class="context-tag">Hook Point</span>
 <span class="context-tag">Mugambala</span>
+<span class="context-tag">Empyrean Domain</span>
+<span class="context-tag">Enigma Crucible</span>
 <span class="context-tag">Nokhudon Proving Grounds</span>
-<span class="context-tag">Robodrome</span>
-<span class="context-tag">Tiger's Peak</span>
-<span class="context-tag">Tol Viron Arena</span>
+<span class="context-tag">Maldraxxus Coliseum</span>
+<span class="context-tag">The Robodrome</span>
 </div>
 
 <h4>Battleground Maps</h4>
@@ -2520,28 +2596,40 @@ Phase 4: Stored Recommendations</h4>
 <span class="context-tag">Warsong Gulch</span>
 <span class="context-tag">Arathi Basin</span>
 <span class="context-tag">Eye of the Storm</span>
-<span class="context-tag">Strand of the Ancients</span>
 <span class="context-tag">Isle of Conquest</span>
 <span class="context-tag">Twin Peaks</span>
 <span class="context-tag">Battle for Gilneas</span>
-<span class="context-tag">Silvershard Mines</span>
 <span class="context-tag">Temple of Kotmogu</span>
 <span class="context-tag">Deepwind Gorge</span>
-<span class="context-tag">Seething Shore</span>
 <span class="context-tag">Ashran</span>
+<span class="context-tag">Silvershard Mines</span>
+<span class="context-tag">Seething Shore</span>
+<span class="context-tag">Wintergrasp</span>
+</div>
+
+<h4>Other</h4>
+
+<div class="context-tags"><span class="context-tag">Timewalking</span>
+<span class="context-tag">Timewalking Raid</span>
+<span class="context-tag">Delves</span>
+<span class="context-tag">Delves (Low Tier)</span>
+<span class="context-tag">Delves (High Tier)</span>
+<span class="context-tag">Party (World)</span>
+<span class="context-tag">Solo (World)</span>
+<span class="context-tag">Scenario</span>
 </div>
 
 <h3>Auto-Detection</h3>
 
 <p>The detection system reads instance info, map data, difficulty IDs, and keystone level to determine the current context. It checks on zone change, difficulty change, and group roster update.</p>
 
-<h3>Per-Context Variable Overrides</h3>
+<h3>The Conditions Tab</h3>
 
-<p>In the Context tab of the editor, you can override variables for specific contexts. For example, you might swap a trinket-use variable for a different trinket in M+ vs raid.</p>
+<p>In the editor's Conditions tab, tick the content each version should run in. Each group has <strong>All</strong> and <strong>None</strong> buttons for the version you are viewing, and a line names the current context. A version pinned with Make live runs everywhere, and its ticks apply once it is unpinned.</p>
 
 <h3>Fallback Chains</h3>
 
-<p>If no exact context match exists, the system falls back through a priority chain. For example, M+ High falls back to M+ Mid, then M+ Low, then Dungeon Mythic, then the default version. The editor shows a visual fallback chain indicator.</p>
+<p>If no exact context match exists, the system falls back through a priority chain. For example, Mythic+ (High Key) falls back to Mythic+ (Mid Key), then Mythic+ (Low Key), Mythic+, Mythic Dungeon, Heroic Dungeon and Normal Dungeon, and then the default version. The editor shows a visual fallback chain indicator.</p>
 </section>
 
 <section id="import" class="reveal">
@@ -2552,7 +2640,7 @@ Phase 4: Stored Recommendations</h4>
 <ol>
 <li>Run <code>/gems import</code> to open the import window</li>
 
-<li>Paste your sequence string (GRIP1, legacy, or raw macrotext)</li>
+<li>Paste your sequence string (EMS1 or GRIP1, legacy, or raw macrotext)</li>
 
 <li>GRIP-EMS auto-detects the format</li>
 
@@ -2566,11 +2654,9 @@ Phase 4: Stored Recommendations</h4>
 <ul>
 <li>Sequence name, step count, step function, and metadata</li>
 
-<li>Conflict detection: if a sequence name already exists, you get skip/replace/rename options</li>
+<li>Conflict detection: if a sequence name already exists, you get Skip, Replace and Rename options</li>
 
 <li>Compare option: side-by-side diff against the existing sequence</li>
-
-<li>Disable toggle: import a sequence as dormant (useful for testing)</li>
 </ul>
 
 <h3>Collection Import</h3>
@@ -2586,7 +2672,7 @@ Phase 4: Stored Recommendations</h4>
 <h3>Export</h3>
 
 <ul>
-<li><code>/gems export &lt;name&gt;</code> copies a single sequence to the clipboard</li>
+<li><code>/gems export &lt;name&gt;</code> exports a single sequence: the export window shows its string, or opens with it ticked if it uses variables</li>
 
 <li><code>/gems exportall</code> opens a multi-select export window where you pick sequences to export as a collection</li>
 
@@ -2599,7 +2685,7 @@ Phase 4: Stored Recommendations</h4>
 
 <h3>Text Export</h3>
 
-<p>A human-readable format for forum and Discord posts. Shows metadata, numbered steps, KeyPress/KeyRelease lines, and variables with event names. Paste it anywhere text works.</p>
+<p><strong>Copy as Text</strong> in the export window gives a human-readable format for forum and Discord posts. Shows metadata, numbered steps, Key Press and Key Release lines, and variables with event names. Paste it anywhere text works.</p>
 
 <h3>Raw Macrotext Import</h3>
 
@@ -2618,17 +2704,17 @@ Phase 4: Stored Recommendations</h4>
 
 <li>Sequences sent in party or raid chat show as clickable links</li>
 
-<li>The recipient sees a preview and clicks Accept or Decline</li>
+<li>The recipient's import window opens with a preview of it, where they can import it or cancel</li>
 </ul>
 
 <h3>Receiving</h3>
 
 <ul>
-<li>Accept the last received sequence with <code>/gems accept</code></li>
+<li><code>/gems accept</code> opens the latest sequence sent to you in the import window</li>
 
-<li>Chat links: click the link to accept immediately</li>
+<li>Chat links: a click asks that player for the sequence, or opens your own in the editor</li>
 
-<li>Auto-accept from friends (opt-in in Settings)</li>
+<li>Auto-Accept from Friends (off by default, in Settings)</li>
 </ul>
 
 <h3>Block List</h3>
@@ -2698,14 +2784,14 @@ Phase 4: Stored Recommendations</h4>
 <h3>How to Record</h3>
 
 <ol>
-<li>Type <code>/gems record</code> to start recording</li>
+<li>With a sequence open in the editor, click <strong>Record</strong> in its header to start recording</li>
 
 <li>Play your rotation normally; each spell you cast is captured as a step</li>
 
-<li>Type <code>/gems record</code> again to stop</li>
-
-<li>The recorded sequence appears in your editor, ready to save and bind</li>
+<li>Click the button again to stop. EMS asks whether to make a sequence from the recording, and <strong>Create Sequence</strong> opens the new sequence in the editor, ready to save and bind</li>
 </ol>
+
+<p><code>/gems record</code> starts and stops a recording too, and says how many spells it caught when it stops. Only the Record button offers to make the sequence.</p>
 
 <h3>What Gets Captured</h3>
 
@@ -2744,16 +2830,16 @@ Phase 4: Stored Recommendations</h4>
 <ol>
 <li>Type <code>/gems browse</code> to open the browser window</li>
 
-<li>See sequences from party and raid members who also run GRIP-EMS</li>
+<li>Click a player on the left. The list holds party and raid members who also run GRIP-EMS</li>
 
-<li>Click a sequence to preview its steps, metadata, and step function</li>
+<li>That player's sequences list on the right, each with its icon, name and help text</li>
 
-<li>Click Import to add it to your library</li>
+<li>Click <strong>Import</strong> on a sequence to ask that player for it</li>
 </ol>
 
 <h3>Bandwidth</h3>
 
-<p>The browser uses metadata-only sync by default. Only sequence names, authors, and spec info are sent over the addon channel. Full sequence data is fetched on-demand when you click to preview, keeping the bandwidth footprint minimal.</p>
+<p>The browser uses metadata-only sync by default. Only sequence names, authors, and spec info are sent over the addon channel. Full sequence data is fetched only when you click Import, which keeps the bandwidth footprint small.</p>
 
 <h3>Availability</h3>
 
@@ -2769,7 +2855,7 @@ Phase 4: Stored Recommendations</h4>
 
 <h3>Per-Loadout Keybinds</h3>
 
-<p>Within a spec, each talent loadout can hold its own keybind for the same sequence. Swap loadouts and the keybind set swaps with it, the same way spec binds do on spec change.</p>
+<p>With <strong>Per-loadout keybinds</strong> on, each talent loadout within a spec can hold its own keybind for the same sequence. Swap loadouts and the keybind set swaps with it, the same way spec binds do on spec change. The setting is off by default, and new keybinds then save per spec.</p>
 
 <h3>Slash Commands</h3>
 
@@ -2817,7 +2903,7 @@ Phase 4: Stored Recommendations</h4>
 
 <h3>How Macro Stubs Work</h3>
 
-<p>When you bind a key, GRIP-EMS creates a SecureActionButton (macro stub) and assigns it to that key. The binding is a temporary override. It never touches your saved WoW keybinds. In vehicles and pet battles the overrides suspend automatically; while skyriding, keys stay live for dismount-to-cast when Auto Dismount in Flight is on (see Skyriding above).</p>
+<p>Each sequence has a SecureActionButton, and its macro stub is a character macro named with <code>GEMS:</code> in front that clicks the button. When you bind a key, GRIP-EMS points that key at the button. The binding is a temporary override. It never touches your saved WoW keybinds. In vehicles and pet battles the overrides suspend automatically; while skyriding, keys stay live for dismount-to-cast when Auto Dismount in Flight is on (see Skyriding above).</p>
 </section>
 
 <section id="accessibility" class="reveal">
@@ -2831,16 +2917,16 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <h3>One-click Accessibility Mode</h3>
 
-<p>A single toggle in the Accessibility subpanel turns on speech, reduce-motion, the High-Contrast palette, editor scale 1.25x, large-target density, the cursor overlay, and Simplified Mode together. Toggling it off restores your prior state, not the defaults; EMS snapshots whatever you had set before the preset turned things on.</p>
+<p>A single toggle in the Accessibility subpanel, <strong>Turn on Accessibility Mode</strong>, turns on Simplified Mode, speech, reduce-motion and sound cues together, and sets the High contrast palette, UI scale 1.5x, large-target density and a ring cursor overlay at 1.5x. Toggling it off restores your prior state, not the defaults; EMS snapshots whatever you had set before the preset turned things on.</p>
 
-<p>On the first login after installation, EMS reads Blizzard's accessibility CVars (<code>colorblindMode</code>, <code>cameraBobbing</code>, gamepad-detected) and pre-applies matching EMS settings. This is one-shot. If your Blizzard settings change later, you can re-run the mirror from the Accessibility subpanel.</p>
+<p>On the first login after installation, EMS reads Blizzard's accessibility CVars (<code>colorblindMode</code>, <code>cameraBobbing</code>, gamepad-detected) and pre-applies matching EMS settings. This is one-shot. If your Blizzard settings change later, press <strong>Re-detect accessibility settings</strong> in the Accessibility Mode section to run the mirror again.</p>
 
 <h3>Vision</h3>
 
 <ul>
 <li>Screen readers via Blizzard's built-in text-to-speech (<code>C_VoiceChat.SpeakText</code>). Speaks the current step label when a sequence advances. One-shot in-game toast if no voice is configured.</li>
 <li>A chat-frame emitter pipes the same state messages into a user-selected chat frame (default hidden frame 9). BlindSlash, NVDA bridges, and other screen-reader relays can dock that frame and read from it.</li>
-<li>Editor scale slider from 0.8x to 2.0x in 0.05 steps. MainFrame drag-resize from 720x460 up to 1600x720.</li>
+<li>UI scale (all EMS panels) slider from 0.8x to 2.0x in 0.05 steps. The main window drag-resizes from 720x640 up to the screen less 50 px on each side.</li>
 <li>High-contrast focus ring on every focusable widget (4-edge texture, 2 px thick, 2 px outset).</li>
 <li>Font switch via LibSharedMedia with Atkinson Hyperlegible bundled.</li>
 <li>Three palette presets (Default, High Contrast, Deuteranopia-safe), seeded from Blizzard's <code>colorblindMode</code> CVar on first login. An 8-type colourblind matrix layers on top, with a 0-100% strength slider and a live 5-colour preview swatch.</li>
@@ -2854,21 +2940,21 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <h3>Motor</h3>
 
 <ul>
-<li>Keyboard-first navigation using <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> / arrow keys / <kbd>Enter</kbd> / <kbd>Esc</kbd>. Every non-EditBox widget is reachable.</li>
+<li>Keyboard-first navigation using <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> / arrow keys / <kbd>Esc</kbd>, with <kbd>Space</kbd> to press the widget under the keyboard cursor and <kbd>Enter</kbd> to open chat. Every non-EditBox widget is reachable.</li>
 <li>Numbered hotkeys: <kbd>1</kbd>..<kbd>6</kbd> and <kbd>Alt</kbd>+<kbd>1</kbd>..<kbd>6</kbd> jump to editor tabs.</li>
 <li>Resizable main window with a bottom-right drag grip.</li>
-<li>Spell, item, macro, and slash-command pickers across 14 filter modes, so long macro strings never need manual typing.</li>
+<li>Spell, item, macro, and slash-command pickers across 15 filter tabs, 16 from the condition builder, so long macro strings never need manual typing.</li>
 <li>Large-target density mode expands click rectangles to at least 44x44 px (WCAG 2.5.5 AAA) on action buttons, checkboxes, and tab strips.</li>
 <li>Cursor enhancement overlay with ring or crosshair shape, three sizes (1.0x / 1.5x / 2.0x), colour tied to the active contrast palette.</li>
-<li>Simplified Mode for switch input, eye trackers with dwell-click, sip-and-puff, and head tracking. Collapses SequenceEditor to 2 tabs and a 3-button column (Run / Unlock editor / Close), and locks the key set to <kbd>Enter</kbd> / <kbd>Space</kbd> / <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> / <kbd>Esc</kbd>. A 500 ms post-acceptance delay (250..1500 ms slider) blocks accidental double-fires. Toggle from the subpanel, the Accessibility Mode preset, or <code>/gems simplified</code>. A single <code>/reload</code> after the first enable produces the cleanest layout; same-session toggles apply best-effort live.</li>
-<li>Undo and Redo across the sequence editor, step list, popup editor, and repair frame. <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> in each.</li>
+<li>Simplified Mode for switch input, eye trackers with dwell-click, sip-and-puff, and head tracking. Collapses the sequence editor to its Steps and Keybind tabs and a 3-button column (Run sequence / Unlock editor / Close), and locks the key set to <kbd>Space</kbd> / <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> / <kbd>Esc</kbd>. A 500 ms post-acceptance delay (250..1500 ms slider) blocks accidental double-fires. Toggle from the subpanel, the Accessibility Mode preset, or <code>/gems simplified</code>. A single <code>/reload</code> after the first enable produces the cleanest layout; same-session toggles apply best-effort live.</li>
+<li>Undo and Redo across the sequence editor, step list, popup editor, and Repair window. <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> in each.</li>
 </ul>
 
 <h3>Cognitive, new players, ESL</h3>
 
 <ul>
-<li>Opt-in first-run tutorial. Skippable and replayable.</li>
-<li>Help popovers on every SequenceEditor section. A <code>?</code> icon opens a short tooltip-anchored guide.</li>
+<li>First-run tour of the main window. It starts on its own the first time the main window shows. <strong>Skip</strong> ends it, <code>/gems tour</code> runs it again and <code>/gems tour reset</code> shows it at your next login.</li>
+<li>Help for every editor tab. The <code>?</code> button on the tab bar opens a short tooltip-anchored guide to the tab you're on.</li>
 <li>Plain-language tooltip text across validation messages and slash-command output.</li>
 <li>Sequence metadata fields (Author, Description, Help Text, Help Link) so authors can embed guidance that travels with the export.</li>
 </ul>
@@ -2881,7 +2967,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <h3>Theming</h3>
 
-<p>A bounded subpanel covers the everyday controls: global font, editor scale, validation-badge palette, border and background opacity, per-panel alpha. A full per-element editor lives at <code>/gems theme</code>. The full editor exposes 45 element classes across Panels, Overlays, Rows, Buttons, Text, Emphasis, and Global. Five user-named preset slots, plus copy-to-all-profiles. Themes can be shared via chat link.</p>
+<p>The Theming section covers the everyday controls: UI scale, Background opacity, Border opacity, Panel alpha and Overlay alpha, with Reset Theming to defaults. A full per-element editor lives at <code>/gems theme</code> and on the Per-Element Theming tab. It shows its own settings on an Overview tab and the elements on a Customise tab, and exposes 45 element classes across Panels, Overlays, Rows, Buttons, Text, Emphasis, and Global. Five user-named preset slots, plus Copy to All Profiles. Themes can be shared via chat link.</p>
 
 <div class="collapsible-wrap"><button class="collapsible-toggle" onclick="toggleCollapsible(this)">Note on the 45-class taxonomy<span class="coll-arrow">&#9654;</span></button>
 <div class="collapsible-body">
@@ -2890,9 +2976,9 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </div>
 </div>
 
-<h3>Feedback panel</h3>
+<h3>Accessibility resources and feedback</h3>
 
-<p>Four buttons under <code>/gems</code> -&gt; Accessibility -&gt; Feedback link to AbleGamers APX, the Game Accessibility Guidelines, a Netflix documentary on accessible play in WoW, and the support Discord. WoW has no browser-launch API, so each button opens a static-popup edit box with the URL pre-selected for <kbd>Ctrl</kbd>+<kbd>C</kbd> copy.</p>
+<p>Four buttons under <code>/gems settings</code> -&gt; Accessibility -&gt; Accessibility resources and feedback link to AbleGamers APX, the Game Accessibility Guidelines, a Netflix documentary on accessible play in WoW (In memory of Ibelin), and the support Discord (Report an accessibility issue). WoW has no browser-launch API, so each button opens a static-popup edit box with the URL pre-selected for <kbd>Ctrl</kbd>+<kbd>C</kbd> copy.</p>
 
 <h3>Compatibility with other accessibility addons</h3>
 
@@ -2902,7 +2988,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <tr><td>ConsolePort</td><td>Yes</td><td>Detected at login via the gamepad-detected flag. The keybind UI accepts gamepad buttons without extra config.</td></tr>
 <tr><td>DialogueUI</td><td>Yes</td><td>No shared UI surface.</td></tr>
 <tr><td>Leatrix Plus</td><td>Yes</td><td>No shared UI surface. Leatrix's own cursor-enhancement options are a good choice for users who want more cursor textures than EMS ships.</td></tr>
-<tr><td>ElvUI</td><td>Yes</td><td>EMS owns its own frames. Anchor MainFrame inside an ElvUI layout normally.</td></tr>
+<tr><td>ElvUI</td><td>Yes</td><td>EMS owns its own frames. Anchor the main window inside an ElvUI layout normally.</td></tr>
 <tr><td>WeakAuras</td><td>Yes</td><td>No shared UI surface. No taint interaction.</td></tr>
 <tr><td>Atkinson Hyperlegible (font addon)</td><td>Yes</td><td>EMS bundles an in-app font switch via LibSharedMedia with Atkinson Hyperlegible included. Third-party font addons still coexist.</td></tr>
 </table>
@@ -2925,12 +3011,12 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <tr><th>Command</th><th>Description</th></tr>
 <tr><td><code>/gems settings</code></td><td>Open settings, then click Accessibility</td></tr>
 <tr><td><code>/gems simplified</code></td><td>Toggle Simplified Mode</td></tr>
-<tr><td><code>/gems theme</code></td><td>Open the per-element Theming editor</td></tr>
+<tr><td><code>/gems theme</code></td><td>Open the Per-Element Theming editor</td></tr>
 </table>
 
 <h3>Feedback and reporting</h3>
 
-<p>The support Discord at <a href="https://discord.gg/temptingus">discord.gg/temptingus</a> is the primary channel. Accessibility reports go in the addon thread. The Feedback panel inside <code>/gems</code> -&gt; Accessibility surfaces the same link plus the three external standards EMS draws from.</p>
+<p>The support Discord at <a href="https://discord.gg/temptingus">discord.gg/temptingus</a> is the primary channel. Accessibility reports go in the addon thread. The Accessibility resources and feedback section inside <code>/gems settings</code> -&gt; Accessibility surfaces the same link plus the three external standards EMS draws from.</p>
 
 <h3>References</h3>
 
@@ -2944,9 +3030,9 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </section>
 
 <section id="cvar" class="reveal">
-<h2>CVar Dashboard</h2>
+<h2>CVar Health</h2>
 
-<p>A management panel for 284 WoW console variables across 14 sections. Each variable has a recommended value and the dashboard tracks how far your settings deviate from optimal.</p>
+<p>A management panel for 284 WoW console variables across 14 sections. Each variable has a recommended value and the CVar Health page tracks how far your settings deviate from optimal.</p>
 
 <h3>Health Score</h3>
 
@@ -2960,13 +3046,13 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <li><strong>Raid</strong>
  (optimised for 10-30 player instances)</li>
 
-<li><strong>M+</strong>
+<li><strong>Mythic+</strong>
  (tuned for Mythic+ dungeons)</li>
 
 <li><strong>Delves</strong>
  (minion nameplates and interact tuning for delve runs)</li>
 
-<li><strong>Solo</strong>
+<li><strong>Solo / Open World</strong>
  (balanced for world content and questing)</li>
 
 <li><strong>PvP</strong>
@@ -2984,16 +3070,16 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <h3>Fix Controls</h3>
 
 <ul>
-<li>Per-CVar auto-fix opt-in (set a variable to auto-correct on login)</li>
+<li>Per-CVar <strong>Auto-fix on login</strong> opt-in (set a variable to auto-correct on login)</li>
 
-<li>Fix All Critical (reset all high-weight variables to recommended)</li>
+<li><strong>Fix All Critical</strong> (reset all high-weight variables to recommended)</li>
 
-<li>Per-section Fix All (correct everything in one section at once)</li>
+<li>Per-section <strong>Fix All in Section</strong> (correct everything in one section at once)</li>
 </ul>
 
-<h3>What Changed</h3>
+<h3>CVars Changed Since Last Session</h3>
 
-<p>On login, the dashboard detects which CVars changed since your last session and highlights them. Useful for catching settings that external addons or game patches might have modified.</p>
+<p>On login, the CVar Health page detects which CVars changed since your last session and counts them on a button that reads, for example, 3 CVars changed since last session. Useful for catching settings that external addons or game patches might have modified.</p>
 
 <div class="collapsible-wrap"><button class="collapsible-toggle" onclick="toggleCollapsible(this)">CVar sections (14)<span class="coll-arrow">&#9654;</span>
 </button>
@@ -3053,7 +3139,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
  is the smoothed average of recent latency samples</li>
 
 <li><strong>buffer</strong>
- is configurable padding (default 20ms)</li>
+ is configurable padding (default 100ms, 50 to 200 with <code>/gems sqw buffer &lt;ms&gt;</code>)</li>
 
 <li><strong>clamp</strong>
  applies a hard floor of 50ms and a ceiling of 400ms</li>
@@ -3061,7 +3147,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <h3>Dashboard Integration</h3>
 
-<p>When enabled, the CVar Dashboard shows a <strong>Managed</strong>
+<p>When enabled, the CVar Health page shows a <strong>Managed by SQW Optimiser</strong>
  badge on SpellQueueWindow and skips it in the health score calculation (since the optimiser is handling it).</p>
 
 <h3>Logout Restore</h3>
@@ -3096,34 +3182,30 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <li>The editor shows a health score badge per sequence in the list</li>
 </ul>
 
-<h3>13 Diagnostic Categories</h3>
+<h3>11 Diagnostic Categories</h3>
 
 <div class="repair-cats">
-<div class="repair-cat">Empty Steps</div>
+<div class="repair-cat">Spells</div>
 
-<div class="repair-cat">Oversized Steps (255+ chars)</div>
+<div class="repair-cat">Structure</div>
 
-<div class="repair-cat">Stale Spells</div>
+<div class="repair-cat">Limits</div>
 
-<div class="repair-cat">Duplicate Steps</div>
+<div class="repair-cat">Variables</div>
 
-<div class="repair-cat">Missing Variables</div>
+<div class="repair-cat">Actions</div>
 
-<div class="repair-cat">Invalid Step Functions</div>
+<div class="repair-cat">Stubs</div>
 
-<div class="repair-cat">Broken Reset Conditions</div>
+<div class="repair-cat">Config</div>
 
-<div class="repair-cat">Orphan Keybinds</div>
+<div class="repair-cat">Locale</div>
 
-<div class="repair-cat">Missing Metadata</div>
+<div class="repair-cat">Readiness</div>
 
-<div class="repair-cat">Conflicting Contexts</div>
+<div class="repair-cat">Post-Sub</div>
 
-<div class="repair-cat">Malformed KeyPress/KeyRelease</div>
-
-<div class="repair-cat">Unused Variables</div>
-
-<div class="repair-cat">Icon Resolution Failures</div>
+<div class="repair-cat">Cross-Seq</div>
 </div>
 
 <h3>Fix All</h3>
@@ -3183,7 +3265,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <h3>Debug Window</h3>
 
-<p><code>/gems debugwindow</code> opens a scrollback window (500-message buffer) that collects debug output without flooding your chat frame.</p>
+<p><code>/gems debugwindow</code> (or <code>/gems dw</code>) opens a scrollback window (1000-message buffer) that collects debug output without flooding your chat frame.</p>
 
 <h3>Execution Tracer</h3>
 
@@ -3209,7 +3291,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </tr>
 
 <tr><td><code>/gems status</code></td>
-<td>Show addon version and sequence count</td>
+<td>Show a status report: active sequences, character macros, key-down and spell queue settings, queued changes, keybinds, click rate, talent loadout and CVar health</td>
 </tr>
 </table>
 
@@ -3251,9 +3333,9 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div style="display:flex;gap:0.5rem;padding:0.5rem;border-bottom:1px solid var(--border);font-size:0.8rem;"><span style="color:var(--accent);">Steps</span>
 <span style="color:var(--text-secondary);">Keybind</span>
 <span style="color:var(--text-secondary);">Macros</span>
+<span style="color:var(--text-secondary);">Conditions</span>
 <span style="color:var(--text-secondary);">Variables</span>
-<span style="color:var(--text-secondary);">Context</span>
-<span style="color:var(--text-secondary);">Raw</span>
+<span style="color:var(--text-secondary);">Source</span>
 </div>
 
 <div style="padding:0.5rem;">
@@ -3271,7 +3353,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="hotspot-desc" id="hs1-desc" style="left: 35%; top: 10%">
 <h4>Sequence List</h4>
 
-<p>The left panel shows all your sequences. Each entry displays the sequence name, spec icon, and a health score badge from the Repair Module. Click to select, right-click for options (rename, delete, enable/disable).</p>
+<p>The left panel shows all your sequences. Each entry displays the sequence name, spec icon, and a health score badge from the Repair Module. Click to select, right-click for options (Rename, Delete, Disable or Enable, and more).</p>
 </div>
 
 <div class="hotspot" id="hs2" style="left: 40%; top: 20%" onclick="toggleHotspot('hs2')">2</div>
@@ -3279,7 +3361,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="hotspot-desc" id="hs2-desc" style="left: 35%; top: 50%">
 <h4>Steps Tab</h4>
 
-<p>Your rotation steps, one per row. Drag the handle to reorder. Each step shows a character count and spell icon. Action nodes with Interleave display an [IL:N] indicator and spinner control.</p>
+<p>Your rotation steps, one per row. Drag the handle to reorder. Each step shows a character count and spell icon. Steps with Interleave display an [IL:Ns] indicator and spinner control.</p>
 </div>
 
 <div class="hotspot" id="hs3" style="left: 55%; top: 5%" onclick="toggleHotspot('hs3')">3</div>
@@ -3287,7 +3369,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="hotspot-desc" id="hs3-desc" style="left: 55%; top: 35%">
 <h4>Toolbar</h4>
 
-<p>Create, delete, import, export, and open settings. The toolbar also has undo/redo buttons and a search field for filtering the sequence list.</p>
+<p>The sequence list's bar holds <strong>New</strong>, <strong>Import</strong>, the sort button (A-Z, Class, Recent) and, while another sequencer is installed, <strong>Migrate</strong>. A search box above the list filters it. Delete, Export and Send to Player are in a sequence's right-click menu.</p>
 </div>
 
 <div class="hotspot" id="hs4" style="left: 70%; top: 20%" onclick="toggleHotspot('hs4')">4</div>
@@ -3295,15 +3377,15 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="hotspot-desc" id="hs4-desc" style="left: 55%; top: 55%">
 <h4>Keybind Tab</h4>
 
-<p>Assign a per-spec keybind. Press the key you want, and it binds immediately. Toggle between normal, vehicle, and pet battle bind slots.</p>
+<p>Assign a per-spec keybind. Click <strong>Set Keybind</strong> and press the key you want, and it binds immediately. Toggle between normal, vehicle, and pet battle bind slots.</p>
 </div>
 
 <div class="hotspot" id="hs5" style="left: 70%; top: 55%" onclick="toggleHotspot('hs5')">5</div>
 
 <div class="hotspot-desc" id="hs5-desc" style="left: 55%; top: 75%">
-<h4>Context Tab</h4>
+<h4>Conditions Tab</h4>
 
-<p>Pick which contexts (raid, dungeon, PvP, etc.) activate this sequence version. 53 context types in collapsible groups with Select All / Clear All.</p>
+<p>Pick which contexts (raid, dungeon, PvP, etc.) activate this sequence version. 53 context types in collapsible groups, each with All and None buttons.</p>
 </div>
 
 <div class="hotspot" id="hs6" style="left: 15%; top: 75%" onclick="toggleHotspot('hs6')">6</div>
@@ -3319,7 +3401,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="hotspot-desc" id="hs7-desc" style="left: 55%; top: 90%">
 <h4>Tempo Advisor Overlay</h4>
 
-<p>The Faster/Slower widget. Shows your current MS vs recommended MS, a delta bar, CPS sparkline, and confidence level (Estimated or Calibrated).</p>
+<p>The Faster, Slower overlay. Shows your current MS vs recommended MS, a delta bar, CPS sparkline, and confidence level, (est.) or (cal.).</p>
 </div>
 </div>
 
@@ -3340,10 +3422,6 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <tr><td><kbd>Tab</kbd></td>
 <td>Spell autocomplete</td>
-</tr>
-
-<tr><td><kbd>Ctrl+S</kbd></td>
-<td>Save sequence</td>
 </tr>
 
 <tr><td><kbd>Delete</kbd></td>
@@ -3369,13 +3447,13 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="func-card">
 <h4>Priority</h4>
 
-<p>Always tries step 1 first. Falls through if the spell cannot cast.</p>
+<p>Plays 1, then 1 2, then 1 2 3, up to all your steps, then starts over. Step 1 fires most often.</p>
 </div>
 
 <div class="func-card">
-<h4>Reverse Priority</h4>
+<h4>Rev. Priority</h4>
 
-<p>Same as Priority but starts from the last step.</p>
+<p>Builds the same list from the last step. With three steps it fires 3, 2, 3, 1, 2, 3, so the last step fires most often.</p>
 </div>
 
 <div class="func-card">
@@ -3393,7 +3471,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="builder-field"><label>Step Function</label>
 <select id="builder-func" onchange="updateBuilderPreview()"><option value="Sequential">Sequential</option>
 <option value="Priority">Priority</option>
-<option value="ReversePriority">Reverse Priority</option>
+<option value="ReversePriority">Rev. Priority</option>
 <option value="Random">Random</option>
 </select>
 </div>
@@ -3438,7 +3516,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="import-stage active" data-stage="0">
 <h3>Stage 1: Paste</h3>
 
-<p>Run <code>/gems import</code> and paste your sequence string. GRIP-EMS auto-detects the format (GRIP1, legacy, or raw macrotext).</p>
+<p>Run <code>/gems import</code> and paste your sequence string. GRIP-EMS auto-detects the format (EMS1 or GRIP1, legacy, or raw macrotext).</p>
 <textarea class="mock-textarea" readonly>^1^T^N1^T^SSpecID^N253^SAuthor^SMrSataana^SStepFunction^SSequential^SKeyBind^SF5^Sstep1^S/cast Kill Command^Sstep2^S/cast Barbed Shot^Sstep3^S/cast Cobra Shot^t^t^^</textarea>
 </div>
 
@@ -3466,9 +3544,6 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </span>
 <span>Skip | Replace | Rename</span>
 </div>
-
-<p style="margin-top:0.5rem;">You can also toggle <strong>Import as disabled</strong>
- to bring the sequence in without activating it.</p>
 </div>
 
 <div class="import-stage" data-stage="3">
@@ -3488,7 +3563,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <section id="commands" class="reveal">
 <h2>Slash Commands</h2>
 
-<p>All 44 slash commands at a glance. Type <code>/gems help</code> in-game for a quick reference.</p>
+<p>All 61 slash commands at a glance. Type <code>/gems help</code> in-game for a quick reference.</p>
 
 <div class="cmd-filter-wrap"><input type="text" class="cmd-filter" id="cmd-filter" placeholder="Filter commands..." oninput="filterCommands()"></div>
 
@@ -3510,22 +3585,32 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </tr>
 
 <tr data-cat="Basic"><td><code>/gems open</code></td>
-<td>Open the editor (alias)</td>
+<td>Toggle the sequence editor, as /gems does</td>
 <td>Basic</td>
 </tr>
 
 <tr data-cat="Basic"><td><code>/gems status</code></td>
-<td>Show addon version and sequence count</td>
+<td>Show a status report: active sequences, character macros, key-down and spell queue settings, queued changes, keybinds, click rate, talent loadout and CVar health</td>
 <td>Basic</td>
 </tr>
 
-<tr data-cat="Basic"><td><code>/gems settings</code></td>
+<tr data-cat="Basic"><td><code>/gems settings</code>, <code>/gems config</code>, <code>/gems options</code></td>
 <td>Open the settings panel</td>
 <td>Basic</td>
 </tr>
 
-<tr data-cat="Basic"><td><code>/gems guide</code></td>
-<td>Open the interactive tutorial</td>
+<tr data-cat="Basic"><td><code>/gems guide</code>, <code>/gems tutorial</code></td>
+<td>Print a link that shows the guide's web address when clicked, and the guide file's path</td>
+<td>Basic</td>
+</tr>
+
+<tr data-cat="Basic"><td><code>/gems tour</code></td>
+<td>Start the tour of the main window</td>
+<td>Basic</td>
+</tr>
+
+<tr data-cat="Basic"><td><code>/gems tour reset</code></td>
+<td>Show the tour again at your next login</td>
 <td>Basic</td>
 </tr>
 
@@ -3534,8 +3619,8 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <td>Basic</td>
 </tr>
 
-<tr data-cat="Sequences"><td><code>/gems create</code></td>
-<td>Create a new sequence</td>
+<tr data-cat="Sequences"><td><code>/gems create &lt;name&gt;</code></td>
+<td>Create a test sequence from EMS's template, named TestSeq if you give no name</td>
 <td>Sequences</td>
 </tr>
 
@@ -3555,6 +3640,53 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <td>Sequences</td>
 </tr>
 
+<tr data-cat="Sequences"><td><code>/gems swap &lt;name&gt; &lt;n&gt;</code></td>
+<td>Pin a sequence to its version n until you unpin it. In combat it switches when combat ends<br><span class="cmd-example">/gems swap BM_ST 2</span>
+</td>
+<td>Sequences</td>
+</tr>
+
+<tr data-cat="Sequences"><td><code>/gems unpin &lt;name&gt;</code></td>
+<td>Clear a sequence's pin, so it runs its context or default version again</td>
+<td>Sequences</td>
+</tr>
+
+<tr data-cat="Sequences"><td><code>/gems variants</code></td>
+<td>List the sequences whose running version has modifier variants</td>
+<td>Sequences</td>
+</tr>
+
+<tr data-cat="Sequences"><td><code>/gems variants &lt;name&gt;</code></td>
+<td>List the modifier variants of a sequence's running version</td>
+<td>Sequences</td>
+</tr>
+
+<tr data-cat="Sequences"><td><code>/gems variants &lt;name&gt; add &lt;modifier&gt;</code></td>
+<td>Add an empty shift, ctrl or alt variant to a sequence's running version<br><span class="cmd-example">/gems variants BM_ST add shift</span>
+</td>
+<td>Sequences</td>
+</tr>
+
+<tr data-cat="Sequences"><td><code>/gems variants &lt;name&gt; remove &lt;modifier&gt;</code></td>
+<td>Remove the shift, ctrl or alt variant from a sequence's running version</td>
+<td>Sequences</td>
+</tr>
+
+<tr data-cat="Sequences"><td><code>/gems apply</code></td>
+<td>Apply the sequence changes queued in combat. With Auto-reload sequences at combat end off, they wait for this</td>
+<td>Sequences</td>
+</tr>
+
+<tr data-cat="Sequences"><td><code>/gems loadclass &lt;classID&gt;</code></td>
+<td>Activate the sequences EMS keeps for another class, by class ID (1 Warrior, 2 Paladin and so on)</td>
+<td>Sequences</td>
+</tr>
+
+<tr data-cat="Sequences"><td><code>/gems record</code></td>
+<td>Toggle macro recorder</td>
+<td>Sequences</td>
+</tr>
+
 <tr data-cat="Sequences"><td><code>/gems validate</code></td>
 <td>Check all sequences for stale or unknown spells</td>
 <td>Sequences</td>
@@ -3571,13 +3703,33 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <td>Keybinds</td>
 </tr>
 
+<tr data-cat="Keybinds"><td><code>/gems bind &lt;name&gt; &lt;key&gt; --loadout &lt;loadout&gt;</code></td>
+<td>Bind a key to a sequence in one talent loadout of your current spec, by its name or ID</td>
+<td>Keybinds</td>
+</tr>
+
 <tr data-cat="Keybinds"><td><code>/gems unbind &lt;name&gt;</code></td>
 <td>Remove keybind from a sequence</td>
 <td>Keybinds</td>
 </tr>
 
+<tr data-cat="Keybinds"><td><code>/gems unbind &lt;name&gt; --loadout &lt;loadout&gt;</code></td>
+<td>Remove a sequence's keybind from one talent loadout of your current spec</td>
+<td>Keybinds</td>
+</tr>
+
 <tr data-cat="Keybinds"><td><code>/gems binds</code></td>
 <td>Show all keybinds for the current spec</td>
+<td>Keybinds</td>
+</tr>
+
+<tr data-cat="Keybinds"><td><code>/gems binds restore</code></td>
+<td>Put back the last keybinds EMS saw working</td>
+<td>Keybinds</td>
+</tr>
+
+<tr data-cat="Keybinds"><td><code>/gems keys</code></td>
+<td>Check your keybinds for conflicts</td>
 <td>Keybinds</td>
 </tr>
 
@@ -3597,8 +3749,13 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <td>Import/Export</td>
 </tr>
 
+<tr data-cat="Import/Export"><td><code>/gems import &lt;string&gt;</code></td>
+<td>Import a string at once, with no preview</td>
+<td>Import/Export</td>
+</tr>
+
 <tr data-cat="Import/Export"><td><code>/gems export &lt;name&gt;</code></td>
-<td>Export a sequence to clipboard</td>
+<td>Export a sequence: the export window shows its string, or opens with it ticked if it uses variables</td>
 <td>Import/Export</td>
 </tr>
 
@@ -3619,7 +3776,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </tr>
 
 <tr data-cat="Sharing"><td><code>/gems accept</code></td>
-<td>Accept the last received sequence</td>
+<td>Open the latest sequence sent to you in the import window</td>
 <td>Sharing</td>
 </tr>
 
@@ -3639,7 +3796,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 </tr>
 
 <tr data-cat="Sharing"><td><code>/gems browse</code></td>
-<td>Open the remote macro browser</td>
+<td>Open or close the remote macro browser</td>
 <td>Sharing</td>
 </tr>
 
@@ -3653,8 +3810,88 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <td>UI</td>
 </tr>
 
+<tr data-cat="UI"><td><code>/gems menu</code></td>
+<td>Show or hide the floating menu bar</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems theme</code></td>
+<td>Open the per-element theming editor</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems theme inspect</code></td>
+<td>Click a part of a window to open the theming editor on it. Not in combat</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems simplified</code></td>
+<td>Turn Simplified Mode on or off</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems simplified on</code></td>
+<td>Turn Simplified Mode on</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems simplified off</code></td>
+<td>Turn Simplified Mode off</td>
+<td>UI</td>
+</tr>
+
 <tr data-cat="UI"><td><code>/gems cvar</code></td>
-<td>Open the CVar Dashboard<br><span class="cmd-example">/gems cvar reset, /gems cvar profile</span>
+<td>List the /gems cvar commands</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems cvar profile &lt;key&gt;</code></td>
+<td>Switch to a CVar profile by its key, or to General with general or no key</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems cvar auto</code></td>
+<td>Turn automatic CVar profile switching on or off</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems cvar changes</code></td>
+<td>List the CVar changes found since your last session</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems cvar notice</code></td>
+<td>Turn the chat notice for CVars that change during your session on or off</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems cvar notice on</code></td>
+<td>Turn that notice on</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems cvar notice off</code></td>
+<td>Turn that notice off</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems sqw</code></td>
+<td>Show the SQW Optimiser's status: spell queue window, latency, buffer and recommended click rate</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems sqw on</code></td>
+<td>Turn the SQW Optimiser on</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems sqw off</code></td>
+<td>Turn the SQW Optimiser off</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems sqw buffer &lt;ms&gt;</code></td>
+<td>Set the SQW Optimiser's buffer, 50 to 200 ms<br><span class="cmd-example">/gems sqw buffer 100</span>
 </td>
 <td>UI</td>
 </tr>
@@ -3664,14 +3901,53 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <td>UI</td>
 </tr>
 
-<tr data-cat="UI"><td><code>/gems fs</code></td>
-<td>Tempo Advisor status<br><span class="cmd-example">/gems fs on, /gems fs off, /gems fs reset</span>
-</td>
+<tr data-cat="UI"><td><code>/gems fs &lt;name&gt;</code></td>
+<td>Tempo Advisor: analyse a sequence and recommend a click rate, for the sequence you pressed last if you give no name</td>
 <td>UI</td>
 </tr>
 
-<tr data-cat="UI"><td><code>/gems msadvisor</code></td>
-<td>Analyse sequence timing for optimal click rate</td>
+<tr data-cat="UI"><td><code>/gems fs overlay</code></td>
+<td>Show or hide the Tempo Advisor overlay</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems fs lock</code></td>
+<td>Lock or unlock the Tempo Advisor overlay</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems fs alert</code></td>
+<td>Turn the Tempo Advisor's mismatch alerts on or off</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems fs reset</code></td>
+<td>Clear every off-GCD classification the Tempo Advisor saved and analyse your sequences again</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems fs holdreset</code></td>
+<td>Clear the Tempo Advisor's off-GCD classifications for your current spec and analyse your sequences again</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems fs hold</code></td>
+<td>Say that Hold Mode is still under development</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems fs help</code></td>
+<td>Show the command's usage line</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems overlay</code></td>
+<td>Show or hide the Tempo Advisor overlay</td>
+<td>UI</td>
+</tr>
+
+<tr data-cat="UI"><td><code>/gems msadvisor &lt;name&gt;</code></td>
+<td>Recommend a click rate from your GCD, latency and spell queue window. A sequence name adds its rotation time</td>
 <td>UI</td>
 </tr>
 
@@ -3680,8 +3956,28 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <td>Diagnostics</td>
 </tr>
 
-<tr data-cat="Diagnostics"><td><code>/gems debugwindow</code></td>
+<tr data-cat="Diagnostics"><td><code>/gems debugwindow</code>, <code>/gems dw</code></td>
 <td>Toggle the debug window</td>
+<td>Diagnostics</td>
+</tr>
+
+<tr data-cat="Diagnostics"><td><code>/gems trace</code></td>
+<td>Toggle execution tracer diagnostics</td>
+<td>Diagnostics</td>
+</tr>
+
+<tr data-cat="Diagnostics"><td><code>/gems trace on</code></td>
+<td>Start the execution tracer</td>
+<td>Diagnostics</td>
+</tr>
+
+<tr data-cat="Diagnostics"><td><code>/gems trace off</code></td>
+<td>Stop the execution tracer</td>
+<td>Diagnostics</td>
+</tr>
+
+<tr data-cat="Diagnostics"><td><code>/gems trace status</code></td>
+<td>Show whether the execution tracer is on, and your clicks per second</td>
 <td>Diagnostics</td>
 </tr>
 
@@ -3692,6 +3988,16 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <tr data-cat="Diagnostics"><td><code>/gems test</code></td>
 <td>Run the in-game test suite</td>
+<td>Diagnostics</td>
+</tr>
+
+<tr data-cat="Diagnostics"><td><code>/gems test &lt;category&gt;</code></td>
+<td>Run the in-game tests of one category</td>
+<td>Diagnostics</td>
+</tr>
+
+<tr data-cat="Diagnostics"><td><code>/gems test prep</code></td>
+<td>Print the setup steps that let the tests needing a target, auras and a spell on cooldown pass</td>
 <td>Diagnostics</td>
 </tr>
 
@@ -3716,13 +4022,78 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <td>Developer</td>
 </tr>
 
-<tr data-cat="Developer"><td><code>/gems compress</code></td>
-<td>Compress a sequence string</td>
+<tr data-cat="Developer"><td><code>/gems testspellid</code></td>
+<td>Run the spell ID resolution test on sample macro lines (developer tool)</td>
 <td>Developer</td>
 </tr>
 
-<tr data-cat="Developer"><td><code>/gems decompress</code></td>
-<td>Decompress a sequence string</td>
+<tr data-cat="Developer"><td><code>/gems compress &lt;name&gt;</code></td>
+<td>Print a sequence's encoded string (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems decompress &lt;string&gt;</code></td>
+<td>Decode a string and print its name, version count and step count (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems debug reloadgate</code></td>
+<td>Print the state of the prompt for settings that need a /reload (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems debug rowrefresh</code></td>
+<td>Turn the step list's row refresh off or on (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems memcheck</code>, <code>/gems memory</code></td>
+<td>Show EMS's memory before and after a garbage collection, with table counts and saved data sizes (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems perf</code></td>
+<td>Print a performance report on EMS's frames, timers, callbacks, memory and timings (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems perftest</code></td>
+<td>Print the same report as /gems perf (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems perftest events &lt;seconds&gt;</code></td>
+<td>Profile EMS's busiest event frames for that many seconds, 30 if you give none (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems perftest scan</code></td>
+<td>Time a spell cache scan (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems perftest reanalyze</code></td>
+<td>Time the Tempo Advisor's analysis of every active sequence (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems monitor</code></td>
+<td>Profile the next 300 frames, about five seconds, and print frame times and EMS function call counts (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems sqw debug</code></td>
+<td>Turn the SQW Optimiser's debug output on or off (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems fs holddiag</code></td>
+<td>Show Hold Mode's state, button, CVars and step count (developer tool)</td>
+<td>Developer</td>
+</tr>
+
+<tr data-cat="Developer"><td><code>/gems fs debug</code></td>
+<td>Turn the Tempo Advisor's debug output on or off (developer tool)</td>
 <td>Developer</td>
 </tr>
 </tbody>
@@ -3742,7 +4113,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <li>Add steps in the Steps tab (one spell per line, Tab for autocomplete)</li>
 
-<li>Save, switch to Keybind tab, press your key</li>
+<li>Save, switch to Keybind tab, click Set Keybind and press your key</li>
 
 <li>Test on a target dummy and adjust</li>
 </ol>
@@ -3770,15 +4141,15 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <div class="collapsible-body">
 <ol>
-<li>Enable Tempo Advisor: <code>/gems fs on</code></li>
+<li>Show the Tempo Advisor overlay: <code>/gems fs overlay</code></li>
 
 <li>Play your rotation for a few minutes</li>
 
-<li>Watch the Faster/Slower overlay for guidance</li>
+<li>Watch the Faster, Slower overlay for guidance</li>
 
-<li>After 30 samples it switches to Calibrated mode</li>
+<li>After 30 samples it switches to calibrated, (cal.) on the overlay</li>
 
-<li>Adjust your MS slider to match the recommendation</li>
+<li>Adjust your Click Rate (ms) slider to match the recommendation</li>
 </ol>
 </div>
 </div>
@@ -3788,21 +4159,22 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <section id="plugin-api" class="reveal">
 <h2>Plugin API</h2>
 
-<p>Third-party addons can register sequences with GRIP-EMS through the plugin API.</p>
+<p>Third-party addons can register sequences with GRIP-EMS through the plugin API, <code>GRIPEMS.API</code>, version 4.</p>
 
 <h3>Registration</h3>
 
-<pre>GRIPEMS:RegisterPlugin("MyAddon", sequenceTable)</pre>
+<pre>local handle = GRIPEMS.API:RegisterPlugin("MyAddon", meta)
+GRIPEMS.API:RegisterSequences("MyAddon", "1.0", seqNames, sequenceTable)</pre>
 
-<p>The <code>sequenceTable</code> is a Lua table of sequences following the standard GRIP-EMS format. Each entry must have a name, steps, and step function at minimum.</p>
+<p><code>RegisterPlugin</code> takes your plugin's id and returns its handle. <code>RegisterSequences</code> adds your sequences: <code>seqNames</code> is an array of their names, and the <code>sequenceTable</code> is a Lua table of sequences keyed by name, following the standard GRIP-EMS format.</p>
 
-<h3>Callback</h3>
+<h3>Events</h3>
 
-<pre>GRIPEMS:OnPluginLoaded(function(addonName)
-  -- plugin is ready
+<pre>GRIPEMS.API:On("PLUGIN_REGISTERED", function(...)
+  -- a plugin registered its sequences
 end)</pre>
 
-<p>Fires after GRIP-EMS loads and processes the registered sequences. Use it to apply any post-registration setup.</p>
+<p><code>On</code> subscribes to an event that <code>GRIPEMS.API:ListEvents()</code> names and returns a handle for <code>Off</code>. The handler gets the event's data, not its name.</p>
 
 <h3>Format Requirements</h3>
 
@@ -3830,43 +4202,95 @@ end)</pre>
 <h3>General</h3>
 
 <div class="setting-row">
-<div class="setting-name">Click Rate (MS)</div>
+<div class="setting-name">OOC Queue Delay (sec)</div>
 
-<div>Global milliseconds between keypresses</div>
+<div>How long to wait after combat ends before running queued tasks, 1 to 60</div>
 
-<div class="setting-default">250</div>
+<div class="setting-default">7</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Per-Character MS</div>
+<div class="setting-name">Reset on Combat End (default)</div>
 
-<div>Override the global click rate for this character</div>
+<div>The starting value of Reset on Combat End for a new sequence</div>
+
+<div class="setting-default">On</div>
+</div>
+
+<div class="setting-row">
+<div class="setting-name">Auto-reload sequences at combat end</div>
+
+<div>Apply queued sequence changes when combat ends. Off, they wait for <code>/gems apply</code></div>
+
+<div class="setting-default">On</div>
+</div>
+
+<div class="setting-row">
+<div class="setting-name">Show Variants tab in Sequence Editor</div>
+
+<div>Add the Variants tab to the editor</div>
 
 <div class="setting-default">Off</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Auto-Migrate</div>
+<div class="setting-name">Click Rate (ms)</div>
 
-<div>Run migration check on first load</div>
+<div>Your press speed for sequences. It guides the Faster, Slower recommendation and the timing of imported pauses</div>
+
+<div class="setting-default">250</div>
+</div>
+
+<div class="setting-row">
+<div class="setting-name">Per-Character Click Rate (ms)</div>
+
+<div>A different click rate on this character only, under Character Overrides. 0 uses the shared value</div>
+
+<div class="setting-default">0</div>
+</div>
+
+<div class="setting-row">
+<div class="setting-name">Action Bar Integration</div>
+
+<div>Show sequence icons on action bar buttons</div>
 
 <div class="setting-default">On</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Minimap Button</div>
+<div class="setting-name">Per-loadout keybinds</div>
 
-<div>Show the minimap icon</div>
+<div>Save keybinds per talent loadout within a spec</div>
 
-<div class="setting-default">On</div>
+<div class="setting-default">Off</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Locale</div>
+<div class="setting-name">Auto-refresh macro-reference steps</div>
 
-<div>Override the auto-detected language</div>
+<div>Update a macro-reference step when its macro changes</div>
 
-<div class="setting-default">Auto</div>
+<div class="setting-default">Off</div>
+</div>
+</div>
+
+<div class="settings-group">
+<h3>Display</h3>
+
+<div class="setting-row">
+<div class="setting-name">Hide Login Message</div>
+
+<div>Hide the line EMS prints in chat at login</div>
+
+<div class="setting-default">Off</div>
+</div>
+
+<div class="setting-row">
+<div class="setting-name">Debug Mode</div>
+
+<div>Print extra technical messages in chat, as <code>/gems debug</code> does</div>
+
+<div class="setting-default">Off</div>
 </div>
 </div>
 
@@ -3891,26 +4315,26 @@ end)</pre>
 </div>
 
 <div class="settings-group">
-<h3>Tracker</h3>
+<h3>Tracker HUD</h3>
 
 <div class="setting-row">
-<div class="setting-name">Visibility</div>
+<div class="setting-name">Tracker HUD</div>
 
-<div>When to show the tracker overlay</div>
+<div>When to show the tracker overlay: Always, In Combat, Has Target or Never</div>
 
-<div class="setting-default">In Combat</div>
+<div class="setting-default">Never</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Scale</div>
+<div class="setting-name">Change the overall size of the Tracker HUD.</div>
 
-<div>Size multiplier for tracker icons</div>
+<div>Size multiplier for the tracker, 0.5 to 2.0</div>
 
 <div class="setting-default">1.0</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Lock Position</div>
+<div class="setting-name">Lock the Tracker HUD in place so you cannot drag it.</div>
 
 <div>Prevent dragging the tracker</div>
 
@@ -3918,9 +4342,17 @@ end)</pre>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Step Counter</div>
+<div class="setting-name">Show the sequence name under each icon.</div>
 
-<div>Show step number on tracker icons</div>
+<div>Show each sequence's name under its icon</div>
+
+<div class="setting-default">On</div>
+</div>
+
+<div class="setting-row">
+<div class="setting-name">TrackerHUD variant indicators</div>
+
+<div>Show an indicator for each variant of a sequence in the tracker</div>
 
 <div class="setting-default">On</div>
 </div>
@@ -3938,7 +4370,7 @@ end)</pre>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Profile Map</div>
+<div class="setting-name">Context Profile Map</div>
 
 <div>Which CVar profile activates for each context</div>
 
@@ -3950,35 +4382,43 @@ end)</pre>
 <h3>Sharing</h3>
 
 <div class="setting-row">
-<div class="setting-name">Auto-Accept Friends</div>
+<div class="setting-name">Enable P2P Sharing</div>
 
-<div>Accept sequences from friends without prompt</div>
-
-<div class="setting-default">Off</div>
-</div>
-
-<div class="setting-row">
-<div class="setting-name">Chat Links</div>
-
-<div>Show clickable links when receiving sequences</div>
+<div>Send and receive sequences with other players who use this addon</div>
 
 <div class="setting-default">On</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Block List</div>
+<div class="setting-name">Auto-Accept from Friends</div>
 
-<div>Players blocked from P2P sharing</div>
+<div>Save sequences sent by friends without asking you first</div>
+
+<div class="setting-default">Off</div>
+</div>
+
+<div class="setting-row">
+<div class="setting-name">Announce Received</div>
+
+<div>Print a chat line when you receive a sequence from another player</div>
+
+<div class="setting-default">On</div>
+</div>
+
+<div class="setting-row">
+<div class="setting-name">Blocked Players</div>
+
+<div>Players blocked from P2P sharing, on a page of their own</div>
 
 <div class="setting-default">Empty</div>
 </div>
 </div>
 
 <div class="settings-group">
-<h3>CVar Dashboard</h3>
+<h3>CVar Health</h3>
 
 <div class="setting-row">
-<div class="setting-name">Auto-Fix Entries</div>
+<div class="setting-name">Auto-fix on login</div>
 
 <div>Per-CVar opt-in for automatic correction</div>
 
@@ -3986,19 +4426,11 @@ end)</pre>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Auto-Switch Profile</div>
+<div class="setting-name">Auto-switch by context</div>
 
 <div>Change CVar profile based on content detection</div>
 
-<div class="setting-default">On</div>
-</div>
-
-<div class="setting-row">
-<div class="setting-name">Health Score Display</div>
-
-<div>Show the 0-100 health score in the panel</div>
-
-<div class="setting-default">On</div>
+<div class="setting-default">Off</div>
 </div>
 </div>
 
@@ -4006,97 +4438,61 @@ end)</pre>
 <h3>SQW Optimiser</h3>
 
 <div class="setting-row">
-<div class="setting-name">Enabled</div>
+<div class="setting-name">Dynamic SQW Optimiser</div>
 
-<div>Dynamic SpellQueueWindow tuning</div>
+<div>Set the Spell Queue Window automatically based on your network lag. It sits on the CVar Health page</div>
 
 <div class="setting-default">Off</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Buffer</div>
+<div class="setting-name">Safety Buffer (ms)</div>
 
-<div>Extra MS added to the EWMA latency estimate</div>
+<div>Extra MS added to the EWMA latency estimate, 50 to 200</div>
 
-<div class="setting-default">20</div>
-</div>
-
-<div class="setting-row">
-<div class="setting-name">Restore on Logout</div>
-
-<div>Reset SQW to original value on logout</div>
-
-<div class="setting-default">On</div>
+<div class="setting-default">100</div>
 </div>
 </div>
 
 <div class="settings-group">
-<h3>Faster/Slower</h3>
+<h3>Faster, Slower</h3>
 
 <div class="setting-row">
-<div class="setting-name">Mode</div>
+<div class="setting-name">Auto-adjust click rate per sequence</div>
 
-<div>Tempo Advisor mode: Off, Overlay, or Auto-Set</div>
+<div>Click rate adjusts for each sequence when you activate it</div>
 
-<div class="setting-default">Overlay</div>
+<div class="setting-default">On</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Buffer</div>
+<div class="setting-name">Show click rate overlay</div>
 
-<div>MS padding added to the recommended rate</div>
+<div>Show the Faster, Slower overlay</div>
 
-<div class="setting-default">10</div>
+<div class="setting-default">Off</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Sparkline</div>
+<div class="setting-name">Show CPS sparkline</div>
 
 <div>Show CPS sparkline history on the overlay</div>
 
-<div class="setting-default">On</div>
+<div class="setting-default">Off</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Audio Alerts</div>
+<div class="setting-name">Enable mismatch alerts</div>
 
-<div>Play a sound on tempo mismatch</div>
+<div>Alert on tempo mismatch, through Visual alerts and Audio alerts, both on</div>
 
 <div class="setting-default">Off</div>
 </div>
 
 <div class="setting-row">
-<div class="setting-name">Hold Mode CVar</div>
+<div class="setting-name">Enable Hold Mode</div>
 
 <div>Let the Advisor manage Hold to Cast</div>
-
-<div class="setting-default">Off</div>
-</div>
-</div>
-
-<div class="settings-group">
-<h3>Debug</h3>
-
-<div class="setting-row">
-<div class="setting-name">Debug Mode</div>
-
-<div>Print engine decisions to chat</div>
-
-<div class="setting-default">Off</div>
-</div>
-
-<div class="setting-row">
-<div class="setting-name">Debug Window</div>
-
-<div>Show the scrollback debug window</div>
-
-<div class="setting-default">Off</div>
-</div>
-
-<div class="setting-row">
-<div class="setting-name">Execution Tracer</div>
-
-<div>Log per-step execution details</div>
 
 <div class="setting-default">Off</div>
 </div>
@@ -4612,6 +5008,13 @@ end)</pre>
 </td>
 </tr>
 
+<tr><td><strong>v2.4.21</strong>
+</td>
+<td>A step can have its own key that turns it off and on; reset modifiers and reset timers work; modifier variants work on a keybind that already has a modifier in it; Set Default and Delete Version switch the steps a sequence casts and bring its variants along, and pinning a version or entering a context changes what the sequence casts; a version switch made in combat holds when combat ends; importing an EMS export string makes the macros it carries, and exporting or sending a sequence takes along the macros it uses that are gone from your macro list; a popup editor's step boxes show their steps again; Enter and Space work in more EMS windows the way they do in the main window; the Repair window's Fix All, Undo and Redo work; counts read right at one; EMS loads on WoW Forever; chat links skip a line sent from Discord</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
 <tr><td><strong>Next</strong>
 </td>
 <td>Accessibility verification pass, locale translation batches</td>
@@ -4628,7 +5031,7 @@ end)</pre>
 <div class="glossary-grid">
 <div class="glossary-term"><strong>Action Node</strong>
 
-<p>A hierarchical building block in the visual editor: Action, Loop, Repeat, Conditional, If/ElseIf/Else.</p>
+<p>A hierarchical building block in the visual editor: Step, Loop, Pause, If or Embed.</p>
 </div>
 
 <div class="glossary-term"><strong>Calibrated</strong>
@@ -4673,12 +5076,12 @@ end)</pre>
 
 <div class="glossary-term"><strong>GRIP1</strong>
 
-<p>The native serialisation format for GRIP-EMS sequences. A compressed Lua table string.</p>
+<p>A native serialisation format for GRIP-EMS sequences, which imports still read. Exports use EMS1. A compressed Lua table string.</p>
 </div>
 
 <div class="glossary-term"><strong>Health Score</strong>
 
-<p>A 0-100 quality rating. The CVar Dashboard and Repair Module both generate health scores.</p>
+<p>A 0-100 quality rating. CVar Health and the Repair Module both generate health scores.</p>
 </div>
 
 <div class="glossary-term"><strong>Interleave</strong>
@@ -4688,7 +5091,7 @@ end)</pre>
 
 <div class="glossary-term"><strong>Macro Stub</strong>
 
-<p>A SecureActionButton created at load time to execute a sequence. Keybinds attach to these.</p>
+<p>A character macro, named with GEMS: in front, that clicks a sequence's SecureActionButton. The button is created at load time to execute the sequence, and keybinds attach to it.</p>
 </div>
 
 <div class="glossary-term"><strong>Off-GCD</strong>
@@ -4703,12 +5106,12 @@ end)</pre>
 
 <div class="glossary-term"><strong>Priority</strong>
 
-<p>A step function that always tries step 1 first, then step 2 if step 1 fails, and so on.</p>
+<p>A step function that plays 1, then 1 2, then 1 2 3, up to all the steps, and starts over, so step 1 fires most often. Rev. Priority builds the same list from the last step.</p>
 </div>
 
 <div class="glossary-term"><strong>Profile</strong>
 
-<p>A saved set of CVar values. The CVar Dashboard supports 5 auto-switching profiles plus custom ones.</p>
+<p>A saved set of CVar values. CVar Health supports 5 auto-switching profiles plus custom ones.</p>
 </div>
 
 <div class="glossary-term"><strong>Reset Condition</strong>
@@ -4728,17 +5131,17 @@ end)</pre>
 
 <div class="glossary-term"><strong>Step Function</strong>
 
-<p>The algorithm deciding which step fires next: Sequential, Priority, ReversePriority, or Random.</p>
+<p>The algorithm deciding which step fires next: Sequential, Priority, Rev. Priority, or Random.</p>
 </div>
 
 <div class="glossary-term"><strong>Tempo Advisor</strong>
 
-<p>Per-sequence click rate analysis with a Faster/Slower overlay. Learns from your play data.</p>
+<p>Per-sequence click rate analysis with a Faster, Slower overlay. Learns from your play data.</p>
 </div>
 
 <div class="glossary-term"><strong>Weave</strong>
 
-<p>Synonym for Interleave. Set an interval on an Action node to weave it every N steps.</p>
+<p>Synonym for Interleave. Set an interval on a step node to weave it every N steps.</p>
 </div>
 </div>
 </section>
@@ -4782,7 +5185,7 @@ end)</pre>
 </button>
 
 <div class="faq-a">
-<p>Yes. Use /gems send &lt;name&gt; &lt;player&gt; to send directly, or /gems export to copy the string to clipboard for Discord or forum posting. Friends can also click the chat link to accept immediately.</p>
+<p>Yes. Use /gems send &lt;name&gt; &lt;player&gt; to send directly, or /gems export to get the string to copy for Discord or forum posting. Friends can also click your chat link to ask you for the sequence.</p>
 </div>
 </div>
 
@@ -4798,7 +5201,7 @@ end)</pre>
 </button>
 
 <div class="faq-a">
-<p>Make sure action bar icon integration is enabled in Settings. GRIP-EMS supports Blizzard, ElvUI, and Bartender4 action bars. If you use a different bar addon, the icon may not update automatically.</p>
+<p>Make sure Action Bar Integration is enabled in Settings. GRIP-EMS supports Blizzard, ElvUI, and Bartender4 action bars. If you use a different bar addon, the icon may not update automatically.</p>
 </div>
 </div>
 
@@ -4806,7 +5209,7 @@ end)</pre>
 </button>
 
 <div class="faq-a">
-<p>Yes. Create a healing sequence with your heal spells, and use Priority step function if you want the addon to always try your strongest heal first. Variables and context switching work the same way for healers.</p>
+<p>Yes. Create a healing sequence with your heal spells. The Priority step function fires step 1 most often, so put the heal you want most at the top. It does not check whether a heal can cast. Variables and context switching work the same way for healers.</p>
 </div>
 </div>
 
@@ -4814,7 +5217,7 @@ end)</pre>
 </button>
 
 <div class="faq-a">
-<p>It starts with a theoretical estimate right away. After 30 play samples it blends in your actual data (70% theory, 30% empirical). You can see the confidence level (Estimated vs Calibrated) on the overlay.</p>
+<p>It starts with a theoretical estimate right away. After 30 play samples it blends in your actual data (70% theory, 30% empirical). You can see the confidence level, (est.) or (cal.), on the overlay.</p>
 </div>
 </div>
 
@@ -4822,15 +5225,15 @@ end)</pre>
 </button>
 
 <div class="faq-a">
-<p>Run /gems fs reset to clear the stored data and start fresh. You can also turn it off entirely with /gems fs off.</p>
+<p>Run /gems fs reset to clear the off-GCD classifications it saved and analyse your sequences again. To keep your own click rate, turn off Auto-adjust click rate per sequence in the Faster, Slower settings.</p>
 </div>
 </div>
 
-<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will the CVar Dashboard break my game?<span class="faq-arrow">&#9654;</span>
+<div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will CVar Health break my game?<span class="faq-arrow">&#9654;</span>
 </button>
 
 <div class="faq-a">
-<p>No. It only changes client-side console variables. If something feels wrong, open the dashboard and click Fix All Critical to revert to recommended values. The What Changed panel on login shows exactly what was modified.</p>
+<p>No. It only changes client-side console variables. If something feels wrong, open the CVar Health page and click Fix All Critical to revert to recommended values. On login, the page counts the CVars changed since your last session.</p>
 </div>
 </div>
 
@@ -4838,7 +5241,7 @@ end)</pre>
 </button>
 
 <div class="faq-a">
-<p>The CVar Dashboard has a per-CVar reset button and a section-level Fix All button. For a full Blizzard default reset, type /console cvar_default in chat.</p>
+<p>The CVar Health page has a per-CVar reset button and a Fix All in Section button. For a full Blizzard default reset, press Reset All to Blizzard Defaults on the page, or type /console cvar_default in chat.</p>
 </div>
 </div>
 
@@ -4962,7 +5365,7 @@ function updateBuilderPreview() {
   cc.innerHTML = '';
   steps.forEach(function(step, i) {
     var len = step.trim().length;
-    var cls = len <= 200 ? 'char-green' : len <= 240 ? 'char-yellow' : 'char-red';
+    var cls = len <= 200 ? 'char-green' : len < 255 ? 'char-yellow' : 'char-red';
     var div = document.createElement('div');
     div.className = 'char-count-row ' + cls;
     div.textContent = 'Step ' + (i + 1) + ': ' + len + '/255';
@@ -4978,10 +5381,19 @@ function updateBuilderPreview() {
   if (func === 'Sequential') {
     ordered = steps.map(function(s, i) { return { n: i + 1, t: s.trim(), note: '' }; });
   } else if (func === 'Priority') {
-    ordered = steps.map(function(s, i) { return { n: i + 1, t: s.trim(), note: i === 0 ? ' (highest)' : '' }; });
+    /* The list the addon plays: 1, then 1 2, then 1 2 3, up to all steps. */
+    for (var pi = 1; pi <= steps.length; pi++) {
+      for (var pj = 1; pj <= pi; pj++) {
+        ordered.push({ n: pj, t: steps[pj - 1].trim(), note: '' });
+      }
+    }
   } else if (func === 'ReversePriority') {
-    var rev = steps.slice().reverse();
-    ordered = rev.map(function(s, i) { return { n: steps.length - i, t: s.trim(), note: i === 0 ? ' (highest)' : '' }; });
+    /* The same list built from the last step: N, then N-1 N, down to 1 .. N. */
+    for (var ri = steps.length; ri >= 1; ri--) {
+      for (var rj = ri; rj <= steps.length; rj++) {
+        ordered.push({ n: rj, t: steps[rj - 1].trim(), note: '' });
+      }
+    }
   } else if (func === 'Random') {
     var shuffled = steps.slice().sort(function() { return Math.random() - 0.5; });
     ordered = shuffled.map(function(s, i) { return { n: '?', t: s.trim(), note: '' }; });
