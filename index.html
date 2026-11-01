@@ -5,7 +5,7 @@ Not licensed for AI training or for reuse through AI tools. See LICENSE section 
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-10-17
+Updated: 2026-11-01
 WoW Patch at last update: 12.1.5 Midnight (Retail LIVE)
 -->
 <html lang="en">
@@ -13,7 +13,7 @@ WoW Patch at last update: 12.1.5 Midnight (Retail LIVE)
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="tdm-reservation" content="1">
-  <title>GRIP-EMS Guide v2.4.21 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.22 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -801,7 +801,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.21 Guide</div>
+<div class="version">v2.4.22 Guide</div>
 
   </div>
 
@@ -924,7 +924,65 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.21</span>
+<span class="version-badge">v2.4.22</span>
+</div>
+
+<h3>New in v2.4.22</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#9000;</div>
+
+<h3>More than one keybind for a sequence <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A sequence can have more than one keybind. The Keybind tab lists every key, each with a button that removes it, and Add Key binds one more. Every key presses the sequence's one button, so its steps advance in one order whichever key you press. <code>/gems bind &lt;name&gt; &lt;key&gt; --add</code> adds a key from chat and <code>/gems unbind &lt;name&gt; &lt;key&gt;</code> removes one.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128290;</div>
+
+<h3>The number keys pick the tab you see <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Key N picks the Nth tab the strip shows, for any key from 1 to as many tabs as it shows, in Simplified Mode too. The number keys also work in the <code>/gems settings</code> window, where they move the keyboard cursor to the page's sections, as they do on the game's Options pages.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128172;</div>
+
+<h3>More of EMS reads your language <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>More labels read your language, among them the step details' Name, Cond and Seq labels and the version bar's buttons. The import window and the Repair window's issue names and their help read your language too. German text says Sie throughout, and French and Italian lines take the right word for the number.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128306;</div>
+
+<h3>Buttons hold their labels <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>Buttons in 15 windows and tabs hold their labels in every language. Greyed-out buttons show their tooltip. The version bar's Live badge moves to a line of its own when the bar is too narrow for it.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#128221;</div>
+
+<h3>The popup editor shows every line of a step <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>A row now grows 14 pixels for each line past the first, and a one-line step stays 24. Escape on the popup editor's unsaved-changes prompt keeps your edits.</p>
+</div>
+
+<div class="feature-card">
+<div class="card-icon">&#127760;</div>
+
+<h3>WoW Forever fixes <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>The spell picker's Class tab lists your spells on WoW Forever. Two WoW Forever characters whose names share a first part keep their own records. CVar Health leaves out the CVars your game does not have.</p>
+</div>
 </div>
 
 <h3>New in v2.4.21</h3>
@@ -2621,7 +2679,7 @@ Phase 4: Stored Recommendations</h4>
 
 <h3>Auto-Detection</h3>
 
-<p>The detection system reads instance info, map data, difficulty IDs, and keystone level to determine the current context. It checks on zone change, difficulty change, and group roster update.</p>
+<p>The detection system reads instance info, difficulty IDs, the instance map, the keystone level, the Delve tier you picked last and whether you are in a group to determine the current context. It checks when you enter the world, on zone change, difficulty change, group size change and group roster update, and when a Mythic+ key starts or completes.</p>
 
 <h3>The Conditions Tab</h3>
 
@@ -2912,7 +2970,7 @@ Phase 4: Stored Recommendations</h4>
 <p>GRIP-EMS aims to be usable for players who rely on screen readers, play one-handed, play with tremor, play with low vision, or avoid motion in the UI. Settings live under the Accessibility subpanel at <code>/gems settings</code> -&gt; Accessibility. Design vocabulary follows AbleGamers APX (Accessible Player Experiences). The in-game panel is modelled on Elder Scrolls Online's Accessibility Mode: one place, grouped by population.</p>
 
 <div class="tip-box">
-This page lists features that ship in v2.0.0. Things the WoW addon API does not expose are called out separately under <a href="#accessibility-limits">What EMS cannot do</a>.
+This page lists the accessibility features EMS ships. Things the WoW addon API does not expose are called out separately under <a href="#accessibility-limits">What EMS cannot do</a>.
 </div>
 
 <h3>One-click Accessibility Mode</h3>
@@ -2941,12 +2999,12 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <ul>
 <li>Keyboard-first navigation using <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> / arrow keys / <kbd>Esc</kbd>, with <kbd>Space</kbd> to press the widget under the keyboard cursor and <kbd>Enter</kbd> to open chat. Every non-EditBox widget is reachable.</li>
-<li>Numbered hotkeys: <kbd>1</kbd>..<kbd>6</kbd> and <kbd>Alt</kbd>+<kbd>1</kbd>..<kbd>6</kbd> jump to editor tabs.</li>
+<li>Numbered hotkeys: <kbd>N</kbd> or <kbd>Alt</kbd>+<kbd>N</kbd> picks the Nth editor tab the tab strip shows, for any <kbd>N</kbd> from 1 to the number of tabs it shows, in Simplified Mode too.</li>
 <li>Resizable main window with a bottom-right drag grip.</li>
 <li>Spell, item, macro, and slash-command pickers across 15 filter tabs, 16 from the condition builder, so long macro strings never need manual typing.</li>
 <li>Large-target density mode expands click rectangles to at least 44x44 px (WCAG 2.5.5 AAA) on action buttons, checkboxes, and tab strips.</li>
 <li>Cursor enhancement overlay with ring or crosshair shape, three sizes (1.0x / 1.5x / 2.0x), colour tied to the active contrast palette.</li>
-<li>Simplified Mode for switch input, eye trackers with dwell-click, sip-and-puff, and head tracking. Collapses the sequence editor to its Steps and Keybind tabs and a 3-button column (Run sequence / Unlock editor / Close), and locks the key set to <kbd>Space</kbd> / <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> / <kbd>Esc</kbd>. A 500 ms post-acceptance delay (250..1500 ms slider) blocks accidental double-fires. Toggle from the subpanel, the Accessibility Mode preset, or <code>/gems simplified</code>. A single <code>/reload</code> after the first enable produces the cleanest layout; same-session toggles apply best-effort live.</li>
+<li>Simplified Mode for switch input, eye trackers with dwell-click, sip-and-puff, and head tracking. Collapses the sequence editor to its Steps and Keybind tabs and a 3-button column (Run sequence / Unlock editor / Close). A 500 ms post-acceptance delay (250..1500 ms slider) blocks accidental double-fires. Toggle from the subpanel, the Accessibility Mode preset, or <code>/gems simplified</code>. A single <code>/reload</code> after the first enable produces the cleanest layout; same-session toggles apply best-effort live.</li>
 <li>Undo and Redo across the sequence editor, step list, popup editor, and Repair window. <kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> in each.</li>
 </ul>
 
@@ -2972,7 +3030,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="collapsible-wrap"><button class="collapsible-toggle" onclick="toggleCollapsible(this)">Note on the 45-class taxonomy<span class="coll-arrow">&#9654;</span></button>
 <div class="collapsible-body">
 <p>The theming apply engine uses two patterns. Persistent UI (panels, singleton overlays, the focus ring) is frame-registered: EMS holds a reference to the widget and re-skins it directly when the theme changes. Transient and construction-time UI (rows, buttons, text FontStrings, emphasis state modifiers, the global addon font) is consumer-lookup: the widget reads its spec from the current theme at the moment it renders. Both patterns produce identical visible theming. Consumer-lookup classes are not unbound and are not reserved; they apply at a different point in the widget's lifecycle.</p>
-<p>Five overlay classes are reserved in the taxonomy for features not yet shipped in v2.0.0: <code>overlay.toast.info</code>, <code>overlay.toast.error</code>, <code>overlay.modal.dim</code>, <code>overlay.tooltip</code>, <code>overlay.dragPreview</code>. Their specs are in place so future work can bind them without a taxonomy change. One panel class, <code>panel.profileMgr</code>, is a Blizzard-owned surface (the AceDBOptions profile picker); EMS cannot currently reach a frame handle for it, so its theming is deferred until that handle is exposed.</p>
+<p>Five overlay classes are reserved in the taxonomy for features EMS has not shipped yet: <code>overlay.toast.info</code>, <code>overlay.toast.error</code>, <code>overlay.modal.dim</code>, <code>overlay.tooltip</code>, <code>overlay.dragPreview</code>. Their specs are in place so future work can bind them without a taxonomy change. One panel class, <code>panel.profileMgr</code>, is a Blizzard-owned surface (the AceDBOptions profile picker); EMS cannot currently reach a frame handle for it, so its theming is deferred until that handle is exposed.</p>
 </div>
 </div>
 
@@ -3016,7 +3074,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <h3>Feedback and reporting</h3>
 
-<p>The support Discord at <a href="https://discord.gg/temptingus">discord.gg/temptingus</a> is the primary channel. Accessibility reports go in the addon thread. The Accessibility resources and feedback section inside <code>/gems settings</code> -&gt; Accessibility surfaces the same link plus the three external standards EMS draws from.</p>
+<p>The support Discord at <a href="https://griphub.dev/discord">griphub.dev/discord</a> is the primary channel. Accessibility reports go in the addon thread. The Accessibility resources and feedback section inside <code>/gems settings</code> -&gt; Accessibility surfaces the same link plus the three external standards EMS draws from.</p>
 
 <h3>References</h3>
 
@@ -3269,7 +3327,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 
 <h3>Execution Tracer</h3>
 
-<p>The execution tracer records per-step data (timestamp, step index, spell name, cast result, GCD state, and latency) and feeds it into the Tempo Advisor for empirical learning. It activates automatically when the Tempo Advisor is enabled.</p>
+<p>The execution tracer records per-step data (timestamp, step index, spell name, cast result, GCD state, and latency) and feeds it into the Tempo Advisor for empirical learning. It starts by itself whenever EMS loads or makes a sequence while the tracer is off, and the macro recorder starts it too.</p>
 
 <h3>Other Commands</h3>
 
@@ -3377,7 +3435,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <div class="hotspot-desc" id="hs4-desc" style="left: 55%; top: 55%">
 <h4>Keybind Tab</h4>
 
-<p>Assign a per-spec keybind. Click <strong>Set Keybind</strong> and press the key you want, and it binds immediately. Toggle between normal, vehicle, and pet battle bind slots.</p>
+<p>Assign a per-spec keybind. Click <strong>Set Keybind</strong> and press the key you want, and it binds immediately. Vehicle and pet battle keys sit in sections of their own below it, and each opens and closes when you click its header.</p>
 </div>
 
 <div class="hotspot" id="hs5" style="left: 70%; top: 55%" onclick="toggleHotspot('hs5')">5</div>
@@ -4159,7 +4217,7 @@ This page lists features that ship in v2.0.0. Things the WoW addon API does not 
 <section id="plugin-api" class="reveal">
 <h2>Plugin API</h2>
 
-<p>Third-party addons can register sequences with GRIP-EMS through the plugin API, <code>GRIPEMS.API</code>, version 4.</p>
+<p>Third-party addons can register sequences with GRIP-EMS through the plugin API, <code>GRIPEMS.API</code>, version 5.</p>
 
 <h3>Registration</h3>
 
@@ -4179,15 +4237,17 @@ end)</pre>
 <h3>Format Requirements</h3>
 
 <ul>
-<li>Each sequence needs: <code>name</code>, <code>steps</code> (array of strings), <code>stepFunction</code> (string)</li>
+<li>Each sequence is keyed by its name in <code>sequenceTable</code>, and <code>seqNames</code> lists that name</li>
 
-<li>Optional: <code>author</code>, <code>specID</code>, <code>icon</code>, <code>resetConditions</code>, <code>helpText</code></li>
+<li>Each sequence needs <code>versions</code>, an array of versions, each with <code>steps</code> (array of strings) and <code>stepFunction</code> (string). A sequence with no <code>versions</code> table loads with no steps</li>
+
+<li>Optional: <code>defaultVersion</code> (the version that runs, 1 if you give none), <code>author</code>, <code>specID</code>, <code>icon</code></li>
 
 <li>Steps must be valid WoW macro text, 255 characters or fewer each</li>
 </ul>
 
 <div class="tip-box"><strong>Tip:</strong>
- Plugin-registered sequences appear in the editor with a plugin badge and cannot be edited directly. Export them first if you want to modify.</div>
+ When one of your sequences already has a plugin sequence's name, EMS keeps yours, skips the plugin's and says so in chat.</div>
 
 </section>
 
@@ -5015,6 +5075,13 @@ end)</pre>
 </td>
 </tr>
 
+<tr><td><strong>v2.4.22</strong>
+</td>
+<td>A sequence can have more than one keybind; a notices file names the libraries EMS bundles; the download leaves out the test files the game never loads; more labels, the import window and the Repair window's issue names read your language; <code>/gems help</code> lists every command; restoring lost keybinds brings back every key of a sequence; the number keys pick the tab you see and work in the /gems settings window; a new profile opens the main window at its full height; the popup editor shows every line of a step; buttons in 15 windows and tabs hold their labels in every language; CVar Health leaves out the CVars your game does not have; Accessibility Mode warns about a small display at the scale it sets; the spell picker's Class tab lists your spells on WoW Forever</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
 <tr><td><strong>Next</strong>
 </td>
 <td>Accessibility verification pass, locale translation batches</td>
@@ -5501,6 +5568,6 @@ document.querySelector('.content').addEventListener('click', function() {
 });
 
   </script>
-  <footer style="text-align:center; padding:24px 16px; color:#8a8f98; font-size:13px;">Community: <a href="https://www.reddit.com/r/GRIPEMS/">r/GRIPEMS</a> &middot; <a href="https://discord.gg/temptingus">Discord</a> &middot; <a href="https://www.curseforge.com/wow/addons/grip-enhanced-macro-sequencer">CurseForge</a></footer>
+  <footer style="text-align:center; padding:24px 16px; color:#8a8f98; font-size:13px;">Community: <a href="https://www.reddit.com/r/GRIPEMS/">r/GRIPEMS</a> &middot; <a href="https://griphub.dev/discord">Discord</a> &middot; <a href="https://www.curseforge.com/wow/addons/grip-enhanced-macro-sequencer">CurseForge</a></footer>
 </body>
 </html>
