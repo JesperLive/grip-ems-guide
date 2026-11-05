@@ -5,7 +5,7 @@ Not licensed for AI training or for reuse through AI tools. See LICENSE section 
 -->
 <!--
 Created: 2026-03-20
-Updated: 2026-11-01
+Updated: 2026-11-05
 WoW Patch at last update: 12.1.5 Midnight (Retail LIVE)
 -->
 <html lang="en">
@@ -13,7 +13,7 @@ WoW Patch at last update: 12.1.5 Midnight (Retail LIVE)
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="tdm-reservation" content="1">
-  <title>GRIP-EMS Guide v2.4.22 - The Free Macro Sequencer for World of Warcraft</title>
+  <title>GRIP-EMS Guide v2.4.23 - The Free Macro Sequencer for World of Warcraft</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -801,7 +801,7 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <div class="sidebar-brand">
     <h1>GRIP-EMS</h1>
 
-<div class="version">v2.4.22 Guide</div>
+<div class="version">v2.4.23 Guide</div>
 
   </div>
 
@@ -924,7 +924,20 @@ tr:hover td { background: rgba(233, 69, 96, 0.04); }
 <section id="welcome" class="reveal">
 <div class="hero"><h1>GRIP - Enhanced Macro Sequencer</h1>
 <p class="tagline">The free macro sequencer for World of Warcraft. No paywalls. Every feature included.</p>
-<span class="version-badge">v2.4.22</span>
+<span class="version-badge">v2.4.23</span>
+</div>
+
+<h3>New in v2.4.23</h3>
+
+<div class="card-grid">
+<div class="feature-card">
+<div class="card-icon">&#128295;</div>
+
+<h3>Fixes for WoW Forever, and no re-check after every fight <span class="badge badge-new">NEW</span>
+</h3>
+
+<p>EMS no longer re-checks every saved sequence after each fight. Its repair of stored spell names leaves other classes' sequences alone and writes each step's name once, and steps it cannot fix yet wait for the next login. On WoW Forever, opening a second sequence in the editor no longer shows an error. On WoW Forever, characters whose names share a first part keep their own records, as v2.4.22's notes wrongly said they already did. Records kept under the first part move once, to the first of those characters to log in, and the other gets records of its own.</p>
+</div>
 </div>
 
 <h3>New in v2.4.22</h3>
@@ -5078,6 +5091,13 @@ end)</pre>
 <tr><td><strong>v2.4.22</strong>
 </td>
 <td>A sequence can have more than one keybind; a notices file names the libraries EMS bundles; the download leaves out the test files the game never loads; more labels, the import window and the Repair window's issue names read your language; <code>/gems help</code> lists every command; restoring lost keybinds brings back every key of a sequence; the number keys pick the tab you see and work in the /gems settings window; a new profile opens the main window at its full height; the popup editor shows every line of a step; buttons in 15 windows and tabs hold their labels in every language; CVar Health leaves out the CVars your game does not have; Accessibility Mode warns about a small display at the scale it sets; the spell picker's Class tab lists your spells on WoW Forever</td>
+<td><span class="badge badge-shipped">SHIPPED</span>
+</td>
+</tr>
+
+<tr><td><strong>v2.4.23</strong>
+</td>
+<td>EMS no longer re-checks every saved sequence after each fight; on WoW Forever, opening a second sequence in the editor no longer shows an error, and characters whose names share a first part keep their own records</td>
 <td><span class="badge badge-shipped">SHIPPED</span>
 </td>
 </tr>
